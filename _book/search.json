@@ -1,0 +1,191 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DS Baseline",
+    "section": "",
+    "text": "Preface\nWelcome to the world of data science, a captivating realm where art, mathematics, and technology converge to unlock the hidden insights lying dormant within vast troves of information. In this book, we embark on an exhilarating journey through the most important aspects of data science techniques, exploring their foundations, applications, and transformative potential.\nThe rapid advancement of technology and the explosive growth of data have ushered in an era of unprecedented opportunities. Every click, every transaction, and every interaction generates a data footprint that can be harnessed to drive innovation, solve complex problems, and shape the future. Data science equips us with the tools to make sense of this digital universe, enabling us to extract meaning from seemingly chaotic data and turn it into actionable knowledge.\nAt its core, data science is a multidisciplinary field that draws from various domains, including statistics, mathematics, computer science, and domain expertise. It encompasses a wide range of techniques, algorithms, and methodologies designed to collect, analyze, interpret, and visualize data to uncover patterns, make predictions, and generate insights.\nThis book is intended to serve as a comprehensive compilation of the most important aspects of data science techniques. However, it is important to note that the content presented herein reflects the author’s personal understanding and interpretation of these concepts which may occasionally deviate from the precise and mathematical definitions of certain data science principles."
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "“What Is the Difference Between Correlation and Cointegration?\nIs Cointegration a Good Measure of Risk?” n.d.\nQuora.\nhttps://www.quora.com/What-is-the-difference-between-correlation-and-cointegration-Is-cointegration-a-good-measure-of-risk.\nAccessed July 17, 2023."
+  },
+  {
+    "objectID": "Terms & definitions.html#correlation-vs-covariance",
+    "href": "Terms & definitions.html#correlation-vs-covariance",
+    "title": "1  Terms & definitions",
+    "section": "1.1 Correlation vs covariance",
+    "text": "1.1 Correlation vs covariance\n\nCovariance measures the direction and magnitude of the linear relationship between two variables. It calculates how changes in one variable are related to changes in another variable. Covariance can take any value, positive or negative, depending on the nature of the relationship.\n\nWhen to use it:\n\nScaling and Interpretation: If you are primarily interested in the magnitude of the relationship between two variables, without the need for standardized interpretation, covariance can be used. Since covariance is not standardized, it preserves the original scale of the variables. This can be helpful when the units of measurement carry important information or when you want to maintain the original context of the data.\nNon-linear Relationships: If you suspect a non-linear relationship between variables, covariance can still provide insights into the direction and magnitude of the relationship, albeit without quantifying the strength in a standardized manner.\n\nExample:\nBy calculating the covariance between height and weight, you can obtain a measure of how the two variables vary together.\n\nCorrelation measures the strength and direction of the linear relationship between two variables, but it standardizes the measure to fall between -1 and 1.\n\nWhen to use it: Correlation is a more useful measure than covariance when comparing relationships across different datasets or variables, as it removes the influence of the scales of the variables.\nExample:\nIf you were interested in comparing the relationship between height and weight with other datasets or variables, or if you wanted a standardized measure of the strength of the relationship, then calculating the correlation coefficient would be more appropriate. The correlation coefficient would provide a standardized measure between -1 and 1, allowing for easier comparison and interpretation across different contexts."
+  },
+  {
+    "objectID": "Terms & definitions.html#correlation-vs-cointegration",
+    "href": "Terms & definitions.html#correlation-vs-cointegration",
+    "title": "1  Terms & definitions",
+    "section": "1.2 Correlation vs cointegration",
+    "text": "1.2 Correlation vs cointegration\nBoth are statistical concepts used to measure the relationship between variables.\n\nCointegration measures whether the variables tend to move together over time, despite possibly having short-term fluctuations.\n\nExample: A drunk man leaves the pub with his dog.\nWhen the man and the dog first leave the pub, their paths are correlated. They generally move in the same direction, but the distance between the dog and the man has no actual limit. It increases at times, decreases at times, but is generally random and poorly defined. The direction of the two, however, is generally the same.\nWhen the man leashes his dog to cross the road, they become cointegrated. Now, while their direction is still the same, their distance from one another is finite. The dog cannot move beyond the length of the leash from the man. (“What Is the Difference Between Correlation and Cointegration? Is Cointegration a Good Measure of Risk?” n.d.)"
+  },
+  {
+    "objectID": "Terms & definitions.html#p-value",
+    "href": "Terms & definitions.html#p-value",
+    "title": "1  Terms & definitions",
+    "section": "1.3 P-value",
+    "text": "1.3 P-value\nA p-value of 0.001 indicates that if the null hypothesis tested were indeed true, then there would be a one-in-1,000 chance of observing results at least as extreme."
+  },
+  {
+    "objectID": "Choose model.html",
+    "href": "Choose model.html",
+    "title": "2  Choose machine learning model",
+    "section": "",
+    "text": "Model\n      Mode\n      Allows n &lt; p\n      Pre-processing\n      Interpretable\n      Automatic feature selection\n      Number of tuning parameters\n      Robust to predictor noise\n      Computation time\n      Details\n    \n  \n  \n    Linear regression\nregression\nno\ncentering and scaling, remove near-zero predictors, remove highly correlated predictors\nhigh\nno\n0\nlow\nfast\n\n    Partial least squares\nregression\ndepends\ncentering and scaling\nlow\n\n1\nNA\nfast\n\n    Logistic regression\nclassification\nno\ncentering and scaling, remove near-zero predictors, remove highly correlated predictors\nhigh\nno\n0\nlow\nfast\n\n    Ridge regression\nregression & classification\nno\ncentering and scaling, remove near-zero predictors\nhigh\nno\n1\nlow\nfast\n\n    Elastic net/lasso\nregression & classification\nyes\ncentering and scaling, remove near-zero predictors\nhigh\nyes\n1-2\nlow\nfast\n\n    Support vector machines\nregression & classification\nyes\ncentering and scaling\nlow\nno\n1-3\nlow\nslow\n\n    MARS/FDA\nregression & classification\nyes\n\nmedium\nyes\n1-2\nmid\nmid\n\n    K-nearest neighbors\nregression & classification\nyes\ncentering and scaling, remove near-zero predictors\nlow\nno\n1\nmid\nfast\n\n    Random forest\nregression & classification\nyes\n\nlow\ndepends\n0-1\nhigh\nslow\n\n    Boosted trees\nregression & classification\nyes\n\nlow\nyes\n3\nhigh\nslow\n\n  \n  \n  \n\n\n\n\n(see details in kuhnAppliedPredictiveModeling2013?)\nCommon steps in model building - Pre-processing the predictor data - Estimating model parameters - Selecting predictors for the model - Evaluating model performance - Fine tuning class prediction rules (via ROC curves, etc.)"
+  },
+  {
+    "objectID": "Tree models.html",
+    "href": "Tree models.html",
+    "title": "7  Tree based models",
+    "section": "",
+    "text": "8 Treebased classification models\nCharacteristics: - resistant to outliers\n\n\n9 Treebased regression models"
+  },
+  {
+    "objectID": "Pre-processing.html#transform-the-predictorindependent-variables",
+    "href": "Pre-processing.html#transform-the-predictorindependent-variables",
+    "title": "3  Pre-processing",
+    "section": "3.1 Transform the predictor/independent variables",
+    "text": "3.1 Transform the predictor/independent variables\nImportant to transform independent variables that are skewn or containt outliers for models sensitive to them\n\n3.1.1 Centering and scaling\nAdvantages: Improve the numerical stability to minimize potential numerical errors Disadvantage: Loss of interpretability\n\n\n3.1.2 Resolve Skewness\nSkewed data: Ratio of the highest value to the lowest value is greater than 20 have significant skewness.\n\nlog\nsquare root\ninverse\nBox and Cox\n\n\n\n3.1.3 Resolve Outliers\n\nSpatial sign:\n\nNOTES:\n\nit is important to center and scale the predictor data prior to using this transformation\nspatial sign transformation of the predictors transforms them as a group. Removing predictor variables after applying this technique may be problematic.\n\n\n\n3.1.4 Data Reduction and Signal/Feature Extraction\nThese methods reduce the data by generating a smaller set of predictors that seek to capture a majority of the information in the original variables.\n\n3.1.4.1 PCA\nThe number of components to retain is choosen by creating a scree plot (Fig 1)\nFor most data sets, the first few PCs will summarize a majority of the variability, and the plot will show a steep descent; variation will then taper off for the remaining components. Generally, the component number prior to the tapering off of variation is the maximal component that is retained. In an automated model building process, the optimal number of components can be determined by cross-validation (see Resampling Techniques).\n\n\n\nFigure 1: The variation tapers off at component 5. Using this rule of thumb, four PCs would be retained\n\n\nAdvantages: The primary advantage of PCA, and the reason that it has retained its popularity as a data reduction method, is that it creates components that are uncorrelated.\nDisadvantage:\n\nLoss of interpretability. PCA can generate components that summarize characteristics of the data that are irrelevant to the underlying structure of the data and also to the ultimate modeling objective.\nUnsupervised technique which means that PCA it does not consider the modeling objective or response variable when summarizing variability. If the predictive relationship between the predictors and response is not connected to the predictors’ variability, then the derived PCs will not provide a suitable relationship with the response. In this case, a supervised technique, like PLS, will derive components while simultaneously considering the corresponding response.\n\nNOTES:\n\nfirst transform skewed predictors and then center and scale the predictors prior to performing PCA. Centering and scaling enables PCA to find the underlying relationships in the data without being influenced by the original measurement scales.\nIf PCA has captured a sufficient amount of information in the data. Visually examining the principal components is a critical step for assessing data quality and gaining intuition for the problem. To do this, the first few principal components can be plotted against each other and the plot symbols can be colored by relevant characteristics, such as the class labels.\n\nCheck for blatant outliers that may prompt a closer examination of the individual data points\nCheck for clusters of samples (for classification problems; Try other models that could better accommodate the data to have a final conclusion)\nChecks loadings to characterize which predictors are associated with each component (Loadings close to zero indicate that the predictor variable did not contribute much to that component; Fig 2)\nCheck for multicollinearity (substantial correlation between multiple predictors): For example, if the first principal component accounts for a large percentage of the variance, this implies that there is at least one group of predictors that represent the same information. For example, Fig 1 indicates that the first 3–4 components have relative contributions to the total variance. This would indicate that there are at least 3–4 significant relationships between the predictors. Colinearity can increase the model variance\n\nIf the percentages of variation explained are not large (e.g., less than 48 %) for the first three components, it is important not to over-interpret the resulting image.\n\n\n\n\nFigure 2: loadings for the first three components in the cell segmentation data. For the first principal component, the loadings for the first channel are on the extremes. This indicates that channel 1 have the largest effect on the first principal component and by extension the predictor values. Also note that the majority of the loadings for the third channel are closer to zero for the first component. Conversely, the third principal component is mostly associated with the third channel while the first channel plays a minor role here.\n\n\n\n\n3.1.4.2 PLS (to do)\n\n\n\n3.1.5 Dealing with Missing Values\nBefore proceeding: It is important to understand why the values are missing to check for informative missing. Informative missingness can induce significant bias in the model.\nExamples: - people are more compelled to rate products when they have strong opinions (good or bad) - The tested drug was extremely ineffective or had significant side effects. The patient may be likely to miss doctor visits or to drop out of the study.\n\n1) Remove predictors from models if the percentage of missing data is substantial\n2) For large data sets, removal of samples based on missing values is not a problem\n3 If we do not remove the missing data:\n\nUse tree-based techniques, which account for missing data\nimpute missing data using information in the training set predictors to estimate the values of other predictors. This amounts to a predictive model within a predictive model. If we are using resampling to select tuning parameter values or to estimate performance, the imputation should be incorporated within the resampling. This will increase the computational time for building models, but it will also provide honest estimates of model performance.\n\nK-nearest neighbor model:\n\nAdvantages: The imputed data are confined to be within the range of the training set values. Disadvantages: The entire training set is required every time a missing value needs to be imputed and The number of neighbors is a tuning parameter\n\nLinear regression model: between a predictor with few missing points strongly associated with the predictor with missing data (correlation / visualizations / PCA.\n\n\n\nNOTES Censored data ≠ Missing data: The exact value is missing but something is known about its value. For example: If a customer has not yet returned a movie to blockbuster, we do not know the actual time span, only that it is as least as long as the current duration.\n\nFor inference models: the censoring is usually taken into account in a formal manner by making assumptions about the censoring mechanism\nFor predictive models, it is more common to treat these data as simple missing data or use the censored value as the observed value.\n\n\n\n3.1.6 Removing Predictors\nAdvantages: Does not compromise the performance and stability of the model. Decreased computational time and complexity. Lead to a more parsimonious and interpretable model\n\nRemove near-zero predictors (e.g., predictor variable where the percentage of unique values is low &lt; 10% = unique values/total values and The ratio of the frequency of the most prevalent value to the frequency of the second most prevalent value is large &gt; 20).\nRemove problematic predictors with degenerate distributions as some models can be crippled by them\nRemove highly correlated predictors as both mesure the same underlaying information. For linear regressions use VIF for other models ensure that all pairwise correlations are below 0.75 threshold for sensitive models\n\n\n\n3.1.7 Adding Predictors\n\nDummy variables: If the model allow it, dummy variables would help improve interpretation of the model.\nSquared predictors for simplistic models such as regressions\nclass centroids for classification models: centers of the predictor data for each class. For each predictor, the distance to each class centroid can be calculated and these distances can be added to the model.\n\nAVOID: Binning Predictors (e.g., Temperature less than 36 ◦C or greater than 38 ◦C.)"
+  },
+  {
+    "objectID": "Pre-processing.html#resolve-skewness-log-square-root-inverse-box-and-cox",
+    "href": "Pre-processing.html#resolve-skewness-log-square-root-inverse-box-and-cox",
+    "title": "3  Pre-processing",
+    "section": "3.2 Resolve Skewness (log, square root, inverse, Box and Cox)",
+    "text": "3.2 Resolve Skewness (log, square root, inverse, Box and Cox)\nSkewed data: Ratio of the highest value to the lowest value is greater than 20 have significant skewness."
+  },
+  {
+    "objectID": "Pre-processing.html#remove-near-zero-predictors",
+    "href": "Pre-processing.html#remove-near-zero-predictors",
+    "title": "3  Pre-processing",
+    "section": "3.3 Remove near-zero predictors",
+    "text": "3.3 Remove near-zero predictors"
+  },
+  {
+    "objectID": "Pre-processing.html#remove-highly-correlated-predictors",
+    "href": "Pre-processing.html#remove-highly-correlated-predictors",
+    "title": "3  Pre-processing",
+    "section": "3.4 Remove highly correlated predictors",
+    "text": "3.4 Remove highly correlated predictors"
+  },
+  {
+    "objectID": "Vector machines.html#vector-machines-for-classification",
+    "href": "Vector machines.html#vector-machines-for-classification",
+    "title": "4  Vector machines",
+    "section": "4.1 Vector machines for classification",
+    "text": "4.1 Vector machines for classification\nCharacteristics: - resistant to outliers"
+  },
+  {
+    "objectID": "Model Tuning.html#data-splitting-method",
+    "href": "Model Tuning.html#data-splitting-method",
+    "title": "4  Model Tuning",
+    "section": "4.1 Data splitting method",
+    "text": "4.1 Data splitting method\nA good rule of thumb is about 75–80 % on train subset and the rest for the test subset. Proportionally large test sets divide the data in a way that increases bias in the performance estimates.\n\n4.1.1 Nonrandom approaches to splitting the data\nExample: - If a model was being used to predict patient outcomes, the model may be created using certain patient sets (e.g., from the same clinical site or disease stage), and then tested on a different sample population to understand how well the model generalizes.\n\nIn chemical modeling for drug discovery, new “chemical space” is constantly being explored. We are most interested in accurate predictions in the chemical space that is currently being investigated rather than the space that was evaluated years prior.\nIn spam filtering; it is more important for the model to catch the new spamming techniques rather than prior spamming schemes.\n\n\n\n4.1.2 Random sampling methods\n\n4.1.2.1 Simple random sample\n\nThe simplest way to split the data randomly into a training and test.\nDisadvantage: limited ability to characterize the uncertainty in the results.\nsimple k-Fold Cross-Validation: The samples are randomly partitioned into k sets of roughly equal size. A model is fit using the all samples except one subset. The held-out samples are predicted by this model and used to estimate performance measures. The first subset is returned to the training set an procedure repeats with the next subset held out, and so on. Performance estimates, are calculated from each set of held-out samples and then averaged.\nNOTES: The choice of k is usually 5 or 10, but there is no formal rule. The bias is smaller for k = 10 than k = 5. As k gets larger, the difference in size between the training set and the resampling subsets gets smaller. But larger values of k are more computationally burdensome.\nAdvantage: Low computational costs. . Disadvantage: k-fold cross-validation generally has high variance compared to other methods (only for small training sets). USE: If sample sizes are large (&gt; 10 000) and we want to choose tuning parameters\nrepeated k-Fold Cross-Validation\nAdvantage: Increase the precision of the estimates while still maintaining a small bias. The bias and variance properties are good and, given the sample size, the computational costs are not large. Disdvantage: Large computational costs. USE: with k = 10; If the samples size is small (&lt; 1000 obs) and we want to choose tuning parameters\n\n\n\n\nk-Fold Cross-Validation\n\n\n\nleave-one-out Cross-Validation / LOOCV: fits as many models as there are samples in the training set, should only be considered when the number of samples is very small.\nleave-group-out Cross-Validation / Repeated training/test splits / Monte Carlo cross-validation: Same as k-fold cross-validation except that samples can be represented in multiple held-out subsets. Also, the number of repetitions is usually larger than in k-fold cross-validation\nDisadvantage:\nNOTES: Increase the number of repetition can allow to increase the proportion of data in the train set and decreasing the uncertainty of the performance estimates. To get stable estimates of performance, it is suggested to choose a larger number of repetitions (say 50–200)\n\n\n\n\nleave-group-out Cross-Validation\n\n\n\nThe Bootstrap: Each train subset is the same size as the original and can contain multiple instances of the same data point (taken with replacement). Samples not selected by the bootstrap (“out-of-bag” samples) are predicted and used to estimate model performance\nAdvantage: error rates have less uncertainty than k-fold cross-validation. Very low variance. Disadvantage: On average, 63.2 % of the data points the bootstrap sample are represented at least once, so this technique has bias. similar to k-fold cross-validation when k ≈ 2. If the training set size is small, this bias may be problematic, but will decrease as the training set sample size becomes larger. USE: If the goal is to choose between models (boosted trees vs support vector machines…), as opposed to getting the best indicator of performance\n\n\n\n\nBootstrap\n\n\n\nThe Bootstrap 632 method\nAdvantage: The modified bootstrap estimate reduces the bias.\nDisadvantage: The estimate is unstable with small samples sizes. This estimate can also result in unduly optimistic results when the model severely over-fits the data, since the apparent error rate will be close to zero.\nThe Bootstrap 632+ method Advantage: Allows to adjust the bootstrap 632 method estimates\n\n\n\n4.1.2.2 Stratified random\nTo account for the outcome when splitting the data. Applies random sampling within subgroups (such as the classes or is outcomes are numbers the numeric values are broken into similar groups (e.g., low, medium, and high)).\n\nk-Fold Cross-Validation\n\n\n\n4.1.2.3 Maximum dissimilarity sampling\nThe data is split on the basis of the predictor values."
+  },
+  {
+    "objectID": "Model Tuning.html#metrics-performance-measures",
+    "href": "Model Tuning.html#metrics-performance-measures",
+    "title": "4  Model Tuning",
+    "section": "4.3 Metrics / performance measures",
+    "text": "4.3 Metrics / performance measures"
+  },
+  {
+    "objectID": "Terms & definitions.html#bias-and-variance",
+    "href": "Terms & definitions.html#bias-and-variance",
+    "title": "1  Terms & definitions",
+    "section": "1.4 Bias and Variance",
+    "text": "1.4 Bias and Variance\nWe search a model with low bias and low variance\nBias: The inability for a machine learning method to capture the true relationship is called bias Variance: The difference in fits between train set and test set\nRed model: low variance: This model has low variance if a new point it would not substantially change the model fit (leads to under-fitting) high bias: Ineffective at modeling the data\nBlue model: high variance: Small perturbations in the data will significantly change the model fit (leads to over-fitting) low bias: More complex and flexible allowing to model very good the data\n\n\n\nvariance-bias trade-off"
+  },
+  {
+    "objectID": "Terms & definitions.html#entropy",
+    "href": "Terms & definitions.html#entropy",
+    "title": "1  Terms & definitions",
+    "section": "1.5 Entropy",
+    "text": "1.5 Entropy\n\n\n\n\n“What Is the Difference Between Correlation and Cointegration? Is Cointegration a Good Measure of Risk?” n.d. Quora. https://www.quora.com/What-is-the-difference-between-correlation-and-cointegration-Is-cointegration-a-good-measure-of-risk. Accessed July 17, 2023."
+  },
+  {
+    "objectID": "Model Tuning.html#choosing-tuning-parameters",
+    "href": "Model Tuning.html#choosing-tuning-parameters",
+    "title": "4  Model Tuning",
+    "section": "4.2 Choosing Tuning Parameters",
+    "text": "4.2 Choosing Tuning Parameters\n\nPick the settings associated with the numerically best performance estimates. Disadvantage: lead to models that are overly complicated\nPick simpler models that provide acceptable performance (relative to the numerically optimal settings)\n\nThe “one-standard error” method: pick the simplier model within a single standard error of the numerically best value. In table below we would pick cost value of 2.\nthe “percent decrease in performance” method: pick the simplier model that is within a certain tolerance of the numerically best value. (e.g., The percent decrease in performance could be quantified by (X − O)/O where X is the performance value and O is the numerically optimal value. For example, in Fig. 4.9, the best accuracy value across the profile was 75 %. If a 4 % loss in accuracy was acceptable as a trade-off for a simpler model, accuracy values greater than 71.2 % would be acceptable. For the profile in Fig. 4.9, a cost value of 1 would be chosen using this approach.)\n\n\n\n\n\nHow to pick the best tuning parameter"
+  },
+  {
+    "objectID": "Model Tuning.html",
+    "href": "Model Tuning.html",
+    "title": "4  Model Tuning",
+    "section": "",
+    "text": "5 For models predicting a categorical outcome\nSensitivity: % of people with heart diseases were correctly identify by the model\nSpecificity: % of people without heart diseases were correctly identify by the model\nRMSE: higher is worst; the average distance between the observed values and the model predictions.\nR2: higher is best; the proportion of the information in the data that is explained by the model (e.g., R2 value of 0.75 implies that the model can explain three-quarters of the variation in the outcome.)\nOnce the settings for the tuning parameters have been determined for each model, the question remains: how do we choose between multiple models?\nNOTE: A paired t-test can be used to evaluate if the differences between models are statistically significant."
+  },
+  {
+    "objectID": "Linear Regression and Its Cousins.html#ordinary-linear-regression",
+    "href": "Linear Regression and Its Cousins.html#ordinary-linear-regression",
+    "title": "5  Linear Regression and Its Cousins",
+    "section": "5.1 Ordinary linear regression",
+    "text": "5.1 Ordinary linear regression\nFinds parameter estimates that have minimum bias using the NIPALS approach"
+  },
+  {
+    "objectID": "Linear Regression and Its Cousins.html#partial-least-squares-pls",
+    "href": "Linear Regression and Its Cousins.html#partial-least-squares-pls",
+    "title": "5  Linear Regression and Its Cousins",
+    "section": "5.2 Partial least squares (PLS)",
+    "text": "5.2 Partial least squares (PLS)\nsupervised dimension reduction procedure while PCR (PCA + linear regression) is unsupervised\nUSE: when there are correlated predictors and a linear regression-type solution is desired instead of PCA then linear regression (AKA PCR; If, the variability in the predictor space is not related to the variability of the response, then PCR can have difficulty identifying a predictive relationship when one might actually exist).\nEfficiently for data sets of small-to moderate size (e.g., &lt; 2,500 samples and &lt; 30 predictors)\nPre-prossesing:\n\ncentered and scaled predictors.\nRemove predictors with small PLS regression coefficients and small VIP (&lt;1)\nTo include nonlinear relationships add squared or cubic predictors\nTo include nonlinear relationships splits each predictor into two or more bins for those predictors that are thought to have a nonlinear relationship with the response. Cut points for the bins are selected by the user and are based on either prior knowledge or characteristics of the data. The original predictors that were binned are then excluded from the data set that includes the binned versions of the predictors. (GIFI approach)\n\nTuning: Cross-validation was used to determine the optimal number of PLS components to retain that minimize RMSE # of tuning parameter: PLS has one tuning parameter: the number of components to retain\n\n5.2.1 Algorithmic Variations of PLS\n\nSIMPLS approach\n\nUSE: for data large data sets (e.g., &gt; 2,500 samples and &gt; 30 predictors)\n\nR̈annar et al. (1994) kernel\n\nUSE: when there are more predictors than samples."
+  },
+  {
+    "objectID": "Linear Regression and Its Cousins.html#penalized-models",
+    "href": "Linear Regression and Its Cousins.html#penalized-models",
+    "title": "5  Linear Regression and Its Cousins",
+    "section": "5.3 Penalized models",
+    "text": "5.3 Penalized models\nFinds parameter estimates that have lower variance. We introduce bias to reduce variance and avoid overfitting\nUSE: When sample size are small\nAdvantages: reduce variance and increases prediction on the long term\n\n5.3.1 Ridge regression\n\nAdvantages: better at reducing variance in models that contain usefull variables\n\n\n5.3.2 Lasso regression\n\nAdvantages: - better at reducing variance in models that contain useless variables - simplify model\n\n\n5.3.3 Elastic net\n\nUSE: When you don’t know if you have useless variables Advantages:"
+  },
+  {
+    "objectID": "Nonlinear Regression Models.html#multivariate-adaptive-regression-splines-mars",
+    "href": "Nonlinear Regression Models.html#multivariate-adaptive-regression-splines-mars",
+    "title": "6  Nonlinear Regression Models",
+    "section": "6.1 Multivariate Adaptive Regression Splines (MARS)",
+    "text": "6.1 Multivariate Adaptive Regression Splines (MARS)"
+  },
+  {
+    "objectID": "Nonlinear Regression Models.html#support-vector-machines-svm",
+    "href": "Nonlinear Regression Models.html#support-vector-machines-svm",
+    "title": "6  Nonlinear Regression Models",
+    "section": "6.2 Support Vector Machines (SVM)",
+    "text": "6.2 Support Vector Machines (SVM)"
+  },
+  {
+    "objectID": "Nonlinear Regression Models.html#k-nearest-neighbors-knn",
+    "href": "Nonlinear Regression Models.html#k-nearest-neighbors-knn",
+    "title": "6  Nonlinear Regression Models",
+    "section": "6.3 K-Nearest Neighbors (KNN)",
+    "text": "6.3 K-Nearest Neighbors (KNN)"
+  },
+  {
+    "objectID": "Nonlinear Regression Models.html#neural-networks",
+    "href": "Nonlinear Regression Models.html#neural-networks",
+    "title": "6  Nonlinear Regression Models",
+    "section": "6.4 Neural Networks",
+    "text": "6.4 Neural Networks"
+  }
+]

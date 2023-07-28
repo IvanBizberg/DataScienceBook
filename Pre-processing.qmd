@@ -1,0 +1,125 @@
+# Pre-processing
+
+## Transform the predictor/independent variables 
+
+Important to transform independent variables that are skewn or containt outliers for models sensitive to them
+
+### Centering and scaling
+
+**Advantages**: Improve the numerical stability to minimize potential numerical errors
+**Disadvantage**: Loss of interpretability
+
+### Resolve Skewness 
+
+Skewed data: Ratio of the highest value to the lowest value is greater than 20 have significant skewness.
+
+- log
+- square root
+- inverse
+- Box and Cox
+
+### Resolve Outliers 
+
+- Spatial sign:
+
+**NOTES**: 
+
+- it is important to center and scale the predictor data prior to using this transformation
+- spatial sign transformation of the predictors transforms them as a group. Removing predictor variables after applying this technique may be problematic.
+
+
+### Data Reduction and Signal/Feature Extraction
+
+These methods reduce the data by generating a smaller set of predictors that seek to capture a majority of the information in the original variables.
+
+#### PCA
+
+The number of components to retain is choosen by creating a scree plot (Fig 1)
+
+For most data sets, the first few PCs will summarize a majority of the variability, and the plot will show a steep descent; variation will then taper off for the remaining components. Generally, the component number prior to the tapering off of variation is the maximal component that is retained. In an automated model building process, the optimal number of components can be determined by cross-validation (see Resampling Techniques).
+
+![**Figure 1**: The variation tapers off at component 5. Using this rule of thumb, four PCs would be retained](Images\scree plot.png)
+
+**Advantages**: The primary advantage of PCA, and the reason that it has retained its popularity as a data reduction method, is that it creates components that are uncorrelated.
+
+**Disadvantage**: 
+
+- Loss of interpretability. PCA can generate components that summarize characteristics of the data that are irrelevant to the underlying structure of the data and also to the ultimate modeling objective.
+
+- Unsupervised technique which means that PCA it does not consider the modeling objective or response variable when summarizing variability. If the predictive relationship between the predictors and response is not connected to the predictors’ variability, then the derived PCs will not provide a suitable relationship with the response. In this case, a supervised technique, like PLS, will derive components while simultaneously considering the corresponding response.
+
+
+**NOTES**: 
+
+- first transform skewed predictors and then center and scale the predictors prior to performing PCA. Centering and scaling enables PCA to find the underlying relationships in the data without being influenced by the original measurement scales.
+
+- If PCA has captured a sufficient amount of information in the data. Visually examining the principal components is a critical step for assessing data quality and gaining intuition for the problem. To do this, the first few principal components can be plotted against each other and the plot symbols can be colored by relevant characteristics, such as the class labels. 
+
+  - Check for blatant outliers that may prompt a closer examination of the individual data points
+  
+  - Check for clusters of samples (for classification problems; Try other models that could better accommodate the data to have a final conclusion)
+  
+  - Checks loadings to characterize which predictors are associated with each component (Loadings close to zero indicate that the predictor variable did not contribute much to that component; Fig 2)
+  
+  - Check for multicollinearity (substantial correlation between multiple predictors): For example, if the first principal component accounts for a large percentage of the variance, this implies that there is at least one group of predictors that represent the same information. For example, Fig 1 indicates that the first 3–4 components have relative contributions to the total variance. This would indicate that there are at least 3–4 significant relationships between the predictors. Colinearity can increase the model variance
+  
+- If the percentages of variation explained are not large (e.g., less than 48 %) for the first three components, it is important not to over-interpret the resulting image.
+
+![**Figure 2**: loadings for the first three components in the cell segmentation data. For the first principal component, the loadings for the first channel are on the extremes. This indicates that channel 1 have the largest effect on the first principal component and by extension the predictor values. Also note that the majority of the loadings for the third channel are closer to zero for the first component. Conversely, the third principal component is mostly associated with the third channel while the first channel plays a minor role here.](Images/A plot of the loadings of the first three principal components.png)
+
+  
+#### PLS (*to do*)
+
+### Dealing with Missing Values
+
+Before proceeding: It is important to understand why the values are missing to check for *informative missing*. Informative missingness can induce significant bias in the model.
+
+**Examples**: 
+ - people are more compelled to rate products when they have strong opinions (good or bad)
+ - The tested drug was extremely ineffective or had significant side effects. The patient may be likely to miss doctor visits or to drop out of the study.
+ 
+
+- **1)** **Remove predictors** from models if the percentage of missing data is substantial
+- **2)** For large data sets, **removal of samples** based on missing values is not a problem
+- **3** If we **do not remove** the missing data:
+  - Use tree-based techniques, which account for missing data
+  - impute missing data using information in the training set predictors to estimate the values of other predictors. This amounts to a predictive model within a predictive model. If we are using resampling to select tuning parameter values or to estimate performance, the imputation should be incorporated within the resampling. This will increase the computational time for building models, but it will also provide honest estimates of model performance.
+  
+  
+    - K-nearest neighbor model:
+    
+    Advantages: The imputed data are confined to be within the range of the training set values.
+    Disadvantages: The entire training set is required every time a missing value needs to be imputed **and** The number of neighbors is a tuning parameter
+    
+    - Linear regression model: between a predictor with few missing points strongly associated with the predictor with missing data (correlation / visualizations / PCA. 
+      
+
+
+**NOTES** 
+Censored data &#8800; Missing data: The exact value is missing but something is known about its value. For example: If a customer has not yet returned a movie to blockbuster, we do not know the actual time span, only that it is as least as long as the current duration.
+
+- For inference models: the censoring is usually taken into account in a formal manner by making assumptions about the censoring mechanism
+
+- For predictive models, it is more common to treat these data as simple missing data or use the censored value as the observed value.
+
+
+### Removing Predictors
+
+**Advantages**: Does not compromise the performance and stability of the model. Decreased computational time and complexity. Lead to a more parsimonious and interpretable model
+
+- Remove near-zero predictors (e.g., predictor variable where the percentage of unique values is low < 10% = unique values/total values and The ratio of the frequency of the most prevalent value to the frequency of the second most prevalent value is large > 20). 
+
+- Remove problematic predictors with degenerate distributions as some models can be crippled by them 
+
+- Remove highly correlated predictors as both mesure the same underlaying information. **For linear regressions use VIF for other models ensure that all pairwise correlations are below 0.75 threshold for sensitive models**
+
+
+### Adding Predictors
+
+- Dummy variables: If the model allow it, dummy variables would help improve interpretation of the model.
+
+- Squared predictors for simplistic models such as regressions
+
+- class centroids for classification models: centers of the predictor data for each class. For each predictor, the distance to each class centroid can be calculated and these distances can be added to the model.
+
+**AVOID**: Binning Predictors (e.g., Temperature less than 36 ◦C or greater than 38 ◦C.)

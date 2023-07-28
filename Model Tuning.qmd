@@ -1,0 +1,141 @@
+# Model Tuning 
+
+*Identify settings for the model’s parameters that yield the best and most realistic predictive performance*
+
+## Data splitting method
+
+A good rule of thumb is about 75–80 % on train subset and the rest for the test subset. Proportionally large test sets divide the data in a way that increases bias in the performance estimates.
+
+### Nonrandom approaches to splitting the data 
+
+**Example:**
+- If a model was being used to predict patient outcomes, the model may be created using certain patient sets (e.g., from the same clinical site or disease stage), and then tested on a different sample population to understand how well the model generalizes.
+
+- In chemical modeling for drug discovery, new “chemical space” is constantly being explored. We are most interested in accurate predictions in the chemical space that is currently being investigated rather than the space that was evaluated years prior. 
+
+- In spam filtering; it is more important for the model to catch the new spamming techniques rather than prior spamming schemes.
+
+### Random sampling methods 
+
+#### Simple random sample
+
+- The simplest way to split the data randomly into a training and test.  
+
+  **Disadvantage**: limited ability to characterize the uncertainty in the results.
+
+- simple k-Fold Cross-Validation: The samples are randomly partitioned into k sets of roughly equal size. A model is fit using the all samples except one subset. The held-out samples are predicted by this model and used to estimate performance measures. The first subset is returned to the training set an procedure repeats with the next subset held out, and so on. Performance estimates, are calculated from each set of held-out samples and then averaged.
+
+  **NOTES**: The choice of k is usually **5** or **10**, but there is no formal rule. **The bias is smaller for k = 10 than k = 5.** As k gets larger, the difference in size between the training set and the resampling subsets gets smaller. But larger values of k are more computationally burdensome.
+  
+  **Advantage**: Low computational costs. . 
+  **Disadvantage**: k-fold cross-validation generally has high variance compared to other methods (only for small training sets). 
+  **USE**: If sample sizes are large (> 10 000) and we want to choose tuning parameters
+  
+- repeated k-Fold Cross-Validation
+
+  **Advantage**: Increase the precision of the estimates while still maintaining a small bias. The bias and variance properties are good and, given the sample size, the computational costs are not large. 
+  **Disdvantage**: Large computational costs. 
+  **USE**: with k = 10; If the samples size is small (< 1000 obs) and we want to choose tuning parameters
+
+![k-Fold Cross-Validation](Images/k-Fold Cross-Validation.png)
+
+- leave-one-out Cross-Validation / LOOCV: fits as many models as there are samples in the training set, should only be considered when the number of samples is very small.
+
+- leave-group-out Cross-Validation / Repeated training/test splits / Monte Carlo cross-validation: Same as k-fold cross-validation except that samples can be represented in multiple held-out subsets. Also, the number of repetitions is usually larger than in k-fold cross-validation
+
+  **Disadvantage**: 
+  
+  **NOTES**: Increase the number of repetition can allow to increase the proportion of data in the train set and decreasing the uncertainty of the performance estimates. To get stable estimates of performance, it is suggested to choose a larger number of repetitions **(say 50–200)**
+
+![leave-group-out Cross-Validation](Images/leave-group-out Cross-Validation.png)
+
+
+- The Bootstrap: Each train subset is the same size as the original and can contain multiple instances of the same data point (taken with replacement). Samples not selected by the bootstrap (“out-of-bag” samples) are predicted and used to estimate model performance
+  
+  **Advantage**: error rates have less uncertainty than k-fold cross-validation. Very low variance.
+  **Disadvantage**: On average, 63.2 % of the data points the bootstrap sample are represented at least once, so this technique has bias. similar to k-fold cross-validation when k ≈ 2. If the training set size is small, this bias may be problematic, but will decrease as the training set sample size becomes larger.
+  **USE**: If the goal is to choose between models (boosted trees vs support vector machines...), as opposed to getting the best indicator of performance
+
+![Bootstrap](Images/Bootstrap.png)
+
+- The Bootstrap 632 method
+
+  **Advantage**: The modified bootstrap estimate reduces the bias.
+  
+  **Disadvantage**: The estimate is unstable with small samples sizes. This estimate can also result in unduly optimistic results when the model severely over-fits the data, since the apparent error rate will be close to zero. 
+
+- The Bootstrap 632+ method
+  **Advantage**: Allows to adjust the bootstrap 632 method estimates
+
+
+
+#### Stratified random
+
+To account for the outcome when splitting the data. Applies random sampling within subgroups (such as the classes or is outcomes are numbers the numeric values are broken into similar groups (e.g., low, medium, and high)).
+
+- k-Fold Cross-Validation
+
+#### Maximum dissimilarity sampling
+
+The data is split on the basis of the predictor values.
+
+## Choosing Tuning Parameters
+
+- Pick the settings associated with the numerically best performance estimates.
+  **Disadvantage**: lead to models that are overly complicated
+
+- Pick simpler models that provide acceptable performance (relative to the numerically optimal settings)
+
+  - The “one-standard error” method: pick the simplier model within a single standard error of the numerically best value. In table below we would pick cost value of 2.
+
+  - the "percent decrease in performance" method: pick the simplier model that is within a certain tolerance of the numerically best value. (e.g., The percent decrease in performance could be quantified by (X − O)/O where X is the performance value and O is the numerically optimal value. For example, in Fig. 4.9, the best accuracy value across the profile was 75 %. If a 4 % loss in accuracy was acceptable as a trade-off for a simpler model, accuracy values greater than 71.2 % would be acceptable. For the profile in Fig. 4.9, a cost value of 1 would be chosen using this approach.)
+
+![Cross-validation accuracy](Images/Choosing Tuning Parameters.png)
+
+## Metrics / performance measures
+
+### For models predicting a categorical outcome
+
+**Sensitivity**: higher is better; % of people *with* heart diseases were correctly identify by the model
+
+**Specificity**: higher is better; % of people *without* heart diseases were correctly identify by the model
+
+  - **NOTES**: 
+
+    - If the data set includes more events than nonevents, the sensitivity can be estimated with greater precision than the specificity and sensitivity shouls be use to choose between models.
+
+    - When evaluating the accuracy of a model, the baseline accuracy rate to beat would be the percentage which could be achieve by simply predicting all samples to the dominant category (e.g., In the data set, 70 % were rated as having good, accuracy rate to beat would be 70 %). 
+    
+**ROC**:
+  
+### For models predicting a numeric outcome
+
+1) **RMSE**: 
+
+  - *Higher Value*: Worse performance
+  - *Description*: the average distance between the observed values and the model predictions. 
+
+  - *Calculation*: squared root of the (sum the residuals (the observed values minus the model predictions) and dividing by the number of samples) For example, if we have actual values [5, 10, 15] and predicted values [6, 12, 10], the MSE would be calculated as ((1^2) + (2^2) + (5^2)) / 3 = 10.
+  
+2) **R2**: higher is best; the proportion of the information in the data that is explained by the model (e.g., R2 value of 0.75 implies that the model can explain three-quarters of the variation in the outcome.) 
+
+  - **USE**: It is a measure of correlation, not accuracy. **Bad** for predicting a **number** (accuracy) but **good** for determining the **rank** correlation between the observed and predicted values (e.g., pharmaceutical scientists want to find the compounds predicted to be the most biologically active).
+  
+  - *Calculation*: correlation coefficient between the observed and predicted values
+  
+  - **Disadvantage**: It is dependent on the variation in the outcome (e.g., If the range of the houses in the test set was large, say from $60K to $2M, the variance of the sale price would also be very large. One might view a model with a 90 % R2 positively, but the RMSE may be in the tens of thousands of dollars—poor predictive accuracy for anyone selling a moderately priced property)
+  
+  - **NOTE**: By plotting R2 we can see where the model is overpredict (e.g., low values) and underpredict (e.g., higher values). If this happend depending on the context, this systematic bias in the predictions may be acceptable if the model otherwise works well.
+  
+  
+  
+# Model Choosing
+
+Once the settings for the tuning parameters have been determined for each model, the question remains: how do we choose between multiple models?
+
+1) Start with several models that are the least interpretable and most flexible, such as boosted trees or support vector machines. Across many problem domains, these models have a high likelihood of producing the empirically optimum results (i.e., most accurate). 
+2) Investigate simpler models that are less opaque (e.g., not complete black boxes), such as multivariate adaptive regression splines (MARS), partial least squares, generalized additive models, or näıve Bayes models.
+3) Consider using the simplest model that reasonably approximates the performance of the more complex methods.
+
+
+**NOTE**: A paired t-test can be used to evaluate if the differences between models are statistically significant.

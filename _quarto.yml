@@ -1,0 +1,29 @@
+project:
+  type: book
+
+book:
+  title: "DS Baseline"
+  author: "Ivan Bizberg"
+  date: "7/17/2023"
+  chapters:
+    - index.qmd
+    - Terms & definitions.qmd
+    - Choose model.qmd
+    - Pre-processing.qmd
+    - Model Tuning.qmd
+    - Linear Regression and Its Cousins.qmd
+    - Nonlinear Regression Models.qmd
+    - Tree models.qmd
+    - Deal with suboptimal data.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: source
+

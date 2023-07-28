@@ -1,0 +1,65 @@
+# Terms & definitions
+
+## Correlation vs covariance
+
+-   **Covariance** measures the direction and magnitude of the linear relationship between two variables. It calculates how changes in one variable are related to changes in another variable. Covariance can take any value, positive or negative, depending on the nature of the relationship.
+
+*When to use it:* 
+
+-   Scaling and Interpretation: If you are primarily interested in the magnitude of the relationship between two variables, without the need for standardized interpretation, covariance can be used. Since covariance is not standardized, it preserves the original scale of the variables. This can be helpful when the units of measurement carry important information or when you want to maintain the original context of the data.
+
+-   Non-linear Relationships: If you suspect a non-linear relationship between variables, covariance can still provide insights into the direction and magnitude of the relationship, albeit without quantifying the strength in a standardized manner.
+
+*Example*: 
+
+By calculating the covariance between height and weight, you can obtain a measure of how the two variables vary together. 
+
+-   **Correlation** measures the strength and direction of the linear relationship between two variables, but it standardizes the measure to fall between -1 and 1. 
+
+*When to use it:* Correlation is a more useful measure than covariance when comparing relationships across different datasets or variables, as it removes the influence of the scales of the variables.
+
+*Example*:
+
+If you were interested in comparing the relationship between height and weight with other datasets or variables, or if you wanted a standardized measure of the strength of the relationship, then calculating the correlation coefficient would be more appropriate. The correlation coefficient would provide a standardized measure between -1 and 1, allowing for easier comparison and interpretation across different contexts.
+
+
+## Correlation vs cointegration
+
+Both are statistical concepts used to measure the relationship between variables.
+
+-   **Cointegration** measures whether the variables tend to move together over time, despite possibly having short-term fluctuations.
+
+*Example*:
+A drunk man leaves the pub with his dog.
+
+When the man and the dog first leave the pub, their paths are **correlated**. They generally move in the same direction, but the distance between the dog and the man has no actual limit. It increases at times, decreases at times, but is generally random and poorly defined. The direction of the two, however, is generally the same.
+
+When the man leashes his dog to cross the road, they become **cointegrated**. Now, while their direction is still the same, their distance from one another is finite. The dog cannot move beyond the length of the leash from the man.
+[@WhatDifferenceCorrelation]
+
+
+## P-value
+
+A p-value of 0.001 indicates that if the null hypothesis tested were indeed true, then there would be a one-in-1,000 chance of observing results at least as extreme. 
+
+
+
+## Bias and Variance
+*We search a model with low bias and low variance*
+
+***Bias**:* The inability for a machine learning method to capture the true relationship is called bias
+**Variance**: The difference in fits between train set and test set 
+
+Red model:
+  low variance: This model has low variance if a new point it would not substantially change the model fit (leads to under-fitting)
+  high bias: Ineffective at modeling the data
+  
+  
+  
+Blue model:
+  high variance: Small perturbations in the data will significantly change the model fit (leads to over-fitting)
+  low bias: More complex and flexible allowing to model very good the data
+  
+![variance-bias trade-off](Images/Bias and Variance.png)
+
+## Entropy

@@ -1,0 +1,68 @@
+# Linear Regression and Its Cousins
+
+They all seek to find estimates of the parameters to minimize the sum-of-squared errors
+
+**Advantages**: 
+
+  - highly interpretable
+  - enables us to compute standard errors of the coefficients allowing to assess the statistical significance of each predictor
+
+## Ordinary linear regression
+
+Finds parameter estimates that have minimum bias using the NIPALS approach
+
+## Partial least squares (PLS) 
+
+**supervised** dimension reduction procedure while PCR (PCA + linear regression) is **unsupervised**
+
+**USE**: when there are correlated predictors and a linear regression-type solution is desired instead of PCA then linear regression (AKA PCR; If, the variability in the predictor space is not related to the variability of the response, then PCR can have difficulty identifying a predictive relationship when one might actually exist). 
+
+Efficiently for data sets of small-to moderate size (e.g., < 2,500 samples and < 30 predictors)
+
+**Pre-prossesing**: 
+
+  - centered and scaled predictors. 
+  - Remove predictors with small PLS regression coefficients and small VIP (<1)
+  - *To include nonlinear relationships add squared or cubic predictors*
+  - *To include nonlinear relationships splits each predictor into two or more bins for those predictors that are thought to have a nonlinear relationship with the response. Cut points for the bins are selected by the user and are based on either prior knowledge or characteristics of the data. The original predictors that were binned are then excluded from the data set that includes the binned versions of the predictors. (GIFI approach)*
+
+
+**Tuning**: Cross-validation was used to determine the optimal number of PLS components to retain that minimize RMSE
+*# of tuning parameter*: PLS has one tuning parameter: the number of components to retain
+
+
+### Algorithmic Variations of PLS
+
+- SIMPLS approach
+
+**USE**: for data large data sets (e.g., > 2,500 samples and > 30 predictors)
+
+- R̈annar et al. (1994) kernel 
+
+**USE**: when there are more predictors than samples.
+
+## Penalized models 
+
+Finds parameter estimates that have lower variance. We introduce bias to reduce variance and avoid overfitting
+
+**USE**: When sample size are small
+
+**Advantages**: reduce variance and increases prediction on the long term
+
+### Ridge regression
+{{< video https://www.youtube.com/watch?v=Q81RR3yKn30 start="75">}}
+
+**Advantages**: better at reducing variance in models that contain usefull variables
+
+### Lasso regression
+{{< video https://www.youtube.com/watch?v=NGf0voTMlcs start="435">}}
+
+**Advantages**: 
+  - better at reducing variance in models that contain useless variables
+  - simplify model
+
+### Elastic net
+{{< video https://www.youtube.com/watch?v=1dKRdX9bfIo start="260">}}
+
+**USE**: When you don't know if you have useless variables
+**Advantages**: 
