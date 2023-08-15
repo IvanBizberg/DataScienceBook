@@ -11,10 +11,12 @@ book:
     - Choose model.qmd
     - Pre-processing.qmd
     - Model Tuning.qmd
-    - Linear Regression and Its Cousins.qmd
-    - Nonlinear Regression Models.qmd
+    - Linear Models and Its Cousins.qmd
+    - Nonlinear Models.qmd
     - Tree models.qmd
     - Deal with suboptimal data.qmd
+    - Measuring Predictor Importance.qmd
+    - Feature Selection.qmd
     - references.qmd
 
 bibliography: references.bib

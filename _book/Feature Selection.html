@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DS Baseline - 5&nbsp; Linear Regression and Its Cousins</title>
+<title>DS Baseline - 10&nbsp; Feature Selection</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Nonlinear Regression Models.html" rel="next">
-<link href="./Model Tuning.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./Measuring Predictor Importance.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Linear Regression and Its Cousins.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression and Its Cousins</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Feature Selection.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Feature Selection</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -130,14 +130,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Linear Regression and Its Cousins.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Linear Models and Its Cousins.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression and Its Cousins</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Nonlinear Regression Models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Regression Models</span></span></a>
+  <a href="./Nonlinear Models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -149,7 +149,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Deal with suboptimal data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deal with suboptimal data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Remedies for suboptimal data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Measuring Predictor Importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Measuring Predictor Importance</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Feature Selection.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Feature Selection</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -168,17 +180,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#ordinary-linear-regression" id="toc-ordinary-linear-regression" class="nav-link active" data-scroll-target="#ordinary-linear-regression"><span class="header-section-number">5.1</span> Ordinary linear regression</a></li>
-  <li><a href="#partial-least-squares-pls" id="toc-partial-least-squares-pls" class="nav-link" data-scroll-target="#partial-least-squares-pls"><span class="header-section-number">5.2</span> Partial least squares (PLS)</a>
-  <ul class="collapse">
-  <li><a href="#algorithmic-variations-of-pls" id="toc-algorithmic-variations-of-pls" class="nav-link" data-scroll-target="#algorithmic-variations-of-pls"><span class="header-section-number">5.2.1</span> Algorithmic Variations of PLS</a></li>
-  </ul></li>
-  <li><a href="#penalized-models" id="toc-penalized-models" class="nav-link" data-scroll-target="#penalized-models"><span class="header-section-number">5.3</span> Penalized models</a>
-  <ul class="collapse">
-  <li><a href="#ridge-regression" id="toc-ridge-regression" class="nav-link" data-scroll-target="#ridge-regression"><span class="header-section-number">5.3.1</span> Ridge regression</a></li>
-  <li><a href="#lasso-regression" id="toc-lasso-regression" class="nav-link" data-scroll-target="#lasso-regression"><span class="header-section-number">5.3.2</span> Lasso regression</a></li>
-  <li><a href="#elastic-net" id="toc-elastic-net" class="nav-link" data-scroll-target="#elastic-net"><span class="header-section-number">5.3.3</span> Elastic net</a></li>
-  </ul></li>
+  <li><a href="#unsupervised-methods" id="toc-unsupervised-methods" class="nav-link active" data-scroll-target="#unsupervised-methods"><span class="header-section-number">10.1</span> Unsupervised methods</a></li>
+  <li><a href="#supervised-methods" id="toc-supervised-methods" class="nav-link" data-scroll-target="#supervised-methods"><span class="header-section-number">10.2</span> Supervised methods</a></li>
+  <li><a href="#consequences-of-using-non-informative-predictors" id="toc-consequences-of-using-non-informative-predictors" class="nav-link" data-scroll-target="#consequences-of-using-non-informative-predictors"><span class="header-section-number">10.3</span> Consequences of Using Non-informative Predictors</a></li>
+  <li><a href="#approaches-for-reducing-the-number-of-predictors" id="toc-approaches-for-reducing-the-number-of-predictors" class="nav-link" data-scroll-target="#approaches-for-reducing-the-number-of-predictors"><span class="header-section-number">10.4</span> Approaches for Reducing the Number of Predictors</a></li>
   </ul>
 </nav>
     </div>
@@ -187,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression and Its Cousins</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Feature Selection</span></h1>
 </div>
 
 
@@ -202,65 +207,55 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>They all seek to find estimates of the parameters to minimize the sum-of-squared errors</p>
-<p><strong>Advantages</strong>:</p>
+<section id="unsupervised-methods" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="unsupervised-methods"><span class="header-section-number">10.1</span> Unsupervised methods</h2>
+<p>When the outcome is ignored during the elimination of predictors, the technique is unsupervised.</p>
 <ul>
-<li>highly interpretable</li>
-<li>enables us to compute standard errors of the coefficients allowing to assess the statistical significance of each predictor</li>
+<li>removing predictors that have high correlations with other predictors</li>
+<li>removing near-zero variance predictors</li>
 </ul>
-<section id="ordinary-linear-regression" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="ordinary-linear-regression"><span class="header-section-number">5.1</span> Ordinary linear regression</h2>
-<p>Finds parameter estimates that have minimum bias using the NIPALS approach</p>
 </section>
-<section id="partial-least-squares-pls" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="partial-least-squares-pls"><span class="header-section-number">5.2</span> Partial least squares (PLS)</h2>
-<p><em>For regression and classification</em>:</p>
-<p><strong>supervised</strong> dimension reduction procedure while PCR (PCA + linear regression) is <strong>unsupervised</strong></p>
-<p><strong>USE</strong>: when there are correlated predictors and a linear regression-type solution is desired instead of PCA then linear regression (AKA PCR; If, the variability in the predictor space is not related to the variability of the response, then PCR can have difficulty identifying a predictive relationship when one might actually exist).</p>
-<p>Efficiently for data sets of small-to moderate size (e.g., &lt; 2,500 samples and &lt; 30 predictors)</p>
-<p><strong>Pre-prossesing</strong>:</p>
+<section id="supervised-methods" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="supervised-methods"><span class="header-section-number">10.2</span> Supervised methods</h2>
+<p>When, the outcome is typically used to quantify the importance of the predictors. Predictors are specifically selected for the purpose of increasing accuracy or to find a subset of predictors to reduce the complexity of the model</p>
+</section>
+<section id="consequences-of-using-non-informative-predictors" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="consequences-of-using-non-informative-predictors"><span class="header-section-number">10.3</span> Consequences of Using Non-informative Predictors</h2>
+<p>The presence of non-informative variables can add <strong>uncertainty/noise</strong> to the predictions and reduce the overall effectiveness of the model (linear regression, partial least squares, neural networks, svm). Regression trees, MARS models and Random forests are not affected or very slightly in the case of random forests</p>
+</section>
+<section id="approaches-for-reducing-the-number-of-predictors" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="approaches-for-reducing-the-number-of-predictors"><span class="header-section-number">10.4</span> Approaches for Reducing the Number of Predictors</h2>
 <ul>
-<li>centered and scaled predictors.</li>
-<li>Remove predictors with small PLS regression coefficients and small VIP (&lt;1)</li>
-<li><em>To include nonlinear relationships add squared or cubic predictors</em></li>
-<li><em>To include nonlinear relationships splits each predictor into two or more bins for those predictors that are thought to have a nonlinear relationship with the response. Cut points for the bins are selected by the user and are based on either prior knowledge or characteristics of the data. The original predictors that were binned are then excluded from the data set that includes the binned versions of the predictors. (GIFI approach)</em></li>
-</ul>
-<p><strong>Tuning</strong>: Cross-validation was used to determine the optimal number of PLS components to retain that minimize RMSE <em># of tuning parameter</em>: PLS has one tuning parameter: the number of components to retain</p>
-<p><em>For classification</em>: <strong>NOTES</strong>: Produce continuous predictions that do not follow the definition of a probability-the predicted values are not necessarily between 0 and 1 and do not sum to 1. Therefore, a transformation (e.g., <em>softmax transformation</em>) must be used to coerce the predictions into “probability-like” values so that they can be interpreted and used for classification.</p>
-<section id="algorithmic-variations-of-pls" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="algorithmic-variations-of-pls"><span class="header-section-number">5.2.1</span> Algorithmic Variations of PLS</h3>
+<li><p>Wrapper methods evaluate multiple models using procedures that add and/or remove predictors to find the optimal combination that maximizes model performance. In essence, wrapper methods are search algorithms that treat the predictors as the inputs and utilize model performance as the output to be optimized.</p>
 <ul>
-<li>SIMPLS approach</li>
+<li><strong>Forward, Backward, and Stepwise Selection</strong>: Add, remove predictors or both to find the model that results in the smallest model RMSE/AIC (Used in linear regressions)</li>
+<li><strong>Correlation-based feature selection</strong>: find the best subset of predictors that have strong correlations with the outcome but weak between-predictor correlations</li>
+<li><strong>Simulated annealing</strong>: Starting from an initial solution, the method iteratively explores neighboring solutions with the ability to accept worse solutions initially, gradually decreasing this acceptance as the process continues. This balance between exploration and exploitation helps the algorithm escape local optima and search for global optima in the solution space.</li>
+<li><strong>Genetic Algorithms</strong>: GAs start with a population of potential solutions encoded as “genetic” representations. Through multiple generations, solutions are selected based on their fitness, which measures how well they solve the problem. These selected solutions then undergo crossover (combination of genetic material) and mutation (random changes) to produce a new population. Over successive generations, the algorithm converges towards better solutions as traits from successful solutions propagate and refine in the population.</li>
 </ul>
-<p><strong>USE</strong>: for data large data sets (e.g., &gt; 2,500 samples and &gt; 30 predictors)</p>
+<p><strong>Advantages</strong>: <strong>Disadvantages</strong>:</p>
 <ul>
-<li>R̈annar et al.&nbsp;(1994) kernel</li>
+<li>many models are evaluated (which may also require parameter tuning) and thus an increase in computation time</li>
+<li>increased risk of over-fitting</li>
+</ul></li>
+<li><p>Filter methods evaluate the relevance of the predictors outside of the predictive models and subsequently model only the predictors that pass some criterion. For example, for classification problems, each predictor could be individually evaluated to check if there is a plausible relationship between it and the observed classes. Only predictors with important relationships would then be included in a classification model.</p>
+<p><strong>Advantages</strong>: more computationally efficient <strong>Disadvantages</strong>:</p>
+<ul>
+<li>the selection criterion is not directly related to the effectiveness of the model</li>
+<li>methods evaluate each predictor separately, and, consequently, redundant (i.e., highly-correlated) predictors may be selected and important interactions between variables will not be able to be quantified</li>
+<li>subjective nature to the procedure. Most scoring methods have no obvious cut point to declare which predictors are important enough to go into the model (In practice, finding an appropriate value for the confidence value α may require several evaluations until acceptable performance is achieved.)</li>
+</ul></li>
 </ul>
-<p><strong>USE</strong>: when there are more predictors than samples.</p>
-</section>
-</section>
-<section id="penalized-models" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="penalized-models"><span class="header-section-number">5.3</span> Penalized models</h2>
-<p>Finds parameter estimates that have lower variance. We introduce bias to reduce variance and avoid overfitting</p>
-<p><strong>USE</strong>: When sample size are small</p>
-<p><strong>Advantages</strong>: reduce variance and increases prediction on the long term</p>
-<section id="ridge-regression" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="ridge-regression"><span class="header-section-number">5.3.1</span> Ridge regression</h3>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Q81RR3yKn30?start=75" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p><strong>Advantages</strong>: better at reducing variance in models that contain usefull variables</p>
-</section>
-<section id="lasso-regression" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="lasso-regression"><span class="header-section-number">5.3.2</span> Lasso regression</h3>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/NGf0voTMlcs?start=435" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p><strong>Advantages</strong>: - better at reducing variance in models that contain useless variables - simplify model</p>
-</section>
-<section id="elastic-net" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="elastic-net"><span class="header-section-number">5.3.3</span> Elastic net</h3>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/1dKRdX9bfIo?start=260" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p><strong>USE</strong>: When you don’t know if you have useless variables <strong>Advantages</strong>:</p>
+<p><strong>Note</strong>: When using other search procedures or filters for reducing the number of predictors, there is still a risk. The following situations increase the likelihood of selection bias:</p>
+<ul>
+<li>The data set is small.</li>
+<li>The number of predictors is large (since the probability of a non-informative predictor being falsely declared to be important increases).</li>
+<li>The predictive model is powerful (e.g., black-box models), which is more likely to over-fit the data.</li>
+<li>No independent test set is available</li>
+</ul>
+<p>When the data set is large, it is recommended separate data sets for selecting features, tuning models, and validating the final model (and feature set). When training sets are small, proper resampling is critical. When the amount of data is not too small (333 obs), it is recommended setting aside a small test set to double check that no gross errors have been committed.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -499,13 +494,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Model Tuning.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Model Tuning</span></span>
+      <a href="./Measuring Predictor Importance.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Measuring Predictor Importance</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Nonlinear Regression Models.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Regression Models</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

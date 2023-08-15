@@ -1,0 +1,57 @@
+# Feature Selection
+
+## Unsupervised methods
+
+When the outcome is ignored during the elimination of predictors, the technique is unsupervised.
+
+- removing predictors that have high correlations with other predictors
+- removing near-zero variance predictors
+
+## Supervised methods
+
+When, the outcome is typically used to quantify the importance of the predictors. Predictors are specifically selected for the purpose of increasing accuracy or to find a subset of predictors to reduce the complexity of the model
+
+
+## Consequences of Using Non-informative Predictors
+
+The presence of non-informative variables can add **uncertainty/noise** to the predictions and reduce the overall effectiveness of the model (linear regression, partial least squares, neural networks, svm). Regression trees, MARS models and Random forests are not affected or very slightly in the case of random forests
+
+
+
+
+## Approaches for Reducing the Number of Predictors
+
+- Wrapper methods evaluate multiple models using procedures that add and/or remove predictors to find the optimal combination that maximizes model performance. In essence, wrapper methods are search algorithms that treat the predictors as the inputs and utilize model performance as the output to be optimized. 
+
+  - **Forward, Backward, and Stepwise Selection**: Add, remove predictors or both to find the model that results in the smallest model RMSE/AIC (Used in linear regressions) 
+  - **Correlation-based feature selection**: find the best subset of predictors that have strong correlations with the outcome but weak between-predictor correlations
+  - **Simulated annealing**: Starting from an initial solution, the method iteratively explores neighboring solutions with the ability to accept worse solutions initially, gradually decreasing this acceptance as the process continues. This balance between exploration and exploitation helps the algorithm escape local optima and search for global optima in the solution space.
+  - **Genetic Algorithms**: GAs start with a population of potential solutions encoded as "genetic" representations. Through multiple generations, solutions are selected based on their fitness, which measures how well they solve the problem. These selected solutions then undergo crossover (combination of genetic material) and mutation (random changes) to produce a new population. Over successive generations, the algorithm converges towards better solutions as traits from successful solutions propagate and refine in the population.
+
+  **Advantages**: 
+  **Disadvantages**: 
+  
+  - many models are evaluated (which may also require parameter tuning) and thus an increase in computation time
+  - increased risk of over-fitting
+
+- Filter methods evaluate the relevance of the predictors outside of the predictive models and subsequently model only the predictors that pass some criterion. For example, for classification problems, each predictor could be individually evaluated to check if there is a plausible relationship between it and the observed classes. Only predictors with important relationships would then be included in a classification model. 
+
+  **Advantages**: more computationally efficient
+  **Disadvantages**: 
+  
+  - the selection criterion is not directly related to the effectiveness of the model
+  - methods evaluate each predictor separately, and, consequently, redundant (i.e., highly-correlated) predictors may be selected and important interactions between variables will not be able to be quantified
+  - subjective nature to the procedure. Most scoring methods have no obvious cut point to declare which predictors are important enough to go into the model (In practice, finding an appropriate value for the confidence value α may require several evaluations until acceptable performance is achieved.)
+  
+  
+  
+**Note**: When using other search procedures or filters for reducing the number of predictors, there is still a risk. The following situations increase the likelihood of selection bias: 
+
+- The data set is small. 
+- The number of predictors is large (since the probability of a non-informative predictor being falsely declared to be important increases). 
+- The predictive model is powerful (e.g., black-box models), which is more likely to over-fit the data. 
+- No independent test set is available  
+
+When the data set is large, it is recommended separate data sets for selecting features, tuning models, and validating the final model (and feature set). 
+When training sets are small, proper resampling is critical. 
+When the amount of data is not too small (333 obs), it is recommended setting aside a small test set to double check that no gross errors have been committed.

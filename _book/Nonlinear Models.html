@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DS Baseline - 6&nbsp; Nonlinear Regression Models</title>
+<title>DS Baseline - 6&nbsp; Nonlinear Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./Tree models.html" rel="next">
-<link href="./Linear Regression and Its Cousins.html" rel="prev">
+<link href="./Linear Models and Its Cousins.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Nonlinear Regression Models.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Regression Models</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Nonlinear Models.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Models</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -130,14 +130,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Linear Regression and Its Cousins.html" class="sidebar-item-text sidebar-link">
+  <a href="./Linear Models and Its Cousins.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression and Its Cousins</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Nonlinear Regression Models.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Regression Models</span></span></a>
+  <a href="./Nonlinear Models.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -149,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Deal with suboptimal data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deal with suboptimal data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Remedies for suboptimal data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -177,6 +177,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#support-vector-machines-svm" id="toc-support-vector-machines-svm" class="nav-link" data-scroll-target="#support-vector-machines-svm"><span class="header-section-number">6.3</span> Support Vector Machines (SVM)</a></li>
   <li><a href="#k-nearest-neighbors-knn" id="toc-k-nearest-neighbors-knn" class="nav-link" data-scroll-target="#k-nearest-neighbors-knn"><span class="header-section-number">6.4</span> K-Nearest Neighbors (KNN)</a></li>
   <li><a href="#neural-networks" id="toc-neural-networks" class="nav-link" data-scroll-target="#neural-networks"><span class="header-section-number">6.5</span> Neural Networks</a></li>
+  <li><a href="#nonlinear-discriminant-analysis" id="toc-nonlinear-discriminant-analysis" class="nav-link" data-scroll-target="#nonlinear-discriminant-analysis"><span class="header-section-number">6.6</span> Nonlinear Discriminant Analysis</a></li>
+  <li><a href="#flexible-discriminant-analysis" id="toc-flexible-discriminant-analysis" class="nav-link" data-scroll-target="#flexible-discriminant-analysis"><span class="header-section-number">6.7</span> Flexible Discriminant Analysis</a></li>
+  <li><a href="#naive-bayes" id="toc-naive-bayes" class="nav-link" data-scroll-target="#naive-bayes"><span class="header-section-number">6.8</span> Naive Bayes</a></li>
   </ul>
 </nav>
     </div>
@@ -185,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Regression Models</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Models</span></h1>
 </div>
 
 
@@ -343,13 +346,25 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Tuning parameters</strong>: K number of neighbors.</p>
 <p><strong>Advantages</strong>: The KNN method can have poor predictive performance when local predictor structure is not relevant to the response.</p>
 <p><strong>Pre-processing</strong>: - Remove irrelevant, noise-laden predictors is a key pre-processing step for KNN, since these can cause similar samples to be driven away from each other in the predictor space</p>
-<p><strong>NOTE</strong>: to enhance KNN predictivity weight the neighbors’ contribution to the prediction of a new sample based on their distance to the new sample.</p>
+<p><strong>NOTE</strong>: to enhance KNN predictability weight the neighbors’ contribution to the prediction of a new sample based on their distance to the new sample.</p>
 </section>
 <section id="neural-networks" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="neural-networks"><span class="header-section-number">6.5</span> Neural Networks</h2>
 <p>Neural Networks uses surrogate features instead of the original predictors (like pls and MARS)</p>
 <p><em>For classification</em>: <strong>NOTES</strong>: Produce continuous predictions that do not follow the definition of a probability-the predicted values are not necessarily between 0 and 1 and do not sum to 1. Therefore, a transformation (e.g., <em>softmax transformation</em>) must be used to coerce the predictions into “probability-like” values so that they can be interpreted and used for classification.</p>
 <p><em>For regression</em>: <em>To be continued</em></p>
+</section>
+<section id="nonlinear-discriminant-analysis" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="nonlinear-discriminant-analysis"><span class="header-section-number">6.6</span> Nonlinear Discriminant Analysis</h2>
+<p><em>For classification only</em>:</p>
+</section>
+<section id="flexible-discriminant-analysis" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="flexible-discriminant-analysis"><span class="header-section-number">6.7</span> Flexible Discriminant Analysis</h2>
+<p><em>For classification only</em>:</p>
+</section>
+<section id="naive-bayes" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="naive-bayes"><span class="header-section-number">6.8</span> Naive Bayes</h2>
+<p><em>For classification only</em>: </p>
 
 
 </section>
@@ -590,7 +605,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Linear Regression and Its Cousins.html" class="pagination-link">
+      <a href="./Linear Models and Its Cousins.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression and Its Cousins</span></span>
       </a>          
   </div>

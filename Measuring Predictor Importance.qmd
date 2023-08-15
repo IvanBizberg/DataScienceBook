@@ -1,0 +1,25 @@
+# Measuring Predictor Importance
+
+Measurement of predictor relevance is derived by permuting each predictor individually and assessing the loss in performance when the effect of the predictor is negated. Useful for guiding the user to focus more closely on specific predictors via visualizations and other means.
+
+Many predictive models have built-in or intrinsic measurements of predictor importance.
+
+- MARS
+- Tree-based models
+
+When models have not built-in measurements of predictor importance we can apply some other techniques 
+
+## For Numeric Outcomes
+
+- LOESS
+- t-statistic
+- ANOVA
+- Relief
+
+
+## For Categorical Outcomes
+
+- area under the ROC curve
+- t-statistics
+- MIC
+- Relief

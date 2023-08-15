@@ -1,0 +1,208 @@
+# Nonlinear Models
+
+In these models, the exact form of the nonlinearity does not need to be known explicitly or specified prior to model training.
+
+## Tree-based models
+
+**Advantages**:
+- Handles high-dimensional data well.
+- Robust to outliers and noise.
+- Provides feature importance measures.
+- Requires minimal data preprocessing and is relatively easy to implement.
+
+**Disadvantages**:
+
+- Can be computationally expensive for large datasets.
+- May not perform well on imbalanced datasets.
+- Lacks interpretability compared to single decision trees.
+
+**USE**: 
+
+- When you have a large dataset with a high number of features.
+- When interpretability is not a top priority.
+- When you want to build a model that is robust to overfitting.
+
+**Tuning parameters**: 
+
+- The number of trees in the forest. Higher values generally improve performance but increase computational time (Common values are between 50 to 500).
+- The maximum depth of each decision tree: Controls the tree's complexity and potential overfitting (Common values are between 5 to 50).
+- The minimum number of samples required to split an internal node: Higher values prevent overfitting Common values are between 2 to 20).
+- The number of features to consider when looking for the best split: Common values are 'sqrt' (square root of total features) or 'log2'.
+
+*For regression*: 
+
+{{< video https://www.youtube.com/watch?v=g9c66TUylZ4 start="1256">}}
+
+*For classification*: 
+
+{{< video https://www.youtube.com/watch?v=_L39rN6gz7Y start="79">}}
+
+### Random forests
+{{< video https://www.youtube.com/watch?v=J4Wdy0Wc_xQ start="225">}}
+
+
+### Boosting trees
+
+#### AdaBoost
+
+**Advantages**:
+
+- Can achieve high accuracy by combining multiple weak learners.
+- Can handle both classification and regression problems.
+- Less susceptible to overfitting compared to individual decision trees.
+- Can be combined with any base estimator that accepts sample weights.
+
+**Disadvantages**:
+
+- Sensitive to noisy data and outliers.
+- Can be computationally expensive as it requires sequentially training multiple learners.
+- May not perform well on highly imbalanced datasets.
+
+**USE**: 
+
+- When you have a moderately sized dataset and you want to improve the accuracy of weak learners.
+- When you want to create a powerful ensemble with different weak learners.
+
+**Tuning parameters**: 
+
+- n_estimators: The number of boosting stages (weak learners) to be run. Common values are between 50 to 500.
+- learning_rate: The contribution of each weak learner to the final combination. Common values are between 0.01 to 1.0.
+- base_estimator: The base estimator used for boosting. Common choices are decision trees with max_depth set or linear models.
+
+{{< video https://www.youtube.com/watch?v=LsK-xG1cLYA start="1193">}}
+
+#### XgBoost
+
+
+**Advantages**:
+
+- Highly efficient and scalable, making it suitable for large datasets.
+- Can handle missing data and supports regularization to prevent overfitting.
+- Provides built-in cross-validation, early stopping, and feature importance.
+- Often performs well even with default hyperparameters.
+
+**Disadvantages**:
+
+- Can be sensitive to hyperparameter tuning.
+- Requires more careful tuning and validation compared to Random Forest and AdaBoost.
+- The interpretation of feature importance may not be as straightforward as in Random Forest.
+
+**USE**: 
+
+- When you have a large dataset and computational efficiency is crucial.
+- When you need better performance compared to other algorithms on a wide range of problems.
+- When you can invest time in tuning hyperparameters.
+
+**Tuning parameters**: 
+
+- n_estimators: The number of boosting rounds. Common values are between 50 to 500.
+- learning_rate: The step size shrinkage used to prevent overfitting. Common values are between 0.01 to 0.3.
+- max_depth: The maximum depth of each tree. Common values are between 3 to 10.
+- subsample: The fraction of samples used for training each tree. Common values are between 0.5 to 1.0.
+- colsample_bytree: The fraction of features used for training each tree. Common values are between 0.5 to 1.0.
+
+
+*For regression*: 
+{{< video https://www.youtube.com/watch?v=3CC4N4z3GJc start="1468">}}
+{{< video https://www.youtube.com/watch?v=OtD8wVaFm6E start="1434">}}
+
+*For classification*: 
+{{< video https://www.youtube.com/watch?v=jxuNLH5dXCs start="816">}}
+{{< video https://www.youtube.com/watch?v=8b1JEDvenQU start="1401">}}
+
+
+
+
+**Tuning parameters**: 
+
+- maximum number of leaves: (generally between 8 and 32)
+- learning rate: Value between 0 and 1 (generally 0.1)
+
+## Multivariate Adaptive Regression Splines (MARS)
+
+MARS uses surrogate features (usually a function of only one or two predictors (second degree) at a time which are broken into two groups and models linear relationships between the predictor and the outcome in each group) instead of the original predictors (like pls and neural networks). 
+
+**NOTES**
+- GCV statistic is use to determine the contribution of each feature to the model.
+
+
+**Tuning parameters**: 
+
+- the degree of the features that are added to the model (number of interaction; e.g., 0-4)
+- the number of retained terms
+
+**Advantages**:
+
+- the model automatically conducts feature selection
+- interpretability is high
+- requires very little pre-processing of the data (Correlated predictors do not drastically affect model performance, but they can complicate model interpretation.).
+
+**Disadvantages**: For MARS models that can include two or more terms at a time, we have observed occasional instabilities in the model predictions where a few sample predictions are wildly inaccurate (perhaps an order of magnitude off of the true value). This problem has not been observed with *additive MARS* models (models with degree of 1).
+
+**USE**: When there is a clear indication that the relationship between the dependent variable and independent variables is non-linear and interpretability is impportante
+
+## Support Vector Machines (SVM)
+
+**USE**: When we seek to minimize the effect of outliers
+
+{{< video https://www.youtube.com/watch?v=efR1C6CvhmE start="41">}}
+
+**NOTE**: This principle also apply for regression. However in this case the svm will search for hyperplane that holds the maximum of the observation within the margin (tolerance level)
+
+<!-- {{< video https://www.youtube.com/watch?v=Toet3EiSFcM >}} -->
+<!-- {{< video https://www.youtube.com/watch?v=Qc5IyLW_hns >}} -->
+
+**Tuning parameters**: 
+- Kernel: SVM can use different kernel functions to transform the input data into a higher-dimensional space, where it becomes easier to find a separating hyperplane. Common kernel functions include:
+  - Linear Kernel (If regression line is truly linear, the linear kernel function will be a better choice)
+  - Polynomial Kernel (In general, quadratic models have smaller error rates than the linear models) (tuning parameters: degree and scale factor (coef0) and c)
+  - Radial Basis Function (RBF) Kernel (radial basis function has been shown to be very effective overall and easier to tune than polynomial one less tuning parameter) (tuning parameters: σ (sigma) that controls the scale and c)
+  - hyperbolic tangent
+
+- Threshold ε (epsilon) (called margin in tidymodels?) (If the threshold is set to a relatively large value, then the outliers are the only points that define the regression line) (e.g., ε = 0.01; the cost parameter provides more flexibility for tuning the model. So it is suggested to fix a value for ε and tune over the other kernel parameters)
+
+- C parameter (Cost; e.g., values between 0.25 and 2048): 
+  -   *For classification*: It controls the trade-off between maximizing the margin and minimizing the classification error. A smaller C value creates a wider margin but may allow some misclassifications, while a larger C value creates a narrower margin but may result in fewer misclassifications on the training set.
+  -   *For regression*: The cost parameter is the main tool for adjusting the complexity of the model. When the cost is large, the model becomes very flexible since the effect of errors is amplified. When the cost is small, the model will “stiffen” and become less likely to over-fit (but more likely to underfit)
+
+
+**Pre-processing**: Center and scale the predictors prior to building an SVM model since the predictors enter into the model as the sum of cross products, differences in the predictor scales can affect the model.
+
+## K-Nearest Neighbors (KNN)
+
+*For classification*:
+{{< video https://www.youtube.com/watch?v=HVXime0nQeI start="">}}
+
+*For regression*:
+{{< video https://www.youtube.com/watch?v=3lp5CmSwrHI start="">}}
+
+**Tuning parameters**: K number of neighbors.
+
+**Advantages**: The KNN method can have poor predictive performance when local predictor structure is not relevant to the response.
+
+**Pre-processing**: 
+  - Remove irrelevant, noise-laden predictors is a key pre-processing step for KNN, since these can cause similar samples to be driven away from each other in the predictor space
+
+**NOTE**: to enhance KNN predictability weight the neighbors’ contribution to the prediction of a new sample based on their distance to the new sample.
+
+## Neural Networks
+
+Neural Networks uses surrogate features instead of the original predictors (like pls and MARS)
+
+*For classification*:
+**NOTES**: Produce continuous predictions that do not follow the definition of a probability-the predicted values are not necessarily between 0 and 1 and do not sum to 1. Therefore, a transformation (e.g., *softmax transformation*) must be used to coerce the predictions into “probability-like” values so that they can be interpreted and used for classification. 
+
+*For regression*:
+*To be continued*
+
+
+## Nonlinear Discriminant Analysis
+*For classification only*:
+
+## Flexible Discriminant Analysis
+*For classification only*:
+
+## Naive Bayes
+*For classification only*:
+{{< video https://www.youtube.com/watch?v=O2L2Uv9pdDA start="">}}
+{{< video https://www.youtube.com/watch?v=H3EjCKtlVog start="">}}

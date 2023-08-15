@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Nonlinear Regression Models.html" rel="next">
+<link href="./Nonlinear Models.html" rel="next">
 <link href="./Model Tuning.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Linear Regression and Its Cousins.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression and Its Cousins</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Linear Models and Its Cousins.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression and Its Cousins</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -130,14 +130,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Linear Regression and Its Cousins.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Linear Models and Its Cousins.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression and Its Cousins</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Nonlinear Regression Models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Regression Models</span></span></a>
+  <a href="./Nonlinear Models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -149,7 +149,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Deal with suboptimal data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deal with suboptimal data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Remedies for suboptimal data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Measuring Predictor Importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Measuring Predictor Importance</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Feature Selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Feature Selection</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -178,6 +190,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ridge-regression" id="toc-ridge-regression" class="nav-link" data-scroll-target="#ridge-regression"><span class="header-section-number">5.3.1</span> Ridge regression</a></li>
   <li><a href="#lasso-regression" id="toc-lasso-regression" class="nav-link" data-scroll-target="#lasso-regression"><span class="header-section-number">5.3.2</span> Lasso regression</a></li>
   <li><a href="#elastic-net" id="toc-elastic-net" class="nav-link" data-scroll-target="#elastic-net"><span class="header-section-number">5.3.3</span> Elastic net</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression"><span class="header-section-number">5.3.4</span> Logistic Regression</a></li>
+  <li><a href="#linear-discriminant-analysis" id="toc-linear-discriminant-analysis" class="nav-link" data-scroll-target="#linear-discriminant-analysis"><span class="header-section-number">5.3.5</span> Linear Discriminant Analysis</a></li>
+  <li><a href="#partial-least-squares-discriminant-analysis" id="toc-partial-least-squares-discriminant-analysis" class="nav-link" data-scroll-target="#partial-least-squares-discriminant-analysis"><span class="header-section-number">5.3.6</span> Partial Least Squares Discriminant Analysis</a></li>
+  <li><a href="#nearest-shrunken-centroids" id="toc-nearest-shrunken-centroids" class="nav-link" data-scroll-target="#nearest-shrunken-centroids"><span class="header-section-number">5.3.7</span> Nearest Shrunken Centroids</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -203,14 +219,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>They all seek to find estimates of the parameters to minimize the sum-of-squared errors</p>
-<p><strong>Advantages</strong>:</p>
+<section id="ordinary-linear-regression" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="ordinary-linear-regression"><span class="header-section-number">5.1</span> Ordinary linear regression</h2>
+<p>Finds parameter estimates that have minimum bias using the NIPALS approach <strong>Advantages</strong>:</p>
 <ul>
 <li>highly interpretable</li>
 <li>enables us to compute standard errors of the coefficients allowing to assess the statistical significance of each predictor</li>
 </ul>
-<section id="ordinary-linear-regression" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="ordinary-linear-regression"><span class="header-section-number">5.1</span> Ordinary linear regression</h2>
-<p>Finds parameter estimates that have minimum bias using the NIPALS approach</p>
 </section>
 <section id="partial-least-squares-pls" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="partial-least-squares-pls"><span class="header-section-number">5.2</span> Partial least squares (PLS)</h2>
@@ -241,7 +256,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="penalized-models" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="penalized-models"><span class="header-section-number">5.3</span> Penalized models</h2>
-<p>Finds parameter estimates that have lower variance. We introduce bias to reduce variance and avoid overfitting</p>
+<p><em>For classification and regressions</em>: Finds parameter estimates that have lower variance. We introduce bias to reduce variance and avoid overfitting</p>
 <p><strong>USE</strong>: When sample size are small</p>
 <p><strong>Advantages</strong>: reduce variance and increases prediction on the long term</p>
 <section id="ridge-regression" class="level3" data-number="5.3.1">
@@ -257,7 +272,28 @@ ul.task-list li input[type="checkbox"] {
 <section id="elastic-net" class="level3" data-number="5.3.3">
 <h3 data-number="5.3.3" class="anchored" data-anchor-id="elastic-net"><span class="header-section-number">5.3.3</span> Elastic net</h3>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/1dKRdX9bfIo?start=260" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p><strong>USE</strong>: When you don’t know if you have useless variables <strong>Advantages</strong>:</p>
+<p><strong>USE</strong>: When you don’t know if you have useless variables <strong>Advantages</strong>: Best of both ridge and lasso</p>
+</section>
+<section id="logistic-regression" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="logistic-regression"><span class="header-section-number">5.3.4</span> Logistic Regression</h3>
+<p><em>For classification only</em> </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yIYKR4sgzI8?start=180" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
+</section>
+<section id="linear-discriminant-analysis" class="level3" data-number="5.3.5">
+<h3 data-number="5.3.5" class="anchored" data-anchor-id="linear-discriminant-analysis"><span class="header-section-number">5.3.5</span> Linear Discriminant Analysis</h3>
+<p><em>For classification only</em></p>
+<p>It is like PCA but it focuses on maximizing the separability among the known categories.</p>
+<p>Create an axis (create two axis for three of more categories) that maximizes the distance between the means for the two categories while minimizing the scatter.</p>
+<p>As in PCA the first axis created (LDA1) by LDA accounts for the most variation between the categories. LDA2 does the second better job, LDA 3 the third best job etc etc…</p>
+<p><strong>NOTE</strong>: We can see which variables correlates the most with each LDA</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/azXCzI57Yfc?start=600" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="partial-least-squares-discriminant-analysis" class="level3" data-number="5.3.6">
+<h3 data-number="5.3.6" class="anchored" data-anchor-id="partial-least-squares-discriminant-analysis"><span class="header-section-number">5.3.6</span> Partial Least Squares Discriminant Analysis</h3>
+<p><em>For classification only</em></p>
+</section>
+<section id="nearest-shrunken-centroids" class="level3" data-number="5.3.7">
+<h3 data-number="5.3.7" class="anchored" data-anchor-id="nearest-shrunken-centroids"><span class="header-section-number">5.3.7</span> Nearest Shrunken Centroids</h3>
+<p><em>For classification only</em></p>
 
 
 </section>
@@ -504,8 +540,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Nonlinear Regression Models.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Regression Models</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Nonlinear Models.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

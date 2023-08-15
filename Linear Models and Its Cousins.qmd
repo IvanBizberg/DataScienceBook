@@ -2,16 +2,17 @@
 
 They all seek to find estimates of the parameters to minimize the sum-of-squared errors
 
+## Ordinary linear regression
+
+Finds parameter estimates that have minimum bias using the NIPALS approach
 **Advantages**: 
 
   - highly interpretable
   - enables us to compute standard errors of the coefficients allowing to assess the statistical significance of each predictor
 
-## Ordinary linear regression
-
-Finds parameter estimates that have minimum bias using the NIPALS approach
-
 ## Partial least squares (PLS) 
+
+*For regression and classification*:
 
 **supervised** dimension reduction procedure while PCR (PCA + linear regression) is **unsupervised**
 
@@ -31,6 +32,10 @@ Efficiently for data sets of small-to moderate size (e.g., < 2,500 samples and <
 *# of tuning parameter*: PLS has one tuning parameter: the number of components to retain
 
 
+*For classification*:
+**NOTES**: Produce continuous predictions that do not follow the definition of a probability-the predicted values are not necessarily between 0 and 1 and do not sum to 1. Therefore, a transformation (e.g., *softmax transformation*) must be used to coerce the predictions into “probability-like” values so that they can be interpreted and used for classification. 
+
+
 ### Algorithmic Variations of PLS
 
 - SIMPLS approach
@@ -42,7 +47,7 @@ Efficiently for data sets of small-to moderate size (e.g., < 2,500 samples and <
 **USE**: when there are more predictors than samples.
 
 ## Penalized models 
-
+*For classification and regressions*:
 Finds parameter estimates that have lower variance. We introduce bias to reduce variance and avoid overfitting
 
 **USE**: When sample size are small
@@ -65,4 +70,32 @@ Finds parameter estimates that have lower variance. We introduce bias to reduce 
 {{< video https://www.youtube.com/watch?v=1dKRdX9bfIo start="260">}}
 
 **USE**: When you don't know if you have useless variables
-**Advantages**: 
+**Advantages**: Best of both ridge and lasso
+
+
+### Logistic Regression
+*For classification only*
+{{< video https://www.youtube.com/watch?v=yIYKR4sgzI8&list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe start="180">}}
+
+### Linear Discriminant Analysis
+*For classification only*
+
+It is like PCA but it focuses on maximizing the separability among the known categories. 
+
+Create an axis (create two axis for three of more categories) that maximizes the distance between the means for the two categories while minimizing the scatter.
+
+As in PCA the first axis created (LDA1) by LDA accounts for the most variation between the categories. LDA2 does the second better job, LDA 3 the third best job etc etc...
+
+**NOTE**: We can see which variables correlates the most with each LDA
+
+{{< video https://www.youtube.com/watch?v=azXCzI57Yfc start="600">}}
+
+### Partial Least Squares Discriminant Analysis
+
+*For classification only*
+
+
+### Nearest Shrunken Centroids
+
+*For classification only*
+

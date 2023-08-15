@@ -20,12 +20,12 @@ Skewed data: Ratio of the highest value to the lowest value is greater than 20 h
 
 ### Resolve Outliers 
 
-- Spatial sign:
+- Spatial sign
 
 **NOTES**: 
 
-- it is important to center and scale the predictor data prior to using this transformation
-- spatial sign transformation of the predictors transforms them as a group. Removing predictor variables after applying this technique may be problematic.
+  - it is important to center and scale the predictor data prior to using this transformation
+  - spatial sign transformation of the predictors transforms them as a group. Removing predictor variables after applying this technique may be problematic.
 
 
 ### Data Reduction and Signal/Feature Extraction
@@ -114,12 +114,14 @@ Censored data &#8800; Missing data: The exact value is missing but something is 
 - Remove highly correlated predictors as both mesure the same underlaying information. **For linear regressions use VIF for other models ensure that all pairwise correlations are below 0.75 threshold for sensitive models**
 
 
-### Adding Predictors
+### Adding Predictors (Feature engineering)
 
 - Dummy variables: If the model allow it, dummy variables would help improve interpretation of the model.
 
 - Squared predictors for simplistic models such as regressions
 
 - class centroids for classification models: centers of the predictor data for each class. For each predictor, the distance to each class centroid can be calculated and these distances can be added to the model.
+
+- When the response is bimodal (or multimodal), categorizing the response is appropriate.
 
 **AVOID**: Binning Predictors (e.g., Temperature less than 36 ◦C or greater than 38 ◦C.)
