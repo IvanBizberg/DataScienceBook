@@ -30,12 +30,16 @@ Summary %>% gt() %>% cols_label(Allows = "Allows n < p", Preprocessing = "Pre-pr
 
 [@kuhnAppliedPredictiveModeling2013]
 
+## Model Process
 
-Common steps in model building
-- Pre-processing the predictor data 
-- Estimating model parameters 
-- Selecting predictors for the model 
-- Evaluating model performance 
-- Fine tuning class prediction rules (via ROC curves, etc.)
+![Modeling Process: four distinct models are being evaluated. When modeling data, there is almost never a single model fit or feature set that will immediately solve the problem. The process is more likely to be a campaign of trial and error to achieve the best results. The effect of feature sets can be much larger than the effect of different models. The interplay between models and features is complex and somewhat unpredictable. With the right set of predictors, is it common that many different types of models can achieve the same level of performance.](Images/modeling process.png)
 
-- optimization routines (e.g., Nelder–Mead simplex method = *direct methods*) can later be use to search the optimal key value (e.g., determine possible mixtures with improved compressive strength)
+0) Exploratory data analysis (evaluating simple summary measures or identifying predictors that have strong correlations with the outcome / how the predictors will be represented)
+1) Pre-processing the predictor data 
+2) Estimating model parameters 
+3) Selecting predictors for the model 
+4) Evaluating model performance 
+5) Fine tuning class prediction rules (via ROC curves, etc.)
+
+6) optimization routines (e.g., Nelder–Mead simplex method = *direct methods*) can later be use to search the optimal key value (e.g., determine possible mixtures with improved compressive strength)
+7) EDA can be conducted on the model results (e.g., residual analysis)

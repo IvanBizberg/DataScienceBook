@@ -166,6 +166,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Feature Engineering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Feature Engineering</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SQL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">SQL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -188,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#data-reduction-and-signalfeature-extraction" id="toc-data-reduction-and-signalfeature-extraction" class="nav-link" data-scroll-target="#data-reduction-and-signalfeature-extraction"><span class="header-section-number">3.1.4</span> Data Reduction and Signal/Feature Extraction</a></li>
   <li><a href="#dealing-with-missing-values" id="toc-dealing-with-missing-values" class="nav-link" data-scroll-target="#dealing-with-missing-values"><span class="header-section-number">3.1.5</span> Dealing with Missing Values</a></li>
   <li><a href="#removing-predictors" id="toc-removing-predictors" class="nav-link" data-scroll-target="#removing-predictors"><span class="header-section-number">3.1.6</span> Removing Predictors</a></li>
-  <li><a href="#adding-predictors-feature-engenieering" id="toc-adding-predictors-feature-engenieering" class="nav-link" data-scroll-target="#adding-predictors-feature-engenieering"><span class="header-section-number">3.1.7</span> Adding Predictors (Feature engenieering)</a></li>
+  <li><a href="#adding-predictors-see-feature-engineering" id="toc-adding-predictors-see-feature-engineering" class="nav-link" data-scroll-target="#adding-predictors-see-feature-engineering"><span class="header-section-number">3.1.7</span> Adding Predictors (see Feature engineering)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -227,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 <li>log</li>
 <li>square root</li>
 <li>inverse</li>
-<li>Box and Cox</li>
+<li>Box and Cox (can only be applied to data that is strictly positive)</li>
 </ul>
 </section>
 <section id="resolve-outliers" class="level3" data-number="3.1.3">
@@ -244,8 +256,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="data-reduction-and-signalfeature-extraction" class="level3" data-number="3.1.4">
 <h3 data-number="3.1.4" class="anchored" data-anchor-id="data-reduction-and-signalfeature-extraction"><span class="header-section-number">3.1.4</span> Data Reduction and Signal/Feature Extraction</h3>
 <p>These methods reduce the data by generating a smaller set of predictors that seek to capture a majority of the information in the original variables.</p>
-<section id="pca" class="level4" data-number="3.1.4.1">
-<h4 data-number="3.1.4.1" class="anchored" data-anchor-id="pca"><span class="header-section-number">3.1.4.1</span> PCA</h4>
+<section id="pca-unsupervised-technique" class="level4" data-number="3.1.4.1">
+<h4 data-number="3.1.4.1" class="anchored" data-anchor-id="pca-unsupervised-technique"><span class="header-section-number">3.1.4.1</span> PCA (<em>unsupervised technique</em>)</h4>
 <p>The number of components to retain is choosen by creating a scree plot (Fig 1)</p>
 <p>For most data sets, the first few PCs will summarize a majority of the variability, and the plot will show a steep descent; variation will then taper off for the remaining components. Generally, the component number prior to the tapering off of variation is the maximal component that is retained. In an automated model building process, the optimal number of components can be determined by cross-validation (see Resampling Techniques).</p>
 <div class="quarto-figure quarto-figure-center">
@@ -279,27 +291,27 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="pls-to-do" class="level4" data-number="3.1.4.2">
-<h4 data-number="3.1.4.2" class="anchored" data-anchor-id="pls-to-do"><span class="header-section-number">3.1.4.2</span> PLS (<em>to do</em>)</h4>
+<section id="pls-supervised-technique" class="level4" data-number="3.1.4.2">
+<h4 data-number="3.1.4.2" class="anchored" data-anchor-id="pls-supervised-technique"><span class="header-section-number">3.1.4.2</span> PLS (<em>supervised technique</em>)</h4>
+<p>Derive components while simultaneously considering the corresponding response.</p>
 </section>
 </section>
 <section id="dealing-with-missing-values" class="level3" data-number="3.1.5">
 <h3 data-number="3.1.5" class="anchored" data-anchor-id="dealing-with-missing-values"><span class="header-section-number">3.1.5</span> Dealing with Missing Values</h3>
-<p>Before proceeding: It is important to understand why the values are missing to check for <em>informative missing</em>. Informative missingness can induce significant bias in the model.</p>
+<p>Before proceeding: It is important to understand why the values are missing to check for <em>informative missing</em> using visualization such as heatmap or cooccurrence plot (for smaller data) or by plotting the first two scores from a PCA model of the missing data indicator matrix (for larger data sets). Informative missingness can induce significant bias in the model.</p>
 <p><strong>Examples</strong>: - people are more compelled to rate products when they have strong opinions (good or bad) - The tested drug was extremely ineffective or had significant side effects. The patient may be likely to miss doctor visits or to drop out of the study.</p>
 <ul>
 <li><strong>1)</strong> <strong>Remove predictors</strong> from models if the percentage of missing data is substantial</li>
 <li><strong>2)</strong> For large data sets, <strong>removal of samples</strong> based on missing values is not a problem</li>
 <li><strong>3</strong> If we <strong>do not remove</strong> the missing data:
 <ul>
-<li><p>Use tree-based techniques, which account for missing data</p></li>
-<li><p>impute missing data using information in the training set predictors to estimate the values of other predictors. This amounts to a predictive model within a predictive model. If we are using resampling to select tuning parameter values or to estimate performance, the imputation should be incorporated within the resampling. This will increase the computational time for building models, but it will also provide honest estimates of model performance.</p>
+<li>Use tree-based techniques, which account for missing data</li>
+<li>code mussing data as “missing”</li>
+<li>impute missing data using information in the training set predictors (for small to moderate amounts of missingness). This amounts to a predictive model within a predictive model. If we are using resampling to select tuning parameter values or to estimate performance, the imputation should be incorporated within the resampling. This will increase the computational time for building models, but it will also provide honest estimates of model performance.
 <ul>
-<li>K-nearest neighbor model:</li>
-</ul>
-<p>Advantages: The imputed data are confined to be within the range of the training set values. Disadvantages: The entire training set is required every time a missing value needs to be imputed <strong>and</strong> The number of neighbors is a tuning parameter</p>
-<ul>
+<li>K-nearest neighbor model: <em>Advantages</em>: The imputed data are confined to be within the range of the training set values. <em>Disadvantages</em>: The entire training set is required every time a missing value needs to be imputed <strong>and</strong> The number of neighbors is a tuning parameter</li>
 <li>Linear regression model: between a predictor with few missing points strongly associated with the predictor with missing data (correlation / visualizations / PCA.</li>
+<li>Bagged trees</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -316,17 +328,11 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Remove near-zero predictors (e.g., predictor variable where the percentage of unique values is low &lt; 10% = unique values/total values and The ratio of the frequency of the most prevalent value to the frequency of the second most prevalent value is large &gt; 20).</p></li>
 <li><p>Remove problematic predictors with degenerate distributions as some models can be crippled by them</p></li>
 <li><p>Remove highly correlated predictors as both mesure the same underlaying information. <strong>For linear regressions use VIF for other models ensure that all pairwise correlations are below 0.75 threshold for sensitive models</strong></p></li>
+<li><p>Feature Selection (see Feature Selection section)</p></li>
 </ul>
 </section>
-<section id="adding-predictors-feature-engenieering" class="level3" data-number="3.1.7">
-<h3 data-number="3.1.7" class="anchored" data-anchor-id="adding-predictors-feature-engenieering"><span class="header-section-number">3.1.7</span> Adding Predictors (Feature engenieering)</h3>
-<ul>
-<li><p>Dummy variables: If the model allow it, dummy variables would help improve interpretation of the model.</p></li>
-<li><p>Squared predictors for simplistic models such as regressions</p></li>
-<li><p>class centroids for classification models: centers of the predictor data for each class. For each predictor, the distance to each class centroid can be calculated and these distances can be added to the model.</p></li>
-<li><p>When the response is bimodal (or multimodal), categorizing the response is appropriate.</p></li>
-</ul>
-<p><strong>AVOID</strong>: Binning Predictors (e.g., Temperature less than 36 ◦C or greater than 38 ◦C.)</p>
+<section id="adding-predictors-see-feature-engineering" class="level3" data-number="3.1.7">
+<h3 data-number="3.1.7" class="anchored" data-anchor-id="adding-predictors-see-feature-engineering"><span class="header-section-number">3.1.7</span> Adding Predictors (see Feature engineering)</h3>
 
 
 </section>

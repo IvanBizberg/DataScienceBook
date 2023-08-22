@@ -17,6 +17,8 @@ book:
     - Deal with suboptimal data.qmd
     - Measuring Predictor Importance.qmd
     - Feature Selection.qmd
+    - Feature Engineering.qmd
+    - SQL.qmd
     - references.qmd
 
 bibliography: references.bib

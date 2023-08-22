@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: dfa43578-a45f-4171-a668-7b269d5474df
+      url: 'https://ivanbizberg.quarto.pub/data-science-baseline'

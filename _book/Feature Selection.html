@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./Feature Engineering.html" rel="next">
 <link href="./Measuring Predictor Importance.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -166,6 +166,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Feature Engineering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Feature Engineering</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SQL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">SQL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -226,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="approaches-for-reducing-the-number-of-predictors" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="approaches-for-reducing-the-number-of-predictors"><span class="header-section-number">10.4</span> Approaches for Reducing the Number of Predictors</h2>
 <ul>
-<li><p>Wrapper methods evaluate multiple models using procedures that add and/or remove predictors to find the optimal combination that maximizes model performance. In essence, wrapper methods are search algorithms that treat the predictors as the inputs and utilize model performance as the output to be optimized.</p>
+<li><p><strong>Wrapper</strong> methods evaluate multiple models using procedures that add and/or remove predictors to find the optimal combination that maximizes model performance. In essence, wrapper methods are search algorithms that treat the predictors as the inputs and utilize model performance as the output to be optimized.</p>
 <ul>
 <li><strong>Forward, Backward, and Stepwise Selection</strong>: Add, remove predictors or both to find the model that results in the smallest model RMSE/AIC (Used in linear regressions)</li>
 <li><strong>Correlation-based feature selection</strong>: find the best subset of predictors that have strong correlations with the outcome but weak between-predictor correlations</li>
@@ -238,13 +250,14 @@ ul.task-list li input[type="checkbox"] {
 <li>many models are evaluated (which may also require parameter tuning) and thus an increase in computation time</li>
 <li>increased risk of over-fitting</li>
 </ul></li>
-<li><p>Filter methods evaluate the relevance of the predictors outside of the predictive models and subsequently model only the predictors that pass some criterion. For example, for classification problems, each predictor could be individually evaluated to check if there is a plausible relationship between it and the observed classes. Only predictors with important relationships would then be included in a classification model.</p>
+<li><p><strong>Filter</strong> methods evaluate the relevance of the predictors outside of the predictive models and subsequently model only the predictors that pass some criterion. For example, for classification problems, each predictor could be individually evaluated to check if there is a plausible relationship between it and the observed classes. Only predictors with important relationships would then be included in a classification model.</p>
 <p><strong>Advantages</strong>: more computationally efficient <strong>Disadvantages</strong>:</p>
 <ul>
 <li>the selection criterion is not directly related to the effectiveness of the model</li>
 <li>methods evaluate each predictor separately, and, consequently, redundant (i.e., highly-correlated) predictors may be selected and important interactions between variables will not be able to be quantified</li>
 <li>subjective nature to the procedure. Most scoring methods have no obvious cut point to declare which predictors are important enough to go into the model (In practice, finding an appropriate value for the confidence value α may require several evaluations until acceptable performance is achieved.)</li>
 </ul></li>
+<li><p><strong>Embedded</strong> methods are models where the feature selection procedure occurs naturally in the course of the model fitting process. Here an example would be a simple decision tree where variables are selected when the model uses them in a split. If a predictor is never used in a split, the prediction equation is functionally independent of this variable and it has been selected out.</p></li>
 </ul>
 <p><strong>Note</strong>: When using other search procedures or filters for reducing the number of predictors, there is still a risk. The following situations increase the likelihood of selection bias:</p>
 <ul>
@@ -499,8 +512,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Feature Engineering.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Feature Engineering</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

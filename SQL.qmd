@@ -1,0 +1,41 @@
+---
+title: "SQL"
+---
+
+```{r, warning=FALSE}
+library(dbplyr)
+library(tidyverse)
+
+
+con <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+copy_to(con, mtcars)
+```
+
+```{sql connection=con}
+SELECT * 
+FROM mtcars
+WHERE cyl BETWEEN 4 and 8
+```
+
+
+
+## SQL vs dplyr
+
+|SQL | dplyr|
+---|---:
+SELECT table1.column_name1 | select
+FROM | df %>% 
+INNER JOIN table2 ON table1.column_name1 = table2.column_name1 AND table1.column_name2 = table2.column_name2 | inner_join(., table2, by = c("column_name1" = "column_name1", "column_name2" = "column_name2"))
+LEFT JOIN table2 ON table1.column_name = table2.column_name | left_join(., table2, by = c("column_name" = "column_name")
+RIGHT JOIN table2 ON table1.column_name = table2.column_name | right_join(., table2, by = c("column_name" = "column_name")
+FULL OUTER JOIN table2 ON table1.column_name = table2.column_name | full_join(., table2, by = c("column_name" = "column_name")
+WHERE (IN [num/char]; BETWEEN [num] AND [num]) | filter ( %in% ; %in% c(1:10))
+GROUP BY | group_by
+HAVING (filter results of aggregate functions applied to grouped data) | filter 
+ORDER BY | arrange
+LIMIT [num] | slice_head(n = [num])
+
+## functions
+
+*MOD*	Returns the remainder (number after the point 67 in 3.67) of a number divided by another number
+*LENGTH*	Returns the length of a string (in bytes)

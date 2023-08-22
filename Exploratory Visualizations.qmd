@@ -1,0 +1,17 @@
+# Exploratory Visualizations
+
+
+- Univariate visualizations (Box Plots, Violin Plots, and Histograms) to understand the distribution of a single variable. \
+
+  - understand the distribution of the response variable (symmetric distribution / skewed distribution / distribution has multiple peaks or modes / outliers) to:
+    - know its variation and provide a lower bound of the expectations of model performance (the residuals from a model that contains these predictors should have less variation than the variation of the response)
+    - know if it should be transformed to a normal distribution prior to analysis to have better predictive performance
+    - provide clues for including or creating features that help explain the response
+  
+- scatter plots of individual predictors and the response, 
+- a pairwise correlation plot among the predictors, 
+- a projection of high-dimensional predictors into a lower dimensional space, 
+- line plots for time-based predictors, 
+- the first few levels of a regression or classification tree, 
+- a heatmap across the samples and predictors\
+- mosaic plots for examining associations among categorical variables.

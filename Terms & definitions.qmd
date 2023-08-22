@@ -64,6 +64,10 @@ Blue model:
 
 ## Entropy
 
+## Residual
+
+difference between the observed value and the predicted value 
+
 ## Regularization 
 
 It make the prediction less sensitive to the training data.
@@ -76,12 +80,12 @@ Quartiles: The 25th, 50th, and 75th percentiles are called the first quartile (Q
 
 Percentiles: These are any values that divide the data into 100 equal parts. For example, the 20th percentile is the value below which 20% of the data falls, and the 80th percentile is the value below which 80% of the data falls.
 
-# Greedy algorithms
+## Greedy algorithms
 
 When a procedure is greedy, it means that it does not reevaluate past solutions.
 
 
-# Extrapolation
+## Extrapolation
 
 Extrapolation is commonly defined as using a model to predict samples that are outside the range of the training data. To know if we can trust our model we need to compare the predictor space between the training data and new data. 
 
@@ -92,4 +96,6 @@ Extrapolation is commonly defined as using a model to predict samples that are o
 - This can also be done using the following **algorithm**
 
 ![Algorithm and Extrapolation](Images/Algorithm and Extrapolation.png)
+## Autoencoders
 
+Models that can denoise or smooth the predictor values. The outcome is not required to create an autoencoder so unlabeled data can potentially improve the situation.

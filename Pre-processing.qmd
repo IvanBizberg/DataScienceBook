@@ -16,7 +16,7 @@ Skewed data: Ratio of the highest value to the lowest value is greater than 20 h
 - log
 - square root
 - inverse
-- Box and Cox
+- Box and Cox (can only be applied to data that is strictly positive)
 
 ### Resolve Outliers 
 
@@ -32,7 +32,7 @@ Skewed data: Ratio of the highest value to the lowest value is greater than 20 h
 
 These methods reduce the data by generating a smaller set of predictors that seek to capture a majority of the information in the original variables.
 
-#### PCA
+#### PCA (*unsupervised technique*)
 
 The number of components to retain is choosen by creating a scree plot (Fig 1)
 
@@ -68,11 +68,13 @@ For most data sets, the first few PCs will summarize a majority of the variabili
 ![**Figure 2**: loadings for the first three components in the cell segmentation data. For the first principal component, the loadings for the first channel are on the extremes. This indicates that channel 1 have the largest effect on the first principal component and by extension the predictor values. Also note that the majority of the loadings for the third channel are closer to zero for the first component. Conversely, the third principal component is mostly associated with the third channel while the first channel plays a minor role here.](Images/A plot of the loadings of the first three principal components.png)
 
   
-#### PLS (*to do*)
+#### PLS (*supervised technique*)
+
+Derive components while simultaneously considering the corresponding response.
 
 ### Dealing with Missing Values
 
-Before proceeding: It is important to understand why the values are missing to check for *informative missing*. Informative missingness can induce significant bias in the model.
+Before proceeding: It is important to understand why the values are missing to check for *informative missing* using visualization such as heatmap or cooccurrence plot (for smaller data) or by plotting the first two scores from a PCA model of the missing data indicator matrix (for larger data sets). Informative missingness can induce significant bias in the model.
 
 **Examples**: 
  - people are more compelled to rate products when they have strong opinions (good or bad)
@@ -83,15 +85,13 @@ Before proceeding: It is important to understand why the values are missing to c
 - **2)** For large data sets, **removal of samples** based on missing values is not a problem
 - **3** If we **do not remove** the missing data:
   - Use tree-based techniques, which account for missing data
-  - impute missing data using information in the training set predictors to estimate the values of other predictors. This amounts to a predictive model within a predictive model. If we are using resampling to select tuning parameter values or to estimate performance, the imputation should be incorporated within the resampling. This will increase the computational time for building models, but it will also provide honest estimates of model performance.
-  
-  
+  - code mussing data as "missing"
+  - impute missing data using information in the training set predictors (for small to moderate amounts of missingness). This amounts to a predictive model within a predictive model. If we are using resampling to select tuning parameter values or to estimate performance, the imputation should be incorporated within the resampling. This will increase the computational time for building models, but it will also provide honest estimates of model performance.
     - K-nearest neighbor model:
-    
-    Advantages: The imputed data are confined to be within the range of the training set values.
-    Disadvantages: The entire training set is required every time a missing value needs to be imputed **and** The number of neighbors is a tuning parameter
-    
+      *Advantages*: The imputed data are confined to be within the range of the training set values.
+      *Disadvantages*: The entire training set is required every time a missing value needs to be imputed **and** The number of neighbors is a tuning parameter
     - Linear regression model: between a predictor with few missing points strongly associated with the predictor with missing data (correlation / visualizations / PCA. 
+    - Bagged trees
       
 
 
@@ -113,15 +113,6 @@ Censored data &#8800; Missing data: The exact value is missing but something is 
 
 - Remove highly correlated predictors as both mesure the same underlaying information. **For linear regressions use VIF for other models ensure that all pairwise correlations are below 0.75 threshold for sensitive models**
 
+- Feature Selection  (see Feature Selection section)
 
-### Adding Predictors (Feature engineering)
-
-- Dummy variables: If the model allow it, dummy variables would help improve interpretation of the model.
-
-- Squared predictors for simplistic models such as regressions
-
-- class centroids for classification models: centers of the predictor data for each class. For each predictor, the distance to each class centroid can be calculated and these distances can be added to the model.
-
-- When the response is bimodal (or multimodal), categorizing the response is appropriate.
-
-**AVOID**: Binning Predictors (e.g., Temperature less than 36 ◦C or greater than 38 ◦C.)
+### Adding Predictors (see Feature engineering)
