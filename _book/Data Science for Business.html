@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Science Book - 14&nbsp; Data Science for Business</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Supply Chain.html" rel="next">
+<link href="./Big Data.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Data Science for Business.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Science for Business</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Science Book</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Terms &amp; definitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Terms &amp; definitions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Choose model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose the machine learning model</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pre-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Pre-processing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Model Tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Model Tuning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Linear Models and Its Cousins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression and Its Cousins</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Nonlinear Models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clustering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clustering</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Deal with suboptimal data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Remedies for suboptimal data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Measuring Predictor Importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Measuring Predictor Importance</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Feature Selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Feature Selection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Feature Engineering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Feature Engineering</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SQL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">SQL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Big Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Big Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data Science for Business.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Science for Business</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Supply Chain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Supply Chain</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A B Testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A/B Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#ml-process" id="toc-ml-process" class="nav-link active" data-scroll-target="#ml-process"><span class="header-section-number">14.1</span> ML process</a>
+  <ul class="collapse">
+  <li><a href="#seq-Expected_value" id="toc-seq-Expected_value" class="nav-link" data-scroll-target="#seq-Expected_value"><span class="header-section-number">14.1.1</span> Expected value framework:</a></li>
+  </ul></li>
+  <li><a href="#include-costs-of-aquiring-data" id="toc-include-costs-of-aquiring-data" class="nav-link" data-scroll-target="#include-costs-of-aquiring-data"><span class="header-section-number">14.2</span> Include costs of aquiring data</a></li>
+  <li><a href="#crisp-dm" id="toc-crisp-dm" class="nav-link" data-scroll-target="#crisp-dm"><span class="header-section-number">14.3</span> CRISP-DM</a></li>
+  <li><a href="#ml-list-of-data-science-tasks-and-tools" id="toc-ml-list-of-data-science-tasks-and-tools" class="nav-link" data-scroll-target="#ml-list-of-data-science-tasks-and-tools"><span class="header-section-number">14.4</span> ML list of data science tasks and tools</a></li>
+  <li><a href="#data-science-process-questions" id="toc-data-science-process-questions" class="nav-link" data-scroll-target="#data-science-process-questions"><span class="header-section-number">14.5</span> Data Science process questions</a></li>
+  <li><a href="#proposal-example" id="toc-proposal-example" class="nav-link" data-scroll-target="#proposal-example"><span class="header-section-number">14.6</span> Proposal Example</a></li>
+  <li><a href="#databricks" id="toc-databricks" class="nav-link" data-scroll-target="#databricks"><span class="header-section-number">14.7</span> DataBricks</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Science for Business</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>ML</strong> is generally associated with making predictions at the individual level (inferences without attempting to understand the entire population), <strong>while</strong> <strong>statistics</strong> is used for inference, emphasizing the analysis of a sample from the population to draw conclusions about the population.</p>
+<section id="ml-process" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="ml-process"><span class="header-section-number">14.1</span> ML process</h2>
+<ol type="1">
+<li>What is the goal of the analysis? (It is never to maximize accuracy.)</li>
+<li>Think in context: What are the baseline benefits, and is it worth trying to improve them? (Understand the time cost of complex systems.)</li>
+<li>Expected value framework:</li>
+</ol>
+<ul>
+<li>Decompose the problem into subtasks that we think we can solve, usually starting with existing tools.</li>
+<li>Calculate expected benefit</li>
+<li>Estimate each probabilities and values using data (statistics or ml, business values often need to be acquired from other sources)</li>
+<li>We may discover knowledge that will help us to solve the problem we had set out to solve, or we may discover something unexpected that leads us to other important successes</li>
+<li>Acknowledge the biases</li>
+</ul>
+<ol start="4" type="1">
+<li>Plan a way to evaluate/measure the benefits of the system (e.g., offline metrics like A/B tests / cost and benefit framework and online metrics like accuracy).</li>
+<li>Communicate the results using explainable methods.</li>
+<li>Ethical considerations: Be careful of biased data used to test the model, as the model will likely exacerbate those biases.</li>
+</ol>
+<section id="seq-Expected_value" class="level3" data-number="14.1.1">
+<h3 data-number="14.1.1" class="anchored" data-anchor-id="seq-Expected_value"><span class="header-section-number">14.1.1</span> Expected value framework:</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/general form of an expected value calculation.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Each <em>o</em><sub>i</sub> is a possible decision outcome; <em>p</em>(<em>o</em><sub>i</sub>) is its probability and <em>v</em>(<em>o</em> <sub>i</sub>) is its value.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expected value example:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>probability of response * (response benefit - expenses) - (1 - probability of response) * (benefit of not responding (zero) - the cost of the solicitation)</li>
+<li>probability of response * (response benefit - expenses) - (1 - probability of response) * (benefit of not responding (zero) - the cost of the solicitation) &gt; 0</li>
+<li>probability of response * (response benefit - expenses) &gt; (1 - probability of response) * (benefit of not responding (zero) - the cost of the solicitation)</li>
+<li>probability of response &gt; 1 / ((benefit of not responding (zero) - the cost of the solicitation) + (response benefit - expenses))</li>
+</ul>
+<p>With these example values, we should target the consumer as long as the estimated probability of responding is greater than 1 / ((benefit of not responding (zero) - the cost of the solicitation) + (response benefit - expenses))%.</p>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/expected value calculation.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Expected value calculation: Each <em>o</em><sub>i</sub> corresponds to one cell of the confusion matrix. For example, what is the probability associated with the particular combination of a consumer being predicted to churn and actually does not churn? That would be estimated by the number of test-set consumers who fell into the confusion matrix cell (Y,n), divided by the total number of test-set consumers.</figcaption>
+</figure>
+</div>
+<p>A common way of expressing expected profit is to factor out the probabilities of seeing each class, often referred to as the class priors. The class priors, p(p) and p(n), specify the likelihood of seeing positive and negative instances, respectively. Factoring these out allows us to separate the influence of class imbalance from the fundamental predictive power of the model, as we will discuss in more detail in Chapter 8. <img src="Images/Expected profit equation with priors.png" class="img-fluid" alt="Expected profit equation with priors. p(p) corresponding to the expected profit from the positive examples, and p(n) corresponding to the expected profit from the negative examples. Each of these is weighted by the probability that we see that sort of example. So, if positive examples are very rare, their contribution to the overall expected profit will be correspondingly small."> <img src="Images/targeted marketing example.png" class="img-fluid" alt="Targeted marketing example. We now can see one way to deal with our motivating example from the beginning of the chapter. Instead of computing accuracies for the competing models, we would compute expected values."></p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Two pitfalls that are common when formulating cost-benefit matrices:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>It is important to make sure the signs of quantities in the costbenefit matrix are consistent. In this book we take benefits to be positive and costs to be negative. In many data mining studies, the focus is on minimizing cost rather than maximizing profit, so the signs are reversed. Mathematically, there is no difference. However, it is important to pick one view and be consistent.</li>
+<li>An easy mistake in formulating cost-benefit matrices is to “double count” by putting a benefit in one cell and a negative cost for the same thing in another cell (or vice versa). A useful practical test is to compute the benefit improvement for changing the decision on an example test instance.<br>
+For example, say you’ve built a model to predict which accounts have been defrauded. You’ve determined that a fraud case costs $1,000 on average. If you decide that the benefit of catching fraud is therefore +$1,000/case on average, and the cost of missing fraud is -$1,000/case, then what would be the improvement in benefit for catching a case of fraud? You would calculate: b( Y,p ) - b(N,p) = $1000 - (-$1000) = $2000 But intuitively you know that this improvement should only be about $1,000, so this error indicates double counting. The solution is to specify either that the benefit of catching fraud is $1,000 or that the cost of missing fraud is -$1,000, but not both. One should be zero.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="include-costs-of-aquiring-data" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="include-costs-of-aquiring-data"><span class="header-section-number">14.2</span> Include costs of aquiring data</h2>
+<p>Different data sources may have different associated costs, and careful evaluation may show which can be chosen to maximize the return on investment.</p>
+</section>
+<section id="crisp-dm" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="crisp-dm"><span class="header-section-number">14.3</span> CRISP-DM</h2>
+<p>Extracting useful knowledge from data to solve business problems can be treated systematically by following a process with reasonably well-defined stages.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/CRISP.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">CRISP</figcaption>
+</figure>
+</div>
+</section>
+<section id="ml-list-of-data-science-tasks-and-tools" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="ml-list-of-data-science-tasks-and-tools"><span class="header-section-number">14.4</span> ML list of data science tasks and tools</h2>
+<table class="table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 30%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Tasks</strong></th>
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: center;"><strong>Tools</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Prediction</td>
+<td style="text-align: left;">Estimate or predict, for each individual, which of a (small) set of classes this individual belongs to or the numerical value of some variable for that individual</td>
+<td style="text-align: center;"><strong>Supervised</strong>: Classification/Regression models</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Causal modeling</td>
+<td style="text-align: left;">Understand what events or actions actually influence other</td>
+<td style="text-align: center;"><strong>Supervised</strong>: A/B tests</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Similarity matching</td>
+<td style="text-align: left;">Identify similar individuals based on data known about them</td>
+<td style="text-align: center;"><strong>Generally unsupervised</strong>: clustering (also Classification, regression)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Clustering</td>
+<td style="text-align: left;">Group individuals in a population together by their similarity, but <strong>not driven by any specific purpose</strong> / Exploratory analysis</td>
+<td style="text-align: center;"><strong>Unsupervised</strong>: K-means, Hierarchical Clustering</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Co-occurrence grouping</td>
+<td style="text-align: left;">Find associations between entities based on transactions involving them: e.g., What items are commonly purchased together? While clustering looks at similarity between objects based on the objects’ attributes, co-occurrence grouping considers similarity of objects based on their appearing together in transactions.</td>
+<td style="text-align: center;"><strong>Unsupervised</strong>: cluster algorithms, Hidden Markov Models</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Profiling</td>
+<td style="text-align: left;">characterize the typical behavior of an individual, group, or population e.g.&nbsp;“What is the typical cell phone usage of this customer segment?”</td>
+<td style="text-align: center;"><strong>Generally Unsupervised</strong>: Cluster analysis, Anomalies detection; (also NLP, descriptive statistics)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-science-process-questions" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="data-science-process-questions"><span class="header-section-number">14.5</span> Data Science process questions</h2>
+<p><strong>Business and Data Understanding</strong></p>
+<ul>
+<li>What exactly is the business problem to be solved?</li>
+<li>Is the data science solution formulated appropriately to solve this business problem? NB: sometimes we have to make judicious approximations.</li>
+<li>What business entity does an instance/example correspond to?</li>
+<li>the problem a supervised or unsupervised problem? — If supervised — Is a target variable defined? — If so, is it defined precisely? — Think about the values it can take.</li>
+<li>Are the attributes defined precisely? — Think about the values they can take.</li>
+<li>For supervised problems: will modeling this target variable improve the stated business problem? An important subproblem? If the latter, is the rest of the business problem addressed?</li>
+<li>Does framing the problem in terms of expected value help to structure the subtasks that need to be solved?</li>
+<li>If unsupervised, is there an “exploratory data analysis” path well defined? (That is, where is the analysis going?)</li>
+</ul>
+<p><strong>Data Preparation</strong></p>
+<ul>
+<li>Will it be practical to get values for attributes and create feature vectors, and put them into a single table?</li>
+<li>If not, is an alternative data format defined clearly and precisely? Is this taken into account in the later stages of the project? (Many of the later methods/techniques assume the dataset is in feature vector format.)</li>
+<li>If the modeling will be supervised, is the target variable well defined? Is it clear how to get values for the target variable (for training and testing) and put them into the table?</li>
+<li>How exactly will the values for the target variable be acquired? Are there any costs involved? If so, are the costs taken into account in the proposal?</li>
+<li>Are the data being drawn from the similar population to which the model will be applied? If there are discrepancies, are the selection biases noted clearly? Is there a plan for how to compensate for them?</li>
+</ul>
+<p><strong>Modeling</strong></p>
+<ul>
+<li>Is the choice of model appropriate for the choice of target variable?
+<ul>
+<li>Classification, class probability estimation, ranking, regression, clustering, etc.</li>
+</ul></li>
+<li>Does the model/modeling technique meet the other requirements of the task?
+<ul>
+<li>Generalization performance, comprehensibility, speed of learning, speed of application, amount of data required, type of data, missing values?</li>
+<li>Is the choice of modeling technique compatible with prior knowledge of problem (e.g., is a linear model being proposed for a definitely nonlinear problem)?</li>
+</ul></li>
+<li>Should various models be tried and compared (in evaluation)?</li>
+<li>For clustering, is there a similarity metric defined? Does it make sense for the business problem?</li>
+</ul>
+<p><strong>Evaluation and Deployment</strong></p>
+<ul>
+<li>Is there a plan for domain-knowledge validation?
+<ul>
+<li>Will domain experts or stakeholders want to vet the model before deployment? If so, will the model be in a form they can understand?</li>
+</ul></li>
+<li>Is the evaluation setup and metric appropriate for the business task? Recall the original formulation.
+<ul>
+<li>Are business costs and benefits taken into account?</li>
+<li>For classification, how is a classification threshold chosen?</li>
+<li>Are probability estimates used directly?</li>
+<li>Is ranking more appropriate (e.g., for a fixed budget)?</li>
+<li>For regression, how will you evaluate the quality of numeric predictions? Why is this the right way in the context of the problem?</li>
+</ul></li>
+<li>Does the evaluation use holdout data?
+<ul>
+<li>Cross-validation is one technique.</li>
+</ul></li>
+<li>Against what baselines will the results be compared?
+<ul>
+<li>Why do these make sense in the context of the actual problem to be solved?</li>
+<li>Is there a plan to evaluate the baseline methods objectively as well?</li>
+</ul></li>
+<li>For clustering, how will the clustering be understood?</li>
+<li>Will deployment as planned actually (best) address the stated business problem?</li>
+<li>If the project expense has to be justified to stake</li>
+</ul>
+</section>
+<section id="proposal-example" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="proposal-example"><span class="header-section-number">14.6</span> Proposal Example</h2>
+<ol type="1">
+<li>Explain the problem.</li>
+<li>Define the goal (pay attention to the KPI used and report if the problem has slighlty change due to data limitations).</li>
+<li>Outline the approach to achieving the goal:
+<ul>
+<li>Specify the data to be used/collected.</li>
+<li>What attributes are going to be used</li>
+<li>Justify the choice of model(s). Think about the comprehensibility of the model to stakeholders</li>
+</ul></li>
+<li>Document the assumptions made during modeling.</li>
+<li>Describe the method for testing model performance.</li>
+<li>If pilot study already has been conducted and learning curves having been produced on data samples report and estimate of model performance</li>
+<li>Identify individuals responsible for peer reviewing the project (keep in mind that favour a simple model to allow other people to understand the model).</li>
+<li>Detail the strategy for tracking model performance.</li>
+</ol>
+</section>
+<section id="databricks" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="databricks"><span class="header-section-number">14.7</span> DataBricks</h2>
+<p>Create a notebook in databricks</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Big Data.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Big Data</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Supply Chain.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Supply Chain</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

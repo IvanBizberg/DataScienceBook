@@ -1,0 +1,63 @@
+# Big Data
+
+## DataBases vs Warehouse vs Data Lake
+
+Data Lake: Store all types of data
+DataBases: Raw data stored in tables
+Warehousen: Generally subset of data importe from the database through ETL used to perform analysis
+
+
+
+![DataBases, Warehouse Data Lake](Images/BigDataOLAP.png)
+
+
+
+## Connect to databricks
+
+### Libraries
+```{r eval=FALSE}
+library(sparklyr)
+library(pysparklyr)
+```
+
+### Connection
+```{r eval=FALSE}
+sc <- spark_connect(
+  master = "",
+  cluster_id = "1026-175310-7cpsh3g8",
+  token = "",
+  method = "databricks_connect"
+)
+```
+
+
+## Save data from dplyr to databricks
+Create a notebook in databricks
+```{r eval=FALSE}
+library(tidyverse)
+spark_available_versions()
+sc <- spark_connect(
+  master = "local",
+  version = "3.5"
+)
+
+df <- mtcars
+df_spark <- copy_to(sc, df, "df_spark")
+sdf_register(df_spark, "temp_table")
+SparkR::registerTempTable(df_sparkr, "temp_df")
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+see more on [@ruizMasteringSpark]

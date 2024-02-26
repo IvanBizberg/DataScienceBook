@@ -1,0 +1,96 @@
+---
+number-sections: true
+---
+
+# Clustering
+
+**Advantages**: 
+
+  - Pattern Discovery: Clustering helps uncover hidden patterns or structures within data. It can reveal insights and relationships that might not be apparent when examining individual data points.
+  - Data Reduction: Clustering can reduce the dimensionality of data by grouping similar data points together. This simplification can make it easier to visualize and understand large datasets.
+  - Anomaly Detection: Clustering can help identify outliers or anomalies in data. Data points that do not belong to any cluster may indicate unusual or unexpected behavior.
+  - Segmentation: Clustering is used extensively in marketing and customer segmentation. It helps businesses target specific customer groups with tailored marketing strategies.
+  - Recommendation Systems: Clustering can be used to group users or items with similar preferences, making it valuable for recommendation systems. For example, suggesting products or content to users with similar tastes.
+  - Unsupervised Learning: Clustering is a form of unsupervised learning, which means it does not require labeled data.
+
+**Disadvantages**: 
+
+  - Subjectivity: Results should not be taken as the absolute truth about a data set: not very robust to perturbations to the data; Choosing number of clusters (k) and defining similarity or distance metrics can change drastically the results. *RECOMENDATION: clustering subsets of the data in order to get a sense of the robustness of the clusters obtained.*
+  - Scalability: Overall computational heavy
+  - Evaluation Challenges: Evaluating the quality of clusters can be challenging, as there is no definitive metric for assessing clustering results. Different evaluation measures may lead to conflicting interpretations (see @sec-Validating).
+  - Curse of Dimensionality: Clustering can become less effective as the dimensionality of the data increases. High-dimensional spaces may require specialized techniques or preprocessing to achieve meaningful clustering.
+  - Interpretability: While clustering can reveal patterns, it does not provide direct explanations for why certain data points are grouped together. Additional analysis is often needed for interpretation.
+
+## Algorithms
+
+### K-means
+We seek to partition the observations hierarchical clustering into a pre-specified number of clusters
+
+**Advantages**: 
+
+  - Ease of Interpretation: K-means produces non-overlapping clusters, which can be easier to interpret and analyze compared to the nested structure of hierarchical clustering.
+  - Efficiency: K-means is computationally efficient, especially when dealing with a large dataset. It can handle large datasets much better than hierarchical clustering.
+  - Scalability: K-means can work well with high-dimensional data, making it suitable for a wide range of applications, including text mining and image segmentation.
+  
+**Disadvantages**: 
+
+  - it requires us to pre-specify the number of clusters K
+  - Assumes Equal Sized Clusters: K-means assumes that clusters are spherical, equally sized, and have similar densities, which may not hold true in real-world datasets.
+
+{{< video https://www.youtube.com/watch?v=4b5d3muPQmA start="33">}}
+
+
+### Hierarchical (bottom-up or agglomerative: dendrogram is build starting from the leaves)
+We do not know in advance how many clusters we want and the clusters are later choose base on the generated dendrogram.
+
+**Advantages**: 
+
+  - Does not requires us to pre-specify the number of clusters K and the results; thus more flexible
+  - Hierarchy Visualization: Attractive tree-based representation of the observations.
+  - Flexibility: You can cut the hierarchical tree at different levels to obtain clusters of different sizes and shapes, making it adaptable to various scenarios.
+  - Robustness: less sensitive to the initial conditions compared to K-means.
+
+**Disadvantages**: 
+
+  - Computationally Intensive and may not perform well with high-dimensional data or extremely large datasets due to the computational burden.
+
+
+
+{{< video https://www.youtube.com/watch?v=7xHsRkOdVwo start="23">}}
+
+## Preprocessing and Tuning
+
+We try several different choices, and look for the one with the most useful or interpretable solution.
+
+Preprocessing: 
+  - standardized observations or features
+  - Outlier handling
+  
+Tuning: 
+  - For K-means:
+    - n clusters  
+  
+  - For hierarchical clustering:
+    - dissimilarity measure
+    - type of linkage
+    - cutting points in the dendrogram
+    
+## Validating the Clusters Obtained {#sec-Validating}
+
+Assign a p-value to a cluster in order to assess whether there is more evidence for the cluster than one would expect due to chance. [see @hastieElementsStatisticalLearning2009]
+
+## Deal with outliers
+
+Mixture models (soft version of K-means clustering) are an attractive approach for accommodating the presence of small subset of the observations are quite different from each other and from all other observations (outliers that do not belong to any cluster) [see @hastieElementsStatisticalLearning2009].
+
+
+
+
+
+
+
+
+
+
+## References
+*data from [@jamesIntroductionStatisticalLearning2021]*

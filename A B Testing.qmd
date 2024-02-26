@@ -1,0 +1,55 @@
+---
+title: "A/B Testing"
+number-sections: true
+---
+
+Examines user experience through randomized tests with two variants. 
+
+**Typical steps**
+
+1) Determine the evaluation metric and experiment goals
+2) Select a significance level α and power threshold 1 - β
+3) Calculate the required sample size per variation
+4) Randomly assign users into control and treatment groups
+5) Measure and analyze results using the appropriate test
+
+The required sample size depends on α, β, and the MDE Minimum Detectable Effect - the target relative minimum increase over the baseline that should be observed from a test Overall Evaluation Criterion - quantitative measure of the test’s objective, commonly used when short and long-term metrics have inverse relationships
+
+**Tools**
+
+*Univariate Testing*:
+  
+| **Statistical Test**  | **Description** | **Use case** |
+| :-----: | :-----: | :-----: |
+|Z-Test  | Test differences between two means | **When large sample size and known population variance (>30)**|
+|T-Test | Test differences between two means | **When small sample size and unknown population variance (<30)**|
+|Welch's T-Test | Test differences between two means | **Adaptation of the t-test that does not assume equal variances (homoscedasticity: spread or dispersion of data points around the mean is consistent across all groups) offering more flexibility**|
+|Mann-Whitney U Test | Comparing two independent groups | **When data is not normally distributed**|
+|ANOVA | Test differences between three or more means | |
+|Chi-Squarde Test | Test if there is a significant association between two categorical variables | **e.g., sexe and energy drinks** |
+|Fisher's Exact Test | Test if there is a significant association between two categorical variables | **When small sample size <30**|
+|Multivariate Testing | compares 3+ variants or combinations, but requires larger sample sizes | |
+
+**Bonferroni Correction** - when conducting n tests, run each test at the α n significance level, which lowers the false positive rate of| finding effects by chance
+
+### Network Effects 
+
+Changes that occur due to effect spillover from other groups. 
+
+**Typical steps** To detect group interference:
+
+1) Split the population into distinct clusters
+2) Randomly assign half the clusters to the control and treatment groups A1 and B1
+3) Randomize the other half at the user-level and assign to control and treatment groups A2 and B2
+4) Intuitively, if there are network effects, then the tests will have different results To account for network effects, randomize users based on time, cluster, or location
+
+###Sequential Testing 
+
+Allows for early experiment stopping by drawing statistical borders based on the Type I Error rate. If the effect reaches a border, the test can be stopped. Used to combat peeking (preliminarily checking results of a test), which can inflate p-values and lead to incorrect conclusions.
+
+###Cohort Analysis 
+
+Examines specific groups of users based on behavior or time and can help identify whether novelty or primacy effects are present
+
+
+[@wangDataScienceCheatsheet2021]
