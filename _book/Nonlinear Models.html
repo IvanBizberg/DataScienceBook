@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DS Baseline - 6&nbsp; Nonlinear Models</title>
+<title>Data Science Book - 6&nbsp; Nonlinear Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Tree models.html" rel="next">
+<link href="./Clustering.html" rel="next">
 <link href="./Linear Models and Its Cousins.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -76,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Nonlinear Models.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Nonlinear Models</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -88,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">DS Baseline</a> 
+      <a href="./">Data Science Book</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -113,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Choose model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose machine learning model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose the machine learning model</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,8 +143,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Tree models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tree based models</span></span></a>
+  <a href="./Clustering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clustering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -166,6 +167,42 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Feature Engineering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Feature Engineering</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SQL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">SQL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Big Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Big Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data Science for Business.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Science for Business</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Supply Chain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Supply Chain</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A B Testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A/B Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -180,18 +217,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#tree-based-models" id="toc-tree-based-models" class="nav-link active" data-scroll-target="#tree-based-models"><span class="header-section-number">6.1</span> Tree-based models</a>
+  <li><a href="#sec-Tree_based_models" id="toc-sec-Tree_based_models" class="nav-link active" data-scroll-target="#sec-Tree_based_models"><span class="header-section-number">6.1</span> Tree-based models</a>
   <ul class="collapse">
   <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests"><span class="header-section-number">6.1.1</span> Random forests</a></li>
   <li><a href="#boosting-trees" id="toc-boosting-trees" class="nav-link" data-scroll-target="#boosting-trees"><span class="header-section-number">6.1.2</span> Boosting trees</a></li>
   </ul></li>
-  <li><a href="#multivariate-adaptive-regression-splines-mars" id="toc-multivariate-adaptive-regression-splines-mars" class="nav-link" data-scroll-target="#multivariate-adaptive-regression-splines-mars"><span class="header-section-number">6.2</span> Multivariate Adaptive Regression Splines (MARS)</a></li>
-  <li><a href="#support-vector-machines-svm" id="toc-support-vector-machines-svm" class="nav-link" data-scroll-target="#support-vector-machines-svm"><span class="header-section-number">6.3</span> Support Vector Machines (SVM)</a></li>
-  <li><a href="#k-nearest-neighbors-knn" id="toc-k-nearest-neighbors-knn" class="nav-link" data-scroll-target="#k-nearest-neighbors-knn"><span class="header-section-number">6.4</span> K-Nearest Neighbors (KNN)</a></li>
-  <li><a href="#neural-networks" id="toc-neural-networks" class="nav-link" data-scroll-target="#neural-networks"><span class="header-section-number">6.5</span> Neural Networks</a></li>
+  <li><a href="#sec-MARS" id="toc-sec-MARS" class="nav-link" data-scroll-target="#sec-MARS"><span class="header-section-number">6.2</span> Multivariate Adaptive Regression Splines (MARS)</a></li>
+  <li><a href="#sec-SVM" id="toc-sec-SVM" class="nav-link" data-scroll-target="#sec-SVM"><span class="header-section-number">6.3</span> Support Vector Machines (SVM)</a></li>
+  <li><a href="#sec-KNN" id="toc-sec-KNN" class="nav-link" data-scroll-target="#sec-KNN"><span class="header-section-number">6.4</span> K-Nearest Neighbors (KNN)</a></li>
+  <li><a href="#sec-Neural_Networks" id="toc-sec-Neural_Networks" class="nav-link" data-scroll-target="#sec-Neural_Networks"><span class="header-section-number">6.5</span> Neural Networks</a></li>
   <li><a href="#nonlinear-discriminant-analysis" id="toc-nonlinear-discriminant-analysis" class="nav-link" data-scroll-target="#nonlinear-discriminant-analysis"><span class="header-section-number">6.6</span> Nonlinear Discriminant Analysis</a></li>
   <li><a href="#flexible-discriminant-analysis" id="toc-flexible-discriminant-analysis" class="nav-link" data-scroll-target="#flexible-discriminant-analysis"><span class="header-section-number">6.7</span> Flexible Discriminant Analysis</a></li>
-  <li><a href="#naive-bayes" id="toc-naive-bayes" class="nav-link" data-scroll-target="#naive-bayes"><span class="header-section-number">6.8</span> Naive Bayes</a></li>
+  <li><a href="#sec-Naive_Bayes" id="toc-sec-Naive_Bayes" class="nav-link" data-scroll-target="#sec-Naive_Bayes"><span class="header-section-number">6.8</span> Naive Bayes</a>
+  <ul class="collapse">
+  <li><a href="#multinomial-naive-bayes" id="toc-multinomial-naive-bayes" class="nav-link" data-scroll-target="#multinomial-naive-bayes"><span class="header-section-number">6.8.1</span> Multinomial Naive Bayes</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -216,9 +256,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>In these models, the exact form of the nonlinearity does not need to be known explicitly or specified prior to model training.</p>
-<section id="tree-based-models" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="tree-based-models"><span class="header-section-number">6.1</span> Tree-based models</h2>
-<p><strong>Advantages</strong>: - Handles high-dimensional data well. - Robust to outliers and noise. - Provides feature importance measures. - Requires minimal data preprocessing and is relatively easy to implement.</p>
+<section id="sec-Tree_based_models" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-Tree_based_models"><span class="header-section-number">6.1</span> Tree-based models</h2>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>Handles high-dimensional data well.</li>
+<li>Robust to outliers and noise.</li>
+<li>Provides feature importance measures.</li>
+<li>Requires minimal data preprocessing and is relatively easy to implement.</li>
+</ul>
 <p><strong>Disadvantages</strong>:</p>
 <ul>
 <li>Can be computationally expensive for large datasets.</li>
@@ -248,6 +294,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="boosting-trees" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="boosting-trees"><span class="header-section-number">6.1.2</span> Boosting trees</h3>
+<p>Sequentially fits many simple models that account for the previous model’s errors. As opposed to bagging, boosting trains on all the data and combines models using the learning rate α.</p>
 <section id="adaboost" class="level4" data-number="6.1.2.1">
 <h4 data-number="6.1.2.1" class="anchored" data-anchor-id="adaboost"><span class="header-section-number">6.1.2.1</span> AdaBoost</h4>
 <p><strong>Advantages</strong>:</p>
@@ -307,6 +354,9 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><em>For regression</em>: </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/3CC4N4z3GJc?start=1468" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/OtD8wVaFm6E?start=1434" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
 <p><em>For classification</em>: </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/jxuNLH5dXCs?start=816" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/8b1JEDvenQU?start=1401" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
+</section>
+<section id="c5.0" class="level4" data-number="6.1.2.3">
+<h4 data-number="6.1.2.3" class="anchored" data-anchor-id="c5.0"><span class="header-section-number">6.1.2.3</span> C5.0</h4>
 <p><strong>Tuning parameters</strong>:</p>
 <ul>
 <li>maximum number of leaves: (generally between 8 and 32)</li>
@@ -315,8 +365,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 </section>
-<section id="multivariate-adaptive-regression-splines-mars" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="multivariate-adaptive-regression-splines-mars"><span class="header-section-number">6.2</span> Multivariate Adaptive Regression Splines (MARS)</h2>
+<section id="sec-MARS" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-MARS"><span class="header-section-number">6.2</span> Multivariate Adaptive Regression Splines (MARS)</h2>
 <p>MARS uses surrogate features (usually a function of only one or two predictors (second degree) at a time which are broken into two groups and models linear relationships between the predictor and the outcome in each group) instead of the original predictors (like pls and neural networks).</p>
 <p><strong>NOTES</strong> - GCV statistic is use to determine the contribution of each feature to the model.</p>
 <p><strong>Tuning parameters</strong>:</p>
@@ -333,8 +383,8 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Disadvantages</strong>: For MARS models that can include two or more terms at a time, we have observed occasional instabilities in the model predictions where a few sample predictions are wildly inaccurate (perhaps an order of magnitude off of the true value). This problem has not been observed with <em>additive MARS</em> models (models with degree of 1).</p>
 <p><strong>USE</strong>: When there is a clear indication that the relationship between the dependent variable and independent variables is non-linear and interpretability is impportante</p>
 </section>
-<section id="support-vector-machines-svm" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="support-vector-machines-svm"><span class="header-section-number">6.3</span> Support Vector Machines (SVM)</h2>
+<section id="sec-SVM" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-SVM"><span class="header-section-number">6.3</span> Support Vector Machines (SVM)</h2>
 <p><strong>USE</strong>: When we seek to minimize the effect of outliers</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/efR1C6CvhmE?start=41" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p><strong>NOTE</strong>: This principle also apply for regression. However in this case the svm will search for hyperplane that holds the maximum of the observation within the margin (tolerance level)</p>
@@ -351,18 +401,19 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Pre-processing</strong>: Center and scale the predictors prior to building an SVM model since the predictors enter into the model as the sum of cross products, differences in the predictor scales can affect the model.</p>
 </section>
-<section id="k-nearest-neighbors-knn" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="k-nearest-neighbors-knn"><span class="header-section-number">6.4</span> K-Nearest Neighbors (KNN)</h2>
-<p><em>For classification</em>: </p>
-<p><em>For regression</em>: </p>
+<section id="sec-KNN" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sec-KNN"><span class="header-section-number">6.4</span> K-Nearest Neighbors (KNN)</h2>
+<p><em>For classification</em>: </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/HVXime0nQeI?start=44" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
+<p><em>For regression</em>: </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/3lp5CmSwrHI?start=85" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
 <p><strong>Tuning parameters</strong>: K number of neighbors.</p>
 <p><strong>Advantages</strong>: The KNN method can have poor predictive performance when local predictor structure is not relevant to the response.</p>
 <p><strong>Pre-processing</strong>: - Remove irrelevant, noise-laden predictors is a key pre-processing step for KNN, since these can cause similar samples to be driven away from each other in the predictor space</p>
 <p><strong>NOTE</strong>: to enhance KNN predictability weight the neighbors’ contribution to the prediction of a new sample based on their distance to the new sample.</p>
 </section>
-<section id="neural-networks" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="neural-networks"><span class="header-section-number">6.5</span> Neural Networks</h2>
+<section id="sec-Neural_Networks" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="sec-Neural_Networks"><span class="header-section-number">6.5</span> Neural Networks</h2>
 <p>Neural Networks uses surrogate features instead of the original predictors (like pls and MARS)</p>
+<p></p>
 <p><em>For classification</em>: <strong>NOTES</strong>: Produce continuous predictions that do not follow the definition of a probability-the predicted values are not necessarily between 0 and 1 and do not sum to 1. Therefore, a transformation (e.g., <em>softmax transformation</em>) must be used to coerce the predictions into “probability-like” values so that they can be interpreted and used for classification.</p>
 <p><em>For regression</em>: <em>To be continued</em></p>
 </section>
@@ -374,11 +425,35 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="6.7" class="anchored" data-anchor-id="flexible-discriminant-analysis"><span class="header-section-number">6.7</span> Flexible Discriminant Analysis</h2>
 <p><em>For classification only</em>:</p>
 </section>
-<section id="naive-bayes" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="naive-bayes"><span class="header-section-number">6.8</span> Naive Bayes</h2>
-<p><em>For classification only</em>: </p>
+<section id="sec-Naive_Bayes" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="sec-Naive_Bayes"><span class="header-section-number">6.8</span> Naive Bayes</h2>
+<p>Naive Bayes is included in nearly every data mining toolkit and serves as a common baseline classifier against which more sophisticated methods can be compared</p>
+<p><strong>Advantages</strong>:</p>
+<p><em>For classification only</em>:</p>
+<ul>
+<li><p>It is very simple and efficient in terms of storage space and computation time. Training consists only of storing counts of classes and feature occurrences as each example is seen.</p></li>
+<li><p>Naive Bayes is that it is naturally an “incremental learner.” An incremental learner is an induction technique that can update its model one training example at a time. It does not need to reprocess all past training examples when new training data become available. Incremental learning is especially advantageous in applications where training labels are revealed in the course of the application, and we would like the model to reflect this new information as quickly as possible.</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Naive Bayes assume independence between variables although violating this rule don’t hurt classification performance it becomes a problem if we’re going to be using the probability estimates themselves (e.g., ranking if email 1 has a bigger likelihood of been spam than email 2).</p>
+</div>
+</div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/O2L2Uv9pdDA?start=60" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="multinomial-naive-bayes" class="level3" data-number="6.8.1">
+<h3 data-number="6.8.1" class="anchored" data-anchor-id="multinomial-naive-bayes"><span class="header-section-number">6.8.1</span> Multinomial Naive Bayes</h3>
+<p>Gaussian Naive Bayes </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/H3EjCKtlVog?start=60" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -622,8 +697,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Tree models.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tree based models</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Clustering.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clustering</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

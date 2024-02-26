@@ -1,4 +1,7 @@
-# Feature Engineering
+---
+title: "Feature Engineering"
+number-sections: true
+--- 
 
 ## Exploratory Visualizations
 
@@ -41,7 +44,7 @@ To understand the next set of improvements.
 - the first few levels of a regression or classification tree
 
 
-## Encoding Categorical Predictors
+## Encoding Categorical Predictors {#sec-Feature_engineering}
 
 ### Creating Dummy Variables for Unordered Categories 
 

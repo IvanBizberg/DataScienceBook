@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DS Baseline - 11&nbsp; Feature Engineering</title>
+<title>Data Science Book - 11&nbsp; Feature Engineering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -76,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Feature Engineering.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Feature Engineering</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -88,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">DS Baseline</a> 
+      <a href="./">Data Science Book</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -113,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Choose model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose machine learning model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose the machine learning model</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,8 +143,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Tree models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tree based models</span></span></a>
+  <a href="./Clustering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clustering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -178,6 +179,30 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Big Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Big Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data Science for Business.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Science for Business</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Supply Chain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Supply Chain</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A B Testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A/B Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -194,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#exploratory-visualizations" id="toc-exploratory-visualizations" class="nav-link active" data-scroll-target="#exploratory-visualizations"><span class="header-section-number">11.1</span> Exploratory Visualizations</a></li>
   <li><a href="#postmodeling-exploratory-visualizations" id="toc-postmodeling-exploratory-visualizations" class="nav-link" data-scroll-target="#postmodeling-exploratory-visualizations"><span class="header-section-number">11.2</span> Postmodeling Exploratory Visualizations</a></li>
-  <li><a href="#encoding-categorical-predictors" id="toc-encoding-categorical-predictors" class="nav-link" data-scroll-target="#encoding-categorical-predictors"><span class="header-section-number">11.3</span> Encoding Categorical Predictors</a>
+  <li><a href="#sec-Feature_engineering" id="toc-sec-Feature_engineering" class="nav-link" data-scroll-target="#sec-Feature_engineering"><span class="header-section-number">11.3</span> Encoding Categorical Predictors</a>
   <ul class="collapse">
   <li><a href="#creating-dummy-variables-for-unordered-categories" id="toc-creating-dummy-variables-for-unordered-categories" class="nav-link" data-scroll-target="#creating-dummy-variables-for-unordered-categories"><span class="header-section-number">11.3.1</span> Creating Dummy Variables for Unordered Categories</a></li>
   <li><a href="#encoding-predictors-with-many-categories" id="toc-encoding-predictors-with-many-categories" class="nav-link" data-scroll-target="#encoding-predictors-with-many-categories"><span class="header-section-number">11.3.2</span> Encoding Predictors with Many Categories</a></li>
@@ -282,8 +307,8 @@ ul.task-list li input[type="checkbox"] {
 <li>the first few levels of a regression or classification tree</li>
 </ul>
 </section>
-<section id="encoding-categorical-predictors" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="encoding-categorical-predictors"><span class="header-section-number">11.3</span> Encoding Categorical Predictors</h2>
+<section id="sec-Feature_engineering" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="sec-Feature_engineering"><span class="header-section-number">11.3</span> Encoding Categorical Predictors</h2>
 <section id="creating-dummy-variables-for-unordered-categories" class="level3" data-number="11.3.1">
 <h3 data-number="11.3.1" class="anchored" data-anchor-id="creating-dummy-variables-for-unordered-categories"><span class="header-section-number">11.3.1</span> Creating Dummy Variables for Unordered Categories</h3>
 <p><strong>Advatanges</strong>: Lead to zero-variance predictor which can be remove and omitting rarely occurring values and propagates this noise into the resampling estimates of performance. <strong>Disadvatanges</strong>: However if dummy zero-variance predictor is remove the model will not be able to predict <strong>USE</strong>: - When categories are small and it does not lead to zero-variance predictors <strong>NOTE</strong>: when model can support categorical data it is very difficult to predict if dummy variable will improve the model. Start without dummy variables and, if the model appears promising, to also try refitting using dummy variables.</p>

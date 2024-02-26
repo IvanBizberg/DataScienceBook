@@ -1,16 +1,75 @@
-# Linear Regression and Its Cousins
-
+---
+title: "Linear Regression and Its Cousins"
+number-sections: true
+---
 They all seek to find estimates of the parameters to minimize the sum-of-squared errors
 
-## Ordinary linear regression
+## Ordinary linear regression {#sec-Linear_regression}
 
 Finds parameter estimates that have minimum bias using the NIPALS approach
 **Advantages**: 
 
   - highly interpretable
   - enables us to compute standard errors of the coefficients allowing to assess the statistical significance of each predictor
+  
+**Assumptions**:
 
-## Partial least squares (PLS) 
+- Linear relationship and independent observations 
+- Homoscedasticity error terms have constant variance 
+- Errors are uncorrelated and normally distributed 
+- Low multicollinearity
+
+## Penalized models 
+*For classification and regressions*:
+Finds parameter estimates that have lower variance. We introduce bias to reduce variance and avoid overfitting
+
+**USE**: When sample size are small
+
+**Advantages**: reduce variance and increases prediction on the long term
+
+### Ridge regression {#sec-Ridge_Regression}
+{{< video https://www.youtube.com/watch?v=Q81RR3yKn30 start="75">}}
+
+**Advantages**: better at reducing variance in models that contain usefull variables
+
+### Lasso regression {#sec-Lasso_Regression}
+{{< video https://www.youtube.com/watch?v=NGf0voTMlcs start="435">}}
+
+**Advantages**: 
+  - better at reducing variance in models that contain useless variables
+  - simplify model
+
+### Elastic net {#sec-Elastic_net}
+{{< video https://www.youtube.com/watch?v=1dKRdX9bfIo start="260">}}
+
+**USE**: When you don't know if you have useless variables
+**Advantages**: Best of both ridge and lasso
+
+
+## Logistic Regression {#sec-Logistic_Regression}
+*For classification only*
+{{< video https://www.youtube.com/watch?v=yIYKR4sgzI8&list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe start="180">}}
+
+**Assumptions**:
+- Linear relationship between X and log-odds of Y 
+- Independent observations 
+- Low multicollinearity
+
+## Linear Discriminant Analysis {#sec-LDA}
+*For classification only*
+
+It is like PCA but it focuses on maximizing the separability among the known categories. 
+
+Create an axis (create two axis for three of more categories) that maximizes the distance between the means for the two categories while minimizing the scatter.
+
+As in PCA the first axis created (LDA1) by LDA accounts for the most variation between the categories. LDA2 does the second better job, LDA 3 the third best job etc etc...
+
+**NOTE**: We can see which variables correlates the most with each LDA
+
+{{< video https://www.youtube.com/watch?v=azXCzI57Yfc start="600">}}
+
+
+## Partial least squares (PLS) {#sec-PLS}
 
 *For regression and classification*:
 
@@ -46,49 +105,6 @@ Efficiently for data sets of small-to moderate size (e.g., < 2,500 samples and <
 
 **USE**: when there are more predictors than samples.
 
-## Penalized models 
-*For classification and regressions*:
-Finds parameter estimates that have lower variance. We introduce bias to reduce variance and avoid overfitting
-
-**USE**: When sample size are small
-
-**Advantages**: reduce variance and increases prediction on the long term
-
-### Ridge regression
-{{< video https://www.youtube.com/watch?v=Q81RR3yKn30 start="75">}}
-
-**Advantages**: better at reducing variance in models that contain usefull variables
-
-### Lasso regression
-{{< video https://www.youtube.com/watch?v=NGf0voTMlcs start="435">}}
-
-**Advantages**: 
-  - better at reducing variance in models that contain useless variables
-  - simplify model
-
-### Elastic net
-{{< video https://www.youtube.com/watch?v=1dKRdX9bfIo start="260">}}
-
-**USE**: When you don't know if you have useless variables
-**Advantages**: Best of both ridge and lasso
-
-
-### Logistic Regression
-*For classification only*
-{{< video https://www.youtube.com/watch?v=yIYKR4sgzI8&list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe start="180">}}
-
-### Linear Discriminant Analysis
-*For classification only*
-
-It is like PCA but it focuses on maximizing the separability among the known categories. 
-
-Create an axis (create two axis for three of more categories) that maximizes the distance between the means for the two categories while minimizing the scatter.
-
-As in PCA the first axis created (LDA1) by LDA accounts for the most variation between the categories. LDA2 does the second better job, LDA 3 the third best job etc etc...
-
-**NOTE**: We can see which variables correlates the most with each LDA
-
-{{< video https://www.youtube.com/watch?v=azXCzI57Yfc start="600">}}
 
 ### Partial Least Squares Discriminant Analysis
 

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DS Baseline - 5&nbsp; Linear Regression and Its Cousins</title>
+<title>Data Science Book - 5&nbsp; Linear Regression and Its Cousins</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -76,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Linear Models and Its Cousins.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression and Its Cousins</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -88,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">DS Baseline</a> 
+      <a href="./">Data Science Book</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -113,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Choose model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose machine learning model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose the machine learning model</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,8 +143,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Tree models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tree based models</span></span></a>
+  <a href="./Clustering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clustering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -178,6 +179,30 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Big Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Big Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data Science for Business.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Science for Business</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Supply Chain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Supply Chain</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A B Testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A/B Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -192,20 +217,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#ordinary-linear-regression" id="toc-ordinary-linear-regression" class="nav-link active" data-scroll-target="#ordinary-linear-regression"><span class="header-section-number">5.1</span> Ordinary linear regression</a></li>
-  <li><a href="#partial-least-squares-pls" id="toc-partial-least-squares-pls" class="nav-link" data-scroll-target="#partial-least-squares-pls"><span class="header-section-number">5.2</span> Partial least squares (PLS)</a>
+  <li><a href="#sec-Linear_regression" id="toc-sec-Linear_regression" class="nav-link active" data-scroll-target="#sec-Linear_regression"><span class="header-section-number">5.1</span> Ordinary linear regression</a></li>
+  <li><a href="#penalized-models" id="toc-penalized-models" class="nav-link" data-scroll-target="#penalized-models"><span class="header-section-number">5.2</span> Penalized models</a>
   <ul class="collapse">
-  <li><a href="#algorithmic-variations-of-pls" id="toc-algorithmic-variations-of-pls" class="nav-link" data-scroll-target="#algorithmic-variations-of-pls"><span class="header-section-number">5.2.1</span> Algorithmic Variations of PLS</a></li>
+  <li><a href="#sec-Ridge_Regression" id="toc-sec-Ridge_Regression" class="nav-link" data-scroll-target="#sec-Ridge_Regression"><span class="header-section-number">5.2.1</span> Ridge regression</a></li>
+  <li><a href="#sec-Lasso_Regression" id="toc-sec-Lasso_Regression" class="nav-link" data-scroll-target="#sec-Lasso_Regression"><span class="header-section-number">5.2.2</span> Lasso regression</a></li>
+  <li><a href="#sec-Elastic_net" id="toc-sec-Elastic_net" class="nav-link" data-scroll-target="#sec-Elastic_net"><span class="header-section-number">5.2.3</span> Elastic net</a></li>
   </ul></li>
-  <li><a href="#penalized-models" id="toc-penalized-models" class="nav-link" data-scroll-target="#penalized-models"><span class="header-section-number">5.3</span> Penalized models</a>
+  <li><a href="#sec-Logistic_Regression" id="toc-sec-Logistic_Regression" class="nav-link" data-scroll-target="#sec-Logistic_Regression"><span class="header-section-number">5.3</span> Logistic Regression</a></li>
+  <li><a href="#sec-LDA" id="toc-sec-LDA" class="nav-link" data-scroll-target="#sec-LDA"><span class="header-section-number">5.4</span> Linear Discriminant Analysis</a></li>
+  <li><a href="#sec-PLS" id="toc-sec-PLS" class="nav-link" data-scroll-target="#sec-PLS"><span class="header-section-number">5.5</span> Partial least squares (PLS)</a>
   <ul class="collapse">
-  <li><a href="#ridge-regression" id="toc-ridge-regression" class="nav-link" data-scroll-target="#ridge-regression"><span class="header-section-number">5.3.1</span> Ridge regression</a></li>
-  <li><a href="#lasso-regression" id="toc-lasso-regression" class="nav-link" data-scroll-target="#lasso-regression"><span class="header-section-number">5.3.2</span> Lasso regression</a></li>
-  <li><a href="#elastic-net" id="toc-elastic-net" class="nav-link" data-scroll-target="#elastic-net"><span class="header-section-number">5.3.3</span> Elastic net</a></li>
-  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression"><span class="header-section-number">5.3.4</span> Logistic Regression</a></li>
-  <li><a href="#linear-discriminant-analysis" id="toc-linear-discriminant-analysis" class="nav-link" data-scroll-target="#linear-discriminant-analysis"><span class="header-section-number">5.3.5</span> Linear Discriminant Analysis</a></li>
-  <li><a href="#partial-least-squares-discriminant-analysis" id="toc-partial-least-squares-discriminant-analysis" class="nav-link" data-scroll-target="#partial-least-squares-discriminant-analysis"><span class="header-section-number">5.3.6</span> Partial Least Squares Discriminant Analysis</a></li>
-  <li><a href="#nearest-shrunken-centroids" id="toc-nearest-shrunken-centroids" class="nav-link" data-scroll-target="#nearest-shrunken-centroids"><span class="header-section-number">5.3.7</span> Nearest Shrunken Centroids</a></li>
+  <li><a href="#algorithmic-variations-of-pls" id="toc-algorithmic-variations-of-pls" class="nav-link" data-scroll-target="#algorithmic-variations-of-pls"><span class="header-section-number">5.5.1</span> Algorithmic Variations of PLS</a></li>
+  <li><a href="#partial-least-squares-discriminant-analysis" id="toc-partial-least-squares-discriminant-analysis" class="nav-link" data-scroll-target="#partial-least-squares-discriminant-analysis"><span class="header-section-number">5.5.2</span> Partial Least Squares Discriminant Analysis</a></li>
+  <li><a href="#nearest-shrunken-centroids" id="toc-nearest-shrunken-centroids" class="nav-link" data-scroll-target="#nearest-shrunken-centroids"><span class="header-section-number">5.5.3</span> Nearest Shrunken Centroids</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -231,16 +256,58 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>They all seek to find estimates of the parameters to minimize the sum-of-squared errors</p>
-<section id="ordinary-linear-regression" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="ordinary-linear-regression"><span class="header-section-number">5.1</span> Ordinary linear regression</h2>
+<section id="sec-Linear_regression" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-Linear_regression"><span class="header-section-number">5.1</span> Ordinary linear regression</h2>
 <p>Finds parameter estimates that have minimum bias using the NIPALS approach <strong>Advantages</strong>:</p>
 <ul>
 <li>highly interpretable</li>
 <li>enables us to compute standard errors of the coefficients allowing to assess the statistical significance of each predictor</li>
 </ul>
+<p><strong>Assumptions</strong>:</p>
+<ul>
+<li>Linear relationship and independent observations</li>
+<li>Homoscedasticity error terms have constant variance</li>
+<li>Errors are uncorrelated and normally distributed</li>
+<li>Low multicollinearity</li>
+</ul>
 </section>
-<section id="partial-least-squares-pls" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="partial-least-squares-pls"><span class="header-section-number">5.2</span> Partial least squares (PLS)</h2>
+<section id="penalized-models" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="penalized-models"><span class="header-section-number">5.2</span> Penalized models</h2>
+<p><em>For classification and regressions</em>: Finds parameter estimates that have lower variance. We introduce bias to reduce variance and avoid overfitting</p>
+<p><strong>USE</strong>: When sample size are small</p>
+<p><strong>Advantages</strong>: reduce variance and increases prediction on the long term</p>
+<section id="sec-Ridge_Regression" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="sec-Ridge_Regression"><span class="header-section-number">5.2.1</span> Ridge regression</h3>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Q81RR3yKn30?start=75" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p><strong>Advantages</strong>: better at reducing variance in models that contain usefull variables</p>
+</section>
+<section id="sec-Lasso_Regression" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="sec-Lasso_Regression"><span class="header-section-number">5.2.2</span> Lasso regression</h3>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/NGf0voTMlcs?start=435" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p><strong>Advantages</strong>: - better at reducing variance in models that contain useless variables - simplify model</p>
+</section>
+<section id="sec-Elastic_net" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="sec-Elastic_net"><span class="header-section-number">5.2.3</span> Elastic net</h3>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/1dKRdX9bfIo?start=260" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p><strong>USE</strong>: When you don’t know if you have useless variables <strong>Advantages</strong>: Best of both ridge and lasso</p>
+</section>
+</section>
+<section id="sec-Logistic_Regression" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-Logistic_Regression"><span class="header-section-number">5.3</span> Logistic Regression</h2>
+<p><em>For classification only</em> </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yIYKR4sgzI8?start=180" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
+<p><strong>Assumptions</strong>: - Linear relationship between X and log-odds of Y - Independent observations - Low multicollinearity</p>
+</section>
+<section id="sec-LDA" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-LDA"><span class="header-section-number">5.4</span> Linear Discriminant Analysis</h2>
+<p><em>For classification only</em></p>
+<p>It is like PCA but it focuses on maximizing the separability among the known categories.</p>
+<p>Create an axis (create two axis for three of more categories) that maximizes the distance between the means for the two categories while minimizing the scatter.</p>
+<p>As in PCA the first axis created (LDA1) by LDA accounts for the most variation between the categories. LDA2 does the second better job, LDA 3 the third best job etc etc…</p>
+<p><strong>NOTE</strong>: We can see which variables correlates the most with each LDA</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/azXCzI57Yfc?start=600" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="sec-PLS" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="sec-PLS"><span class="header-section-number">5.5</span> Partial least squares (PLS)</h2>
 <p><em>For regression and classification</em>:</p>
 <p><strong>supervised</strong> dimension reduction procedure while PCR (PCA + linear regression) is <strong>unsupervised</strong></p>
 <p><strong>USE</strong>: when there are correlated predictors and a linear regression-type solution is desired instead of PCA then linear regression (AKA PCR; If, the variability in the predictor space is not related to the variability of the response, then PCR can have difficulty identifying a predictive relationship when one might actually exist).</p>
@@ -254,8 +321,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Tuning</strong>: Cross-validation was used to determine the optimal number of PLS components to retain that minimize RMSE <em># of tuning parameter</em>: PLS has one tuning parameter: the number of components to retain</p>
 <p><em>For classification</em>: <strong>NOTES</strong>: Produce continuous predictions that do not follow the definition of a probability-the predicted values are not necessarily between 0 and 1 and do not sum to 1. Therefore, a transformation (e.g., <em>softmax transformation</em>) must be used to coerce the predictions into “probability-like” values so that they can be interpreted and used for classification.</p>
-<section id="algorithmic-variations-of-pls" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="algorithmic-variations-of-pls"><span class="header-section-number">5.2.1</span> Algorithmic Variations of PLS</h3>
+<section id="algorithmic-variations-of-pls" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="algorithmic-variations-of-pls"><span class="header-section-number">5.5.1</span> Algorithmic Variations of PLS</h3>
 <ul>
 <li>SIMPLS approach</li>
 </ul>
@@ -265,46 +332,12 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>USE</strong>: when there are more predictors than samples.</p>
 </section>
-</section>
-<section id="penalized-models" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="penalized-models"><span class="header-section-number">5.3</span> Penalized models</h2>
-<p><em>For classification and regressions</em>: Finds parameter estimates that have lower variance. We introduce bias to reduce variance and avoid overfitting</p>
-<p><strong>USE</strong>: When sample size are small</p>
-<p><strong>Advantages</strong>: reduce variance and increases prediction on the long term</p>
-<section id="ridge-regression" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="ridge-regression"><span class="header-section-number">5.3.1</span> Ridge regression</h3>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Q81RR3yKn30?start=75" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p><strong>Advantages</strong>: better at reducing variance in models that contain usefull variables</p>
-</section>
-<section id="lasso-regression" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="lasso-regression"><span class="header-section-number">5.3.2</span> Lasso regression</h3>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/NGf0voTMlcs?start=435" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p><strong>Advantages</strong>: - better at reducing variance in models that contain useless variables - simplify model</p>
-</section>
-<section id="elastic-net" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="elastic-net"><span class="header-section-number">5.3.3</span> Elastic net</h3>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/1dKRdX9bfIo?start=260" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p><strong>USE</strong>: When you don’t know if you have useless variables <strong>Advantages</strong>: Best of both ridge and lasso</p>
-</section>
-<section id="logistic-regression" class="level3" data-number="5.3.4">
-<h3 data-number="5.3.4" class="anchored" data-anchor-id="logistic-regression"><span class="header-section-number">5.3.4</span> Logistic Regression</h3>
-<p><em>For classification only</em> </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yIYKR4sgzI8?start=180" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
-</section>
-<section id="linear-discriminant-analysis" class="level3" data-number="5.3.5">
-<h3 data-number="5.3.5" class="anchored" data-anchor-id="linear-discriminant-analysis"><span class="header-section-number">5.3.5</span> Linear Discriminant Analysis</h3>
-<p><em>For classification only</em></p>
-<p>It is like PCA but it focuses on maximizing the separability among the known categories.</p>
-<p>Create an axis (create two axis for three of more categories) that maximizes the distance between the means for the two categories while minimizing the scatter.</p>
-<p>As in PCA the first axis created (LDA1) by LDA accounts for the most variation between the categories. LDA2 does the second better job, LDA 3 the third best job etc etc…</p>
-<p><strong>NOTE</strong>: We can see which variables correlates the most with each LDA</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/azXCzI57Yfc?start=600" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section>
-<section id="partial-least-squares-discriminant-analysis" class="level3" data-number="5.3.6">
-<h3 data-number="5.3.6" class="anchored" data-anchor-id="partial-least-squares-discriminant-analysis"><span class="header-section-number">5.3.6</span> Partial Least Squares Discriminant Analysis</h3>
+<section id="partial-least-squares-discriminant-analysis" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="partial-least-squares-discriminant-analysis"><span class="header-section-number">5.5.2</span> Partial Least Squares Discriminant Analysis</h3>
 <p><em>For classification only</em></p>
 </section>
-<section id="nearest-shrunken-centroids" class="level3" data-number="5.3.7">
-<h3 data-number="5.3.7" class="anchored" data-anchor-id="nearest-shrunken-centroids"><span class="header-section-number">5.3.7</span> Nearest Shrunken Centroids</h3>
+<section id="nearest-shrunken-centroids" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="nearest-shrunken-centroids"><span class="header-section-number">5.5.3</span> Nearest Shrunken Centroids</h3>
 <p><em>For classification only</em></p>
 
 

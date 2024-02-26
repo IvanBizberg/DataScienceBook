@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DS Baseline - 1&nbsp; Terms &amp; definitions</title>
+<title>Data Science Book - 1&nbsp; Terms &amp; definitions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -76,7 +76,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -95,7 +96,7 @@ div.csl-indent {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Terms &amp; definitions.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Terms &amp; definitions</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -107,7 +108,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">DS Baseline</a> 
+      <a href="./">Data Science Book</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -132,7 +133,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Choose model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose machine learning model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose the machine learning model</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -161,8 +162,8 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Tree models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tree based models</span></span></a>
+  <a href="./Clustering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clustering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -197,6 +198,30 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Big Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Big Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data Science for Business.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Science for Business</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Supply Chain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Supply Chain</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A B Testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A/B Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -211,16 +236,17 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#correlation-vs-covariance" id="toc-correlation-vs-covariance" class="nav-link active" data-scroll-target="#correlation-vs-covariance"><span class="header-section-number">1.1</span> Correlation vs covariance</a></li>
-  <li><a href="#correlation-vs-cointegration" id="toc-correlation-vs-cointegration" class="nav-link" data-scroll-target="#correlation-vs-cointegration"><span class="header-section-number">1.2</span> Correlation vs cointegration</a></li>
-  <li><a href="#p-value" id="toc-p-value" class="nav-link" data-scroll-target="#p-value"><span class="header-section-number">1.3</span> P-value</a></li>
-  <li><a href="#bias-and-variance" id="toc-bias-and-variance" class="nav-link" data-scroll-target="#bias-and-variance"><span class="header-section-number">1.4</span> Bias and Variance</a></li>
-  <li><a href="#entropy" id="toc-entropy" class="nav-link" data-scroll-target="#entropy"><span class="header-section-number">1.5</span> Entropy</a></li>
-  <li><a href="#residual" id="toc-residual" class="nav-link" data-scroll-target="#residual"><span class="header-section-number">1.6</span> Residual</a></li>
-  <li><a href="#regularization" id="toc-regularization" class="nav-link" data-scroll-target="#regularization"><span class="header-section-number">1.7</span> Regularization</a></li>
-  <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles"><span class="header-section-number">1.8</span> Quantiles</a></li>
-  <li><a href="#greedy-algorithms" id="toc-greedy-algorithms" class="nav-link" data-scroll-target="#greedy-algorithms"><span class="header-section-number">1.9</span> Greedy algorithms</a></li>
-  <li><a href="#extrapolation" id="toc-extrapolation" class="nav-link" data-scroll-target="#extrapolation"><span class="header-section-number">1.10</span> Extrapolation</a></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link active" data-scroll-target="#correlation"><span class="header-section-number">1.1</span> Correlation</a></li>
+  <li><a href="#correlation-vs-covariance" id="toc-correlation-vs-covariance" class="nav-link" data-scroll-target="#correlation-vs-covariance"><span class="header-section-number">1.2</span> Correlation vs covariance</a></li>
+  <li><a href="#correlation-vs-cointegration" id="toc-correlation-vs-cointegration" class="nav-link" data-scroll-target="#correlation-vs-cointegration"><span class="header-section-number">1.3</span> Correlation vs cointegration</a></li>
+  <li><a href="#p-value" id="toc-p-value" class="nav-link" data-scroll-target="#p-value"><span class="header-section-number">1.4</span> P-value</a></li>
+  <li><a href="#bias-and-variance" id="toc-bias-and-variance" class="nav-link" data-scroll-target="#bias-and-variance"><span class="header-section-number">1.5</span> Bias and Variance</a></li>
+  <li><a href="#parametric-non-parametric" id="toc-parametric-non-parametric" class="nav-link" data-scroll-target="#parametric-non-parametric"><span class="header-section-number">1.6</span> Parametric / Non-Parametric</a></li>
+  <li><a href="#residual" id="toc-residual" class="nav-link" data-scroll-target="#residual"><span class="header-section-number">1.7</span> Residual</a></li>
+  <li><a href="#regularization" id="toc-regularization" class="nav-link" data-scroll-target="#regularization"><span class="header-section-number">1.8</span> Regularization</a></li>
+  <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles"><span class="header-section-number">1.9</span> Quantiles</a></li>
+  <li><a href="#greedy-algorithms" id="toc-greedy-algorithms" class="nav-link" data-scroll-target="#greedy-algorithms"><span class="header-section-number">1.10</span> Greedy algorithms</a></li>
+  <li><a href="#extrapolation" id="toc-extrapolation" class="nav-link" data-scroll-target="#extrapolation"><span class="header-section-number">1.11</span> Extrapolation</a></li>
   </ul>
 </nav>
     </div>
@@ -244,45 +270,131 @@ div.csl-indent {
 
 </header>
 
-<section id="correlation-vs-covariance" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="correlation-vs-covariance"><span class="header-section-number">1.1</span> Correlation vs covariance</h2>
+<section id="correlation" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="correlation"><span class="header-section-number">1.1</span> Correlation</h2>
+<ul>
+<li><strong>Correlation</strong> measures the strength and direction of the linear relationship between two variables, but it standardizes the measure to fall between -1 and 1.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+When to use it:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Correlation is a more useful measure than covariance when comparing relationships across different datasets or variables, as it removes the influence of the scales of the variables.</p>
+</div>
+</div>
+</section>
+<section id="correlation-vs-covariance" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="correlation-vs-covariance"><span class="header-section-number">1.2</span> Correlation vs covariance</h2>
 <ul>
 <li><strong>Covariance</strong> measures the direction and magnitude of the linear relationship between two variables. It calculates how changes in one variable are related to changes in another variable. Covariance can take any value, positive or negative, depending on the nature of the relationship.</li>
 </ul>
-<p><em>When to use it:</em></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+When to use it:
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li><p>Scaling and Interpretation: If you are primarily interested in the magnitude of the relationship between two variables, without the need for standardized interpretation, covariance can be used. Since covariance is not standardized, it preserves the original scale of the variables. This can be helpful when the units of measurement carry important information or when you want to maintain the original context of the data.</p></li>
 <li><p>Non-linear Relationships: If you suspect a non-linear relationship between variables, covariance can still provide insights into the direction and magnitude of the relationship, albeit without quantifying the strength in a standardized manner.</p></li>
 </ul>
-<p><em>Example</em>:</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>By calculating the covariance between height and weight, you can obtain a measure of how the two variables vary together.</p>
-<ul>
-<li><strong>Correlation</strong> measures the strength and direction of the linear relationship between two variables, but it standardizes the measure to fall between -1 and 1.</li>
-</ul>
-<p><em>When to use it:</em> Correlation is a more useful measure than covariance when comparing relationships across different datasets or variables, as it removes the influence of the scales of the variables.</p>
-<p><em>Example</em>:</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>If you were interested in comparing the relationship between height and weight with other datasets or variables, or if you wanted a standardized measure of the strength of the relationship, then calculating the correlation coefficient would be more appropriate. The correlation coefficient would provide a standardized measure between -1 and 1, allowing for easier comparison and interpretation across different contexts.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="correlation-vs-cointegration" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="correlation-vs-cointegration"><span class="header-section-number">1.2</span> Correlation vs cointegration</h2>
+<section id="correlation-vs-cointegration" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="correlation-vs-cointegration"><span class="header-section-number">1.3</span> Correlation vs cointegration</h2>
 <p>Both are statistical concepts used to measure the relationship between variables.</p>
 <ul>
 <li><strong>Cointegration</strong> measures whether the variables tend to move together over time, despite possibly having short-term fluctuations.</li>
 </ul>
-<p><em>Example</em>: A drunk man leaves the pub with his dog.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A man leaves the pub with his dog.</p>
 <p>When the man and the dog first leave the pub, their paths are <strong>correlated</strong>. They generally move in the same direction, but the distance between the dog and the man has no actual limit. It increases at times, decreases at times, but is generally random and poorly defined. The direction of the two, however, is generally the same.</p>
 <p>When the man leashes his dog to cross the road, they become <strong>cointegrated</strong>. Now, while their direction is still the same, their distance from one another is finite. The dog cannot move beyond the length of the leash from the man. <span class="citation" data-cites="WhatDifferenceCorrelation">(<a href="references.html#ref-WhatDifferenceCorrelation" role="doc-biblioref"><span>“What Is the Difference Between Correlation and Cointegration? <span>Is</span> Cointegration a Good Measure of Risk?”</span> n.d.</a>)</span></p>
+</div>
+</div>
+</div>
 </section>
-<section id="p-value" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="p-value"><span class="header-section-number">1.3</span> P-value</h2>
-<p>A p-value of 0.001 indicates that if the null hypothesis tested were indeed true, then there would be a one-in-1,000 chance of observing results at least as extreme.</p>
+<section id="p-value" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="p-value"><span class="header-section-number">1.4</span> P-value</h2>
+<p>How surprised should we be by a result if the null hypothesis is true</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A p-value of 0.001 indicates that if the null hypothesis tested were indeed true, then there would be a one-in-1,000 chance of observing results at least as extreme. It suggests that the observed data is unlikely to have occurred by random chance alone, and you may reject the null hypothesis in favor of the alternative/new hypothesis</p>
+</div>
+</div>
+</div>
 </section>
-<section id="bias-and-variance" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="bias-and-variance"><span class="header-section-number">1.4</span> Bias and Variance</h2>
+<section id="bias-and-variance" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="bias-and-variance"><span class="header-section-number">1.5</span> Bias and Variance</h2>
 <p><em>We search a model with low bias and low variance</em></p>
-<p><em><strong>Bias</strong>:</em> The inability for a machine learning method to capture the true relationship is called bias <strong>Variance</strong>: The difference in fits between train set and test set</p>
-<p>Red model: low variance: This model has low variance if a new point it would not substantially change the model fit (leads to under-fitting) high bias: Ineffective at modeling the data</p>
-<p>Blue model: high variance: Small perturbations in the data will significantly change the model fit (leads to over-fitting) low bias: More complex and flexible allowing to model very good the data</p>
+<p><em><strong>Bias</strong>:</em> The inability for a machine learning method to capture the true relationship is called bias (can’t capture underlying patterns = underfit)<br>
+<strong>Variance</strong>: The difference in fits between train set and test set (can’t generalize on unseen data = overfit)</p>
+<p><span style="color:red;"><em>Red model</em>: low variance: This model has low variance if a new point it would not substantially change the model fit (leads to under-fitting) high bias: Ineffective at modeling the data</span></p>
+<p><span style="color:blue;"><em>Blue model</em>: high variance: Small perturbations in the data will significantly change the model fit (leads to over-fitting) low bias: More complex and flexible allowing to model very good the data</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/Bias and Variance.png" class="img-fluid figure-img"></p>
@@ -290,29 +402,31 @@ div.csl-indent {
 </figure>
 </div>
 </section>
-<section id="entropy" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="entropy"><span class="header-section-number">1.5</span> Entropy</h2>
+<section id="parametric-non-parametric" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="parametric-non-parametric"><span class="header-section-number">1.6</span> Parametric / Non-Parametric</h2>
+<p>ML models can be divided into two types:</p>
+<p>– Parametric : uses a fixed number of parameters with respect to sample size – Non-Parametric : uses a flexible number of parameters and doesn’t make particular assumptions on the data</p>
 </section>
-<section id="residual" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="residual"><span class="header-section-number">1.6</span> Residual</h2>
-<p>difference between the observed value and the predicted value</p>
+<section id="residual" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="residual"><span class="header-section-number">1.7</span> Residual</h2>
+<p>Difference between the observed value and the predicted value</p>
 </section>
-<section id="regularization" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="regularization"><span class="header-section-number">1.7</span> Regularization</h2>
-<p>It make the prediction less sensitive to the training data.</p>
+<section id="regularization" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="regularization"><span class="header-section-number">1.8</span> Regularization</h2>
+<p>It make the prediction less sensitive to the training data and reduces overfitting.</p>
 </section>
-<section id="quantiles" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="quantiles"><span class="header-section-number">1.8</span> Quantiles</h2>
-<p>Median: The 50th percentile, which divides the data into two equal halves. Half of the data points are below the median, and half are above it.</p>
-<p>Quartiles: The 25th, 50th, and 75th percentiles are called the first quartile (Q1), the median (Q2), and the third quartile (Q3), respectively. They divide the data into four equal parts, each containing 25% of the data.</p>
-<p>Percentiles: These are any values that divide the data into 100 equal parts. For example, the 20th percentile is the value below which 20% of the data falls, and the 80th percentile is the value below which 80% of the data falls.</p>
+<section id="quantiles" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="quantiles"><span class="header-section-number">1.9</span> Quantiles</h2>
+<p><strong>Median</strong>: The 50th percentile, which divides the data into two equal halves. Half of the data points are below the median, and half are above it.</p>
+<p><strong>Quartiles</strong>: The 25th, 50th, and 75th percentiles are called the first quartile (Q1), the median (Q2), and the third quartile (Q3), respectively. They divide the data into four equal parts, each containing 25% of the data.</p>
+<p><strong>Percentiles</strong>: These are any values that divide the data into 100 equal parts. For example, the 20th percentile is the value below which 20% of the data falls, and the 80th percentile is the value below which 80% of the data falls.</p>
 </section>
-<section id="greedy-algorithms" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="greedy-algorithms"><span class="header-section-number">1.9</span> Greedy algorithms</h2>
-<p>When a procedure is greedy, it means that it does not reevaluate past solutions.</p>
+<section id="greedy-algorithms" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="greedy-algorithms"><span class="header-section-number">1.10</span> Greedy algorithms</h2>
+<p>When a procedure is greedy, it means that it does not reevaluate past solutions, it makes locally optimal choices at each step with the hope of finding a global optimum. Advantages: simplify the decision-making process and lead to a solution that is close to optimal. Disadvantages: not always guarantee finding the globally optimal solution</p>
 </section>
-<section id="extrapolation" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="extrapolation"><span class="header-section-number">1.10</span> Extrapolation</h2>
+<section id="extrapolation" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="extrapolation"><span class="header-section-number">1.11</span> Extrapolation</h2>
 <p>Extrapolation is commonly defined as using a model to predict samples that are outside the range of the training data. To know if we can trust our model we need to compare the predictor space between the training data and new data.</p>
 <ul>
 <li>This can be done using <strong>PCA</strong>. If the training data and new data are generated from the same mechanism, then the projection of these data will overlap in the scatter plot. However, if the training data and new data occupy different parts of the scatter plot, then the data may not be generated by the same mechanism and predictions for the new data should be used with caution.</li>
@@ -326,8 +440,12 @@ div.csl-indent {
 <ul>
 <li>This can also be done using the following <strong>algorithm</strong></li>
 </ul>
-<p><img src="Images/Algorithm and Extrapolation.png" class="img-fluid" alt="Algorithm and Extrapolation"> ## Autoencoders</p>
-<p>Models that can denoise or smooth the predictor values. The outcome is not required to create an autoencoder so unlabeled data can potentially improve the situation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Algorithm and Extrapolation.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Algorithm and Extrapolation</figcaption>
+</figure>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -579,7 +697,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Choose model.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose machine learning model</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose the machine learning model</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

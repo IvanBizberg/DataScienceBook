@@ -1,5 +1,7 @@
 # Feature Selection
 
+To get a more interpretable model but not a more accurate model.
+
 ## Unsupervised methods
 
 When the outcome is ignored during the elimination of predictors, the technique is unsupervised.
@@ -42,13 +44,21 @@ The presence of non-informative variables can add **uncertainty/noise** to the p
   
 - **Embedded** methods are models where the feature selection procedure occurs naturally in the course of the model fitting process. Here an example would be a simple decision tree where variables are selected when the model uses them in a split. If a predictor is never used in a split, the prediction equation is functionally independent of this variable and it has been selected out.  
   
-**Note**: When using other search procedures or filters for reducing the number of predictors, there is still a risk. The following situations increase the likelihood of selection bias: 
+  
+::: {.callout-warning}
+
+When using other search procedures or filters for reducing the number of predictors, there is still a risk. The following situations increase the likelihood of selection bias: 
 
 - The data set is small. 
 - The number of predictors is large (since the probability of a non-informative predictor being falsely declared to be important increases). 
 - The predictive model is powerful (e.g., black-box models), which is more likely to over-fit the data. 
 - No independent test set is available  
+:::  
 
-When the data set is large, it is recommended separate data sets for selecting features, tuning models, and validating the final model (and feature set). 
-When training sets are small, proper resampling is critical. 
-When the amount of data is not too small (333 obs), it is recommended setting aside a small test set to double check that no gross errors have been committed.
+::: {.callout-tip}
+## tips 
+
+- When the data set is large, it is recommended separate data sets for selecting features, tuning models, and validating the final model (and feature set). 
+- When training sets are small, proper resampling is critical. 
+- When the amount of data is not too small (333 obs), it is recommended setting aside a small test set to double check that no gross errors have been committed.
+:::

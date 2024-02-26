@@ -1,10 +1,14 @@
-# Nonlinear Models
+---
+title: "Nonlinear Models"
+number-sections: true
+--- 
 
 In these models, the exact form of the nonlinearity does not need to be known explicitly or specified prior to model training.
 
-## Tree-based models
+## Tree-based models {#sec-Tree_based_models}
 
 **Advantages**:
+
 - Handles high-dimensional data well.
 - Robust to outliers and noise.
 - Provides feature importance measures.
@@ -37,11 +41,13 @@ In these models, the exact form of the nonlinearity does not need to be known ex
 
 {{< video https://www.youtube.com/watch?v=_L39rN6gz7Y start="79">}}
 
-### Random forests
+### Random forests 
 {{< video https://www.youtube.com/watch?v=J4Wdy0Wc_xQ start="225">}}
 
 
-### Boosting trees
+### Boosting trees 
+
+Sequentially fits many simple models that account for the previous model’s errors. As opposed to bagging, boosting trains on all the data and combines models using the learning rate α.
 
 #### AdaBoost
 
@@ -72,7 +78,6 @@ In these models, the exact form of the nonlinearity does not need to be known ex
 {{< video https://www.youtube.com/watch?v=LsK-xG1cLYA start="1193">}}
 
 #### XgBoost
-
 
 **Advantages**:
 
@@ -111,14 +116,14 @@ In these models, the exact form of the nonlinearity does not need to be known ex
 {{< video https://www.youtube.com/watch?v=8b1JEDvenQU start="1401">}}
 
 
-
+#### C5.0
 
 **Tuning parameters**: 
 
 - maximum number of leaves: (generally between 8 and 32)
 - learning rate: Value between 0 and 1 (generally 0.1)
 
-## Multivariate Adaptive Regression Splines (MARS)
+## Multivariate Adaptive Regression Splines (MARS) {#sec-MARS}
 
 MARS uses surrogate features (usually a function of only one or two predictors (second degree) at a time which are broken into two groups and models linear relationships between the predictor and the outcome in each group) instead of the original predictors (like pls and neural networks). 
 
@@ -141,7 +146,7 @@ MARS uses surrogate features (usually a function of only one or two predictors (
 
 **USE**: When there is a clear indication that the relationship between the dependent variable and independent variables is non-linear and interpretability is impportante
 
-## Support Vector Machines (SVM)
+## Support Vector Machines (SVM) {#sec-SVM}
 
 **USE**: When we seek to minimize the effect of outliers
 
@@ -168,13 +173,13 @@ MARS uses surrogate features (usually a function of only one or two predictors (
 
 **Pre-processing**: Center and scale the predictors prior to building an SVM model since the predictors enter into the model as the sum of cross products, differences in the predictor scales can affect the model.
 
-## K-Nearest Neighbors (KNN)
+## K-Nearest Neighbors (KNN) {#sec-KNN}
 
 *For classification*:
-{{< video https://www.youtube.com/watch?v=HVXime0nQeI start="">}}
+{{< video https://www.youtube.com/watch?v=HVXime0nQeI start="44">}}
 
 *For regression*:
-{{< video https://www.youtube.com/watch?v=3lp5CmSwrHI start="">}}
+{{< video https://www.youtube.com/watch?v=3lp5CmSwrHI start="85">}}
 
 **Tuning parameters**: K number of neighbors.
 
@@ -185,9 +190,14 @@ MARS uses surrogate features (usually a function of only one or two predictors (
 
 **NOTE**: to enhance KNN predictability weight the neighbors’ contribution to the prediction of a new sample based on their distance to the new sample.
 
-## Neural Networks
+## Neural Networks {#sec-Neural_Networks}
 
 Neural Networks uses surrogate features instead of the original predictors (like pls and MARS)
+
+
+{{< video https://www.youtube.com/watch?v=CqOfi41LfDw start="">}}
+
+
 
 *For classification*:
 **NOTES**: Produce continuous predictions that do not follow the definition of a probability-the predicted values are not necessarily between 0 and 1 and do not sum to 1. Therefore, a transformation (e.g., *softmax transformation*) must be used to coerce the predictions into “probability-like” values so that they can be interpreted and used for classification. 
@@ -202,7 +212,26 @@ Neural Networks uses surrogate features instead of the original predictors (like
 ## Flexible Discriminant Analysis
 *For classification only*:
 
-## Naive Bayes
+## Naive Bayes {#sec-Naive_Bayes}
+
+Naive Bayes is included in nearly every data mining toolkit and serves as a common baseline classifier against which more sophisticated methods can be compared
+
+**Advantages**: 
+
 *For classification only*:
-{{< video https://www.youtube.com/watch?v=O2L2Uv9pdDA start="">}}
-{{< video https://www.youtube.com/watch?v=H3EjCKtlVog start="">}}
+
+- It is very simple and efficient in terms of storage space and computation time. Training consists only of storing counts of classes and feature occurrences as each example is seen.
+
+- Naive Bayes is that it is naturally an “incremental learner.” An incremental learner is an induction technique that can update its model one training example at a time. It does not need to reprocess all past training examples when new training data become available. Incremental learning is especially advantageous in applications where training labels are revealed in the course of the application, and we would like the model to reflect this new information as quickly as possible.
+
+::: {.callout-warning}
+Naive Bayes assume independence between variables although violating this rule don't hurt classification performance it becomes a problem if we’re going to be using the probability estimates themselves (e.g., ranking if email 1 has a bigger likelihood of been spam than email 2).
+:::
+
+{{< video https://www.youtube.com/watch?v=O2L2Uv9pdDA start="60">}}
+
+### Multinomial Naive Bayes
+
+
+Gaussian Naive Bayes
+{{< video https://www.youtube.com/watch?v=H3EjCKtlVog start="60">}}

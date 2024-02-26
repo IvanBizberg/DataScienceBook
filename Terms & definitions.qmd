@@ -1,27 +1,42 @@
-# Terms & definitions
+---
+title: "Terms & definitions"
+number-sections: true
+---
+
+## Correlation
+
+-   **Correlation** measures the strength and direction of the linear relationship between two variables, but it standardizes the measure to fall between -1 and 1. 
+
+:::{.callout-tip}
+## When to use it: 
+
+Correlation is a more useful measure than covariance when comparing relationships across different datasets or variables, as it removes the influence of the scales of the variables.
+:::
 
 ## Correlation vs covariance
 
 -   **Covariance** measures the direction and magnitude of the linear relationship between two variables. It calculates how changes in one variable are related to changes in another variable. Covariance can take any value, positive or negative, depending on the nature of the relationship.
 
-*When to use it:* 
+:::{.callout-tip}
+## When to use it: 
 
 -   Scaling and Interpretation: If you are primarily interested in the magnitude of the relationship between two variables, without the need for standardized interpretation, covariance can be used. Since covariance is not standardized, it preserves the original scale of the variables. This can be helpful when the units of measurement carry important information or when you want to maintain the original context of the data.
 
 -   Non-linear Relationships: If you suspect a non-linear relationship between variables, covariance can still provide insights into the direction and magnitude of the relationship, albeit without quantifying the strength in a standardized manner.
+:::
 
-*Example*: 
+::: {.callout-caution collapse="true"}
+## Example: 
 
 By calculating the covariance between height and weight, you can obtain a measure of how the two variables vary together. 
 
--   **Correlation** measures the strength and direction of the linear relationship between two variables, but it standardizes the measure to fall between -1 and 1. 
+:::
 
-*When to use it:* Correlation is a more useful measure than covariance when comparing relationships across different datasets or variables, as it removes the influence of the scales of the variables.
-
-*Example*:
+::: {.callout-caution collapse="true"}
+## Example: 
 
 If you were interested in comparing the relationship between height and weight with other datasets or variables, or if you wanted a standardized measure of the strength of the relationship, then calculating the correlation coefficient would be more appropriate. The correlation coefficient would provide a standardized measure between -1 and 1, allowing for easier comparison and interpretation across different contexts.
-
+:::
 
 ## Correlation vs cointegration
 
@@ -29,60 +44,69 @@ Both are statistical concepts used to measure the relationship between variables
 
 -   **Cointegration** measures whether the variables tend to move together over time, despite possibly having short-term fluctuations.
 
-*Example*:
-A drunk man leaves the pub with his dog.
+::: {.callout-caution collapse="true"}
+## Example: 
+A man leaves the pub with his dog.
 
 When the man and the dog first leave the pub, their paths are **correlated**. They generally move in the same direction, but the distance between the dog and the man has no actual limit. It increases at times, decreases at times, but is generally random and poorly defined. The direction of the two, however, is generally the same.
 
 When the man leashes his dog to cross the road, they become **cointegrated**. Now, while their direction is still the same, their distance from one another is finite. The dog cannot move beyond the length of the leash from the man.
 [@WhatDifferenceCorrelation]
-
+:::
 
 ## P-value
 
-A p-value of 0.001 indicates that if the null hypothesis tested were indeed true, then there would be a one-in-1,000 chance of observing results at least as extreme. 
+How surprised should we be by a result if the null hypothesis is true 
+
+::: {.callout-caution collapse="true"}
+## Example: 
+A p-value of 0.001 indicates that if the null hypothesis tested were indeed true, then there would be a one-in-1,000 chance of observing results at least as extreme. It suggests that the observed data is unlikely to have occurred by random chance alone, and you may reject the null hypothesis in favor of the alternative/new hypothesis
+:::
 
 
 
 ## Bias and Variance
 *We search a model with low bias and low variance*
 
-***Bias**:* The inability for a machine learning method to capture the true relationship is called bias
-**Variance**: The difference in fits between train set and test set 
+***Bias**:* The inability for a machine learning method to capture the true relationship is called bias (can’t capture underlying patterns = underfit)\
+**Variance**: The difference in fits between train set and test set (can’t generalize on unseen data = overfit)
 
-Red model:
-  low variance: This model has low variance if a new point it would not substantially change the model fit (leads to under-fitting)
-  high bias: Ineffective at modeling the data
-  
-  
-  
-Blue model:
-  high variance: Small perturbations in the data will significantly change the model fit (leads to over-fitting)
-  low bias: More complex and flexible allowing to model very good the data
+[*Red model*: low variance: This model has low variance if a new point it would not substantially change the model fit (leads to under-fitting) high bias: Ineffective at modeling the data]{style="color:red;"}
+
+
+[*Blue model*: high variance: Small perturbations in the data will significantly change the model fit (leads to over-fitting)
+low bias: More complex and flexible allowing to model very good the data]{style="color:blue;"}
   
 ![variance-bias trade-off](Images/Bias and Variance.png)
 
-## Entropy
+## Parametric / Non-Parametric
+
+ML models can be divided into two types: 
+
+– Parametric : uses a fixed number of parameters with respect to sample size 
+– Non-Parametric : uses a flexible number of parameters and doesn’t make particular assumptions on the data
 
 ## Residual
 
-difference between the observed value and the predicted value 
+Difference between the observed value and the predicted value 
 
 ## Regularization 
 
-It make the prediction less sensitive to the training data.
+It make the prediction less sensitive to the training data and reduces overfitting.
 
 ## Quantiles 
 
-Median: The 50th percentile, which divides the data into two equal halves. Half of the data points are below the median, and half are above it.
+**Median**: The 50th percentile, which divides the data into two equal halves. Half of the data points are below the median, and half are above it.
 
-Quartiles: The 25th, 50th, and 75th percentiles are called the first quartile (Q1), the median (Q2), and the third quartile (Q3), respectively. They divide the data into four equal parts, each containing 25% of the data.
+**Quartiles**: The 25th, 50th, and 75th percentiles are called the first quartile (Q1), the median (Q2), and the third quartile (Q3), respectively. They divide the data into four equal parts, each containing 25% of the data.
 
-Percentiles: These are any values that divide the data into 100 equal parts. For example, the 20th percentile is the value below which 20% of the data falls, and the 80th percentile is the value below which 80% of the data falls.
+**Percentiles**: These are any values that divide the data into 100 equal parts. For example, the 20th percentile is the value below which 20% of the data falls, and the 80th percentile is the value below which 80% of the data falls.
 
 ## Greedy algorithms
 
-When a procedure is greedy, it means that it does not reevaluate past solutions.
+When a procedure is greedy, it means that it does not reevaluate past solutions, it makes locally optimal choices at each step with the hope of finding a global optimum.
+Advantages: simplify the decision-making process and lead to a solution that is close to optimal.
+Disadvantages: not always guarantee finding the globally optimal solution
 
 
 ## Extrapolation
@@ -96,6 +120,3 @@ Extrapolation is commonly defined as using a model to predict samples that are o
 - This can also be done using the following **algorithm**
 
 ![Algorithm and Extrapolation](Images/Algorithm and Extrapolation.png)
-## Autoencoders
-
-Models that can denoise or smooth the predictor values. The outcome is not required to create an autoencoder so unlabeled data can potentially improve the situation.

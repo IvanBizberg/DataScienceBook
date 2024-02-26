@@ -4,57 +4,77 @@
 
 ## Data splitting method
 
-A good rule of thumb is about 75–80 % on train subset and the rest for the test subset. Proportionally large test sets divide the data in a way that increases bias in the performance estimates.
-
 ### Nonrandom approaches to splitting the data 
 
-**Example:**
-- If a model was being used to predict patient outcomes, the model may be created using certain patient sets (e.g., from the same clinical site or disease stage), and then tested on a different sample population to understand how well the model generalizes.
 
-- In chemical modeling for drug discovery, new “chemical space” is constantly being explored. We are most interested in accurate predictions in the chemical space that is currently being investigated rather than the space that was evaluated years prior. 
+:::{.callout-tip}
 
-- In spam filtering; it is more important for the model to catch the new spamming techniques rather than prior spamming schemes.
+## Use case
+
+- In **time-series data**, it's crucial to maintain the temporal order. Randomly shuffling the data can break the temporal dependencies and result in unrealistic evaluations of a model's performance. 
+- If your data has **spatial dependencies**, such as in geospatial analysis, maintaining the spatial structure during data split becomes essential. Random splitting might scatter spatially related data points across different sets, leading to poor model generalization.
+- In situations where **data privacy** is a concern, you might want to ensure that certain sensitive records or individuals are not included in the training set. A nonrandom approach allows for more control over the inclusion or exclusion of specific data points.
+
+
+- **Specific Use Cases**:
+  - In spam filtering; it is more important for the model to catch the new spamming techniques rather than prior spamming schemes.
+  - If a model was being used to predict patient outcomes, the model may be created using certain patient sets (e.g., from the same clinical site or disease stage), and then tested on a different sample population to understand how well the model generalizes.
+  - In chemical modeling for drug discovery, new “chemical space” is constantly being explored. We are most interested in accurate predictions in the chemical space that is currently being investigated rather than the space that was evaluated years prior. 
+
+:::
+
+
 
 ### Random sampling methods 
 
 #### Simple random sample
 
-- The simplest way to split the data randomly into a training and test.  
+The simplest way to split the data randomly into a training and test.  
 
   **Disadvantage**: limited ability to characterize the uncertainty in the results.
 
-- simple k-Fold Cross-Validation: The samples are randomly partitioned into k sets of roughly equal size. A model is fit using the all samples except one subset. The held-out samples are predicted by this model and used to estimate performance measures. The first subset is returned to the training set an procedure repeats with the next subset held out, and so on. Performance estimates, are calculated from each set of held-out samples and then averaged.
+#### Simple k-Fold Cross-Validation: 
+
+The samples are randomly partitioned into k sets of roughly equal size. A model is fit using the all samples except one subset. The held-out samples are predicted by this model and used to estimate performance measures. The first subset is returned to the training set an procedure repeats with the next subset held out, and so on. Performance estimates, are calculated from each set of held-out samples and then averaged.
 
   **NOTES**: The choice of k is usually **5** or **10**, but there is no formal rule. **The bias is smaller for k = 10 than k = 5.** As k gets larger, the difference in size between the training set and the resampling subsets gets smaller. But larger values of k are more computationally burdensome.
   
-  **Advantage**: Low computational costs. . 
+  **Advantage**: Low computational costs. 
   **Disadvantage**: k-fold cross-validation generally has high variance compared to other methods (only for small training sets). 
-  **USE**: If sample sizes are large (> 10 000) and we want to choose tuning parameters
+  **USE**: **If sample sizes are large (> 10 000)** and we want to choose tuning parameters
+
+![3-Fold Cross-Validation](Images/k-Fold Cross-Validation.png)
   
-- repeated k-Fold Cross-Validation
+#### Repeated k-Fold Cross-Validation
 
-  **Advantage**: Increase the precision of the estimates while still maintaining a small bias. The bias and variance properties are good and, given the sample size, the computational costs are not large. 
-  **Disdvantage**: Large computational costs. 
-  **USE**: with k = 10; If the samples size is small (< 1000 obs) and we want to choose tuning parameters
+Repeated k-fold cross-validation replicates Simple k-Fold Cross-Validation multiple times.
 
-![k-Fold Cross-Validation](Images/k-Fold Cross-Validation.png)
+  **Advantage**: Increase the precision of the estimates while still maintaining a small bias. The bias and variance properties are good
+  **Disdvantage**: Larger computational costs if large sample size.\
+  **USE**: with k = 10; **If the samples size is small (< 1000 obs)** and we want to choose tuning parameters. For example, if 10-fold cross-validation was repeated five times, 50 different held-out sets would be used to estimate model efficacy.
 
-- leave-one-out Cross-Validation / LOOCV: fits as many models as there are samples in the training set, should only be considered when the number of samples is very small.
+#### leave-one-out Cross-Validation / LOOCV: 
 
-- leave-group-out Cross-Validation / Repeated training/test splits / Monte Carlo cross-validation: Same as k-fold cross-validation except that samples can be represented in multiple held-out subsets. Also, the number of repetitions is usually larger than in k-fold cross-validation
+Fits as many models as there are samples in the training set, should only be considered when the **number of samples is very small**.
 
-  **Disadvantage**: 
-  
+  **NOTE**: leave-one-out and k =10-fold cross-validation yielded similar results, indicating that k = 10 is more attractive from the perspective of computational efficiency.
+
+#### leave-group-out Cross-Validation / Repeated training/test splits / Monte Carlo cross-validation: 
+
+Same as k-fold cross-validation except that samples can be represented in multiple held-out subsets. Also, the number of repetitions is usually larger than in k-fold cross-validation. the bias of the resampling technique decreases as the amount of data in the subset approaches the amount in the modeling set. A good rule of thumb is about 75–80 %. Higher proportions are a good idea if the number of repetitions is large.
+
   **NOTES**: Increase the number of repetition can allow to increase the proportion of data in the train set and decreasing the uncertainty of the performance estimates. To get stable estimates of performance, it is suggested to choose a larger number of repetitions **(say 50–200)**
 
 ![leave-group-out Cross-Validation](Images/leave-group-out Cross-Validation.png)
 
 
-- The Bootstrap: Each train subset is the same size as the original and can contain multiple instances of the same data point (taken with replacement). Samples not selected by the bootstrap (“out-of-bag” samples) are predicted and used to estimate model performance
+#### The Bootstrap: 
+
+Each train subset is the same size as the original and can contain multiple instances of the same data point (taken with replacement). Samples not selected by the bootstrap (“out-of-bag” samples) are predicted and used to estimate model performance
   
   **Advantage**: error rates have less uncertainty than k-fold cross-validation. Very low variance.
   **Disadvantage**: On average, 63.2 % of the data points the bootstrap sample are represented at least once, so this technique has bias. similar to k-fold cross-validation when k ≈ 2. If the training set size is small, this bias may be problematic, but will decrease as the training set sample size becomes larger.
-  **USE**: If the goal is to choose between models (boosted trees vs support vector machines...), as opposed to getting the best indicator of performance
+  **USE**: **If the goal is to choose between models** (boosted trees vs support vector machines...), as opposed to getting the best indicator of performance
 
 ![Bootstrap](Images/Bootstrap.png)
 
@@ -73,22 +93,20 @@ A good rule of thumb is about 75–80 % on train subset and the rest for the tes
 
 To account for the outcome when splitting the data. Applies random sampling within subgroups (such as the classes or is outcomes are numbers the numeric values are broken into similar groups (e.g., low, medium, and high)).
 
-- k-Fold Cross-Validation
-
 #### Maximum dissimilarity sampling
 
 The data is split on the basis of the predictor values.
 
-## Choosing Tuning Parameters
+## Choosing the best tuning parameters
 
-- Pick the settings associated with the numerically best performance estimates.
-  **Disadvantage**: lead to models that are overly complicated
+- Pick the settings associated with the numerically best performance estimates but **Disadvantage**: lead to models that are overly complicated (see Figure fitting graph)
 
+![Fitting graph for tree induction](Images/Fitting graph.png)
 - Pick simpler models that provide acceptable performance (relative to the numerically optimal settings)
 
-  - The “one-standard error” method: pick the simplier model within a single standard error of the numerically best value. In table below we would pick cost value of 2.
+  - The “one-standard error” method: pick the simpler model within a single standard error of the numerically best value. In table below we would pick cost value of 2.
 
-  - the "percent decrease in performance" method: pick the simplier model that is within a certain tolerance of the numerically best value. (e.g., The percent decrease in performance could be quantified by (X − O)/O where X is the performance value and O is the numerically optimal value. For example, in Fig. 4.9, the best accuracy value across the profile was 75 %. If a 4 % loss in accuracy was acceptable as a trade-off for a simpler model, accuracy values greater than 71.2 % would be acceptable. For the profile in Fig. 4.9, a cost value of 1 would be chosen using this approach.)
+  - the "percent decrease in performance" method: pick the simplier model that is within a certain tolerance of the numerically best value. (e.g., The percent decrease in performance could be quantified by (X − O)/O where X is the performance value and O is the numerically optimal value. For example, in Figure below the best accuracy value across the profile was 75 %. If a 4 % loss in accuracy was acceptable as a trade-off for a simpler model, accuracy values greater than 71.2 % would be acceptable. For the profile in Figure below, a cost value of 1 would be chosen using this approach.)
 
 ![Cross-validation accuracy](Images/Choosing Tuning Parameters.png)
 
@@ -183,7 +201,7 @@ A good model has generally a metric above 0.7 / 70%
 5) **F1 Score**: 
 
   - *Higher Value*: Better performance
-  - *When to use*: Use when there is a trade-off between precision and recall.
+  - *When to use*: Use when classes are imbalanced and there is a trade-off between precision and recall.
   - *Advantage*: Incorporates both precision and recall into a single metric.
   - *Disadvantage*: Ignores true negatives, which can be important in some cases. May not be ideal for highly imbalanced datasets.
   - *Description*: F1 score is the harmonic mean of precision and recall, providing a balance between the two.
@@ -199,17 +217,21 @@ Class probabilities potentially offer more information about model predictions t
 4.7) **ROC**: 
 
   - *Higher Value*: Better performance (A perfect model that completely separates the two classes would have 100 % sensitivity and specificity / A completely ineffective model would result in an ROC curve that closely follows the 45◦ diagonal line and would have an area under the ROC curve of approximately 0.50.) Area under the curve can be used as a quantitative measure of performance
-  - *When to use*: Helpful tool for choosing a threshold that appropriately maximizes the trade-off between sensitivity and specificity (e.g., Lowering the threshold (aka 50%) can we improve the sensitivity to capture more true positives). Make a quantitative assessment of the model 
+  - *When to use*: Helpful tool for choosing a threshold that appropriately maximizes the trade-off between sensitivity and specificity (how many false positive we are willing to accept) (e.g., Lowering the threshold (aka 50%) can we improve the sensitivity to capture more true positives). Make a quantitative assessment of the model 
   - *Advantage*: the curve is insensitive to disparities in the class proportions. Metrics that is independent of probability cutoffs
   - *Disadvantage*: disadvantage of using the area under the curve to evaluate models is that it obscures information (i.e., the curves cross both AUC can be the same).
-  - *Description*: AUC-ROC measures the area under the receiver operating characteristic curve, which plots the true positive rate (recall) against the false positive rate at various classification thresholds (10%, 20%... 50% = commonly used).
+  - *Description*: AUC-ROC measures the area under the receiver operating characteristic curve, which plots the **true positive rate (recall) against the false positive rate (1 - Specificity)** at various classification thresholds (10%, 20%... 50% = commonly used).
   - *Example*: An AUC-ROC score of 0.85 indicates that the model has an 85% chance of correctly ranking a randomly chosen positive instance higher than a randomly chosen negative instance.
   - *Calculation*: AUC-ROC can be calculated using various methods, such as the trapezoidal rule or Mann-Whitney U statistic.
   - *Notes*: 
     - We can use the partial area under the ROC curve as a technique to summarize these curves that focuses on specific parts of the curve.
     - ROC technique can be extended to fit three or more classes problems
+    
+6) **Recall - Precision Curve**:
+  - *When to use*: When data is imbalanced as it focuses on the correct prediction of the minority class
+  - *Description*: Plot precision in X axis and recall in Y axis
   
-6) **Lift Charts**:  
+7) **Lift Charts**:  
 
   - *Higher Value*: Better performance (Figure)
   - *When to use*: To assess the ability of a model to detect events in a data set with two classes and allow us to choose a  quasithreshold for a model.
@@ -326,21 +348,59 @@ When accuracy is not the primary goal for the predictive model and we want to qu
   - *Example*: For the house price prediction, an MSLE of 0.1 means that, on average, the predicted house prices deviate from the actual prices by 10% when measured on a logarithmic scale.
   - *Calculation*: For instance, if we have actual values [100, 50, 75] and predicted values [110, 40, 80], the MSLE would be calculated as ((log(110) - log(100))^2 + (log(40) - log(50))^2 + (log(80) - log(75))^2) / 3 ≈ 0.015.
 
+### Calculate expected value
+
+See [Data science for Business chapter](Data%20Science%20for%20Business.html#ml-process)
+
+### Visualizing Model Performance
+
+It is often revealing to visualize model behavior under a broad range of conditions.
+
+- **Profit curves**:
+    - **Use Case**: Basic profit graph can be useful to compare models of interest under a range of conditions. These graphs may be easy to comprehend for stakeholders who are not data scientists, since they reduce model performance to their basic “bottom line” cost or profit.
+    - **Disadvantages**: The disadvantage of a profit graph is that it requires that operating conditions be known and specified exactly. With many real-world problems, the operating conditions are imprecise or change over time, and the data scientist must contend with uncertainty. In such cases other graphs may be more useful.
+
+![Profit curves](Images/Profit curves.png)    
+    
+    
+- **Cumulative response curves**: 
+    - **Use Case**: To understand what percentage of the population has to be targeted. When costs and benefits cannot be specified with confidence, but the class mix will likely not change, a cumulative response or lift graph is useful. Both show the relative advantages of classifiers, independent of the value (monetary or otherwise) of the advantages.
+    
+![Cumulative response curves.](Images/cumulative response curves.png)    
+
+- **Lift curves**:
+    - **Use Case**: Same as *Cumulative response curves*.
+
+![Lift curves](Images/lift curves.png)   
+
+- **ROC/AUC curves**:
+    - **Use Case**: Finally, ROC curves are a valuable visualization tool for the data scientist. Though they take some practice to interpret readily, they separate out performance from operating conditions. In doing so they convey the fundamental trade-offs that each model is making.
   
-# Model Choosing
+![ROC](Images/ROC construction.png)    
+
+# Choosing between models
 
 Once the settings for the tuning parameters have been determined for each model, the question remains: how do we choose between multiple models?
 
+0) Comparison against a random model or a simpler model (naive classifier that always chooses the majority class of the training dataset; for regression problems we have a directly analogous baseline: predict the average value over the population (usually the mean or median); decision stumps often produce quite good baseline performance) establishes that there is some information to be extracted from the data.
 1) Start with several models that are the least interpretable and most flexible, such as boosted trees or support vector machines. Across many problem domains, these models have a high likelihood of producing the empirically optimum results (i.e., most accurate). 
 2) Investigate simpler models that are less opaque (e.g., not complete black boxes), such as multivariate adaptive regression splines (MARS), partial least squares, generalized additive models, or näıve Bayes models.
 3) Consider using the simplest model that reasonably approximates the performance of the more complex methods.
+4) Visualizing Model Performance to visualize model behavior under a broad range of conditions
 
+## Tools
 
-**NOTE**: A paired t-test can be used to evaluate if the differences between models are statistically significant. It is also recommended to plot confidence intervals that were derived using the bootstrap (Figure) fot two reasons.
+### Paired t-test
+
+To evaluate if the differences between models are statistically significant. It is also recommended to plot confidence intervals that were derived using the bootstrap (Figure) for two reasons.
 
   - The interval quantifies the variation in the model but is also reflective of the data. For example, smaller test sets or noise (or mislabeling) in the response can lead to wider intervals.
   - Facilitate trade-offs between models. If the confidence intervals for two models significantly overlap, this is an indication of (statistical) equivalence between the two and might provide a reason to favor the less complex or more interpretable model.
 
 ![A plot of the test set ROC curve AUCs and their associated 95 % confidence intervals](Images/Confidence intervals.png)
 
+### Learning curves
 
+- The learning curve may show that generalization performance has leveled off so investing in more training data is probably not worthwhile; instead, one should accept the current performance or look for another way to improve the model, such as by devising better features
+
+![Learning curves for tree induction and logistic regression for the churn problem. As the training size grows (x axis), generalization performance (y axis) improves. Importantly, the improvement rates are different for the two induction technique, and change over time. Logistic regression has less flexibility, which allows it to overfit less with small data, but keeps it from modeling the full complexity of the data. Tree induction is much more flexible, leading it to overfit more with small data, but to model more complex regularities with larger training sets.](Images/Learning curves.png)

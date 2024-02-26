@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "DS Baseline"
+  title: "Data Science Book"
   author: "Ivan Bizberg"
   date: "7/17/2023"
   chapters:
@@ -13,12 +13,16 @@ book:
     - Model Tuning.qmd
     - Linear Models and Its Cousins.qmd
     - Nonlinear Models.qmd
-    - Tree models.qmd
+    - Clustering.qmd
     - Deal with suboptimal data.qmd
     - Measuring Predictor Importance.qmd
     - Feature Selection.qmd
     - Feature Engineering.qmd
     - SQL.qmd
+    - Big Data.qmd
+    - Data Science for Business.qmd
+    - Supply Chain.qmd
+    - A B Testing.qmd
     - references.qmd
 
 bibliography: references.bib

@@ -1,41 +1,280 @@
 ---
 title: "SQL"
+number-sections: true
 ---
 
-```{r, warning=FALSE}
-library(dbplyr)
-library(tidyverse)
-
-
-con <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
-copy_to(con, mtcars)
-```
-
-```{sql connection=con}
-SELECT * 
-FROM mtcars
-WHERE cyl BETWEEN 4 and 8
-```
-
-
-
-## SQL vs dplyr
+## SQL vs dplyr {#sec-SQL}
 
 |SQL | dplyr|
 ---|---:
 SELECT table1.column_name1 | select
 FROM | df %>% 
+UNION(remove duplicates)/UNION ALL (SELECT FROM WHERE ... **UNION** SELECT FROM WHERE ...) | bind_rows()
 INNER JOIN table2 ON table1.column_name1 = table2.column_name1 AND table1.column_name2 = table2.column_name2 | inner_join(., table2, by = c("column_name1" = "column_name1", "column_name2" = "column_name2"))
 LEFT JOIN table2 ON table1.column_name = table2.column_name | left_join(., table2, by = c("column_name" = "column_name")
 RIGHT JOIN table2 ON table1.column_name = table2.column_name | right_join(., table2, by = c("column_name" = "column_name")
 FULL OUTER JOIN table2 ON table1.column_name = table2.column_name | full_join(., table2, by = c("column_name" = "column_name")
-WHERE (IN [num/char]; BETWEEN [num] AND [num]) | filter ( %in% ; %in% c(1:10))
-GROUP BY | group_by
+WHERE (IN [num/char]; BETWEEN [num] AND [num]; LIKE [char]; REGEXP/NOT REGEXP regex[char]; AND | filter ( %in% ; %in% c(1:10); ==; grepl/!grepl)
+GROUP BY (all columns in select) | group_by
 HAVING (filter results of aggregate functions applied to grouped data) | filter 
-ORDER BY | arrange
+ORDER BY column1 ASC, column2 DESC | arrange(column1, desc(column2))
 LIMIT [num] | slice_head(n = [num])
 
 ## functions
 
-*MOD*	Returns the remainder (number after the point 67 in 3.67) of a number divided by another number
-*LENGTH*	Returns the length of a string (in bytes)
+- *MOD*	Returns the remainder (number after the point 67 in 3.67) of a number divided by another number
+- *LENGTH*	Returns the length of a string (in bytes)
+- *CONCAT*(col1, col2) Combine two or more strings into a single string	
+- *RIGHT/LEFT*	Extracts a number of characters from a string (starting from RIGHT/LEFT)
+- *ROUND*(VALUE, number of decimals)	Rounds a number to a specified number of decimal places
+- *CEILING*	round it up to the next integer.
+- *FLOOR*	round it up to the last integer.
+- *AVG* Average 
+- *CAST*(column AS data_type): convert the data type of a column 
+- *REPLACE*(original_string, old_substring, new_substring): replace occurrences of a specified substring with another substring in a given string. eg: SELECT REPLACE('Hello World', 'World', 'Universe') AS Result;
+- *LAG/LEAD*(column OVER (ODER BY column_date)) 
+- *MONTH* extract month
+- *LPAD*(MONTH(trans_date), 2, '0') stands for "Left PADding," and it is a string function used in SQL to add characters to the left side of a string until it reaches a specified length.
+- *DATE_SUB*('2019-07-27', INTERVAL 28 DAY) function used to subtract 28 days from the reference date
+- *LOWER/UPPER* (column1) convert all characters in a string to lowercase/uppercase
+ex: CONCAT(
+    UPPER(RIGHT(name, 1)),
+    LOWER(LEFT(name, LENGTH(name) - 1))) AS name
+
+
+## Regex
+\^[char] start with\
+[char]$ end with\
+.* any number of characters
+
+## Match / regex used with the LIKE
+% is a wildcard character to represent zero or more characters. When used in a LIKE pattern, % matches any sequence of characters.
+
+## Subqueries
+
+WHERE column = (SELECT MAX(column) FROM data WHERE ...);\
+FROM (SELECT MAX(column) FROM data);
+
+## Joins
+When JOIN is use we need to include table1.column_name1 to select column
+
+## Mutate
+### Case when
+CASE \
+  WHEN condition1 THEN "result1"\
+  WHEN condition2 THEN "result2"\
+  ELSE "result"\
+  END AS new_column_name
+
+### IF (only in MYSQL)
+SELECT 
+if(column="confirmed",1,0) | mutate(action = if_else(column="confirmed",1,0))
+
+
+## Exist
+The EXISTS operator is used to test for the existence of any record in a subquery.\
+The EXISTS operator returns TRUE if the subquery returns one or more records.\
+
+WHERE EXISTS (SELECT column_name FROM table_name WHERE condition)\
+  THEN "result1" # (if condition is TRUE return "result1")\
+  ELSE "result2"\
+
+CASE WHEN EXISTS (SELECT column_name FROM table_name WHERE condition) THEN result
+
+## Joins
+
+### SELF JOIN
+
+SELECT w1.*, w2.*
+FROM Weather w1
+JOIN Weather w2 ON w1.recordDate = w2.recordDate + 1 
+  
+
+*w1* and *w2* are different table aliases for the same table.
+
+### CROSS JOIN 
+
+Used generally when merging a column with only one columns to avoid creating a huge table with all possible combinations
+keyword returns all matching records from both tables whether the other table matches or not.
+
+## WITH df AS
+
+The WITH clause in SQL is used to define a Common Table Expression (CTE). A CTE is a temporary result set that can be referenced within the context of a SELECT, INSERT, UPDATE, or DELETE statement. The purpose of a CTE is to simplify complex queries, make the code more readable, and avoid repeating the same subquery multiple times.
+
+WITH df AS (
+SELECT Signups.user_id, action, COUNT(Confirmations.action) AS conf
+FROM Signups 
+LEFT JOIN Confirmations ON Signups.user_id  = Confirmations.user_id 
+GROUP BY action, Signups.user_id
+)
+
+SELECT *
+FROM df
+
+
+## PIVOT tables
+CASE WHEN ... THEN ... END
+
+SELECT user_id, 
+    CASE WHEN action = "timeout" THEN  conf END AS timeout,
+    CASE WHEN action = "confirmed" THEN  conf END AS confirmed,
+    CASE WHEN action = "confirmed" THEN  conf END / (CASE WHEN action = "timeout" THEN  conf END + CASE WHEN action = "confirmed" THEN  conf END) AS confirmation_rate 
+FROM df
+
+## Windows functions
+ - OVER (PARTITION BY)
+
+ SELECT *,
+        COUNT(*) OVER(PARTITION BY column1) AS name1,
+        COUNT(*) OVER(PARTITION BY column2, column3) AS name2
+    FROM data
+    
+SELECT *, SUM(weight) OVER (ORDER BY turn) # cumulative sum
+FROM Queue
+ 
+ 
+see website [SQL Window Functions](https://sqlpad.io/tutorial/sql-window-functions/)
+
+## Common Table Expressions (CTEs) 
+
+CTEs in SQL provide a way to create temporary result sets that can be referenced within a SELECT, INSERT, UPDATE, or DELETE statement.
+
+- WITH tablename AS (
+    SELECT column1, column2
+    FROM your_table
+    WHERE some_condition
+)
+
+-CREATE, ALTER, DROP, RENAME, TRUNCATE, COMMENT
+
+## Data manipulation 
+
+Using DML statements to retrieve and manipulate data.
+
+-INSERT, UPDATE, DELETE, MERGE, CALL, EXPLAIN PLAN, LOCK TABLE
+
+## Data security
+
+Using DCL (data control language) commands to manage database security.
+
+- GRANT 
+- REVOKE
+
+
+## Stored procedures
+
+CREATE PROCEDURE procedure_name\
+  AS\
+  sql_statement (e.g., SELECT * FROM Customers)\
+  GO;\
+  
+EXEC procedure_name;\
+
+## Index
+To accelerate SQL performance
+
+- clustered
+- non clustered 
+
+
+## Schema design
+
+## Query efficiency
+
+- indexes
+- avoiding subqueries
+- optimizing the database schema
+
+## Database Normalization
+Structure the table to eliminate redundant information, improve understanding, and make it easy to enhance, extend, and protect against insertion, update, and deletion anomalies
+
+- 1NF : Don't use row order to convey information / don't mix data types within a column / don't have primary column (also call key) / don't store a repeating group of data on a single row 
+
+- 2NF: each columns (which are non-key atributes) must depend on all the column(s) that are considered primary key (e.g. player ID)
+  - Example: player_rating depend on player_ID but not player_inventory column which is also a primary key in this table
+
+- 3NF: every attributes (column) in a table should depend on the key column(s) the hole key and nothing but the key
+  - Example: player_ID is the primary key/column. Non-key atribute player_rating depend on player_ID but non-key atribute player_skill depend on player_rating which is not a primary key
+
+see [Video](https://www.youtube.com/watch?v=GFQaEYEc8_8) for more detail about 4NF and 5NF
+
+
+
+# SQL in R
+
+
+```{r, warning=FALSE, include=FALSE}
+library(dbplyr)
+library(tidyverse)
+```
+
+## Create connection
+```{r, warning=FALSE}
+con <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+copy_to(con, mtcars)
+copy_to(con, iris)
+DBI::dbListTables(con)
+DBI::dbRemoveTable(con, "sqlite_stat1")
+```
+```{r, include=FALSE}
+# mtcars %>% pivot_longer(., cols = everything(), names_to = "column_names", values_to = "column_values")
+# mtcars %>% pivot_wider(., cols = everything())
+```
+
+```{sql connection=con}
+CREATE TABLE OccupationData (
+    PersonName VARCHAR(50),
+    OccupationType VARCHAR(20),
+    Occupation VARCHAR(50)
+);
+```
+
+
+```{sql connection=con}
+SELECT *
+FROM OccupationData;
+```
+
+
+```{sql connection=con}
+INSERT INTO OccupationData (PersonName, OccupationType, Occupation)
+VALUES
+('John', 'Actor', 'JohnActor'),
+('John', 'Doctor', 'JohnDoctor'),
+('Jane', 'Actor', 'JaneActor'),
+('Jane', 'Doctor', 'JaneDoctor');
+```
+```{sql connection=con}
+SELECT *
+FROM OccupationData;
+```
+
+```{sql connection=con}
+SELECT *
+FROM iris
+WHERE Species LIKE "virginica"
+UNION
+SELECT *
+FROM iris
+WHERE Species LIKE "setosa"
+```
+
+
+```{sql connection=con}
+SELECT COUNT(cyl)
+FROM mtcars
+WHERE cyl > 6
+```
+
+```{r}
+mtcarsSQL <- tbl(con, "mtcars")
+query <- mtcarsSQL %>% filter(across(everything(), ~!is.na(.)))
+query %>% show_query()
+```
+
+
+
+\
+\
+\
+*data from [@SQLTutorial]*

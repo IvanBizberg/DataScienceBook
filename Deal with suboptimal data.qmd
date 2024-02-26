@@ -23,11 +23,11 @@ An imbalance occurs when one or more classes have very low proportions in the tr
 
 ### Strategies for overcoming class imbalances
 
-### Hyperparameters selection
+#### Hyperparameters selection
 
 - **Model tuning strategy**: tune the model to maximize the accuracy or sensitivity of the minority class(es) 
 
-### Post-processing techniques (use model outputs)
+#### Post-processing techniques (use model outputs)
 
 - **Alternate probability Cutoffs** to improve the prediction accuracy of the minority class samples (i.e., post-processing the model predictions to redefine the class predictions). The most straightforward approach is to use the *ROC curve* since it calculates the sensitivity and specificity across a continuum of cutoffs. Using this curve, an appropriate balance between sensitivity and specificity can be determined.
 
@@ -43,7 +43,7 @@ An imbalance occurs when one or more classes have very low proportions in the tr
 
 - **Adjusting Prior Probabilities**: For models that use prior probabilities naiıve Bayes and discriminant analysis classifiers. Unless specified manually, these models typically derive the value of the priors from the training data. Weiss and Provost (2001a) suggest that priors that reflect the natural class imbalance will materially bias predictions to the majority class. **Using more balanced priors or a balanced training set may help deal with a class imbalance.** (e.g., when classes are 6 % and 94 % for the insured and uninsured it is better to use 60 % for the insured and 40 % for the uninsured). This strategy did not change the model (same ROC) but allows for different trade-offs between sensitivity and specificity.
 
-### Alter training data prior to model training
+#### Alter training data prior to model training
 
 - **Adjust Sampling Methods**: Non of them is a clear winner, it depends of the case study
 
@@ -58,7 +58,7 @@ An imbalance occurs when one or more classes have very low proportions in the tr
     
   **NOTE**: Adjusting sampling can bias model performance (e.g., up-sampling: the same sample can be use to predict and tune model)   
 
-### Alter model training process (model parameters are being modified)
+#### Alter model training process (model parameters are being modified)
 
 - **Unequal Case Weights**: Many of the predictive models for classification (boosting trees which apply different case weights at each iteration) have the ability to use case weights where each individual data point can be given more emphasis in the model training phase. Increase the weights for the samples in the minority classes
 

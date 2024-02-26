@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DS Baseline - 4&nbsp; Model Tuning</title>
+<title>Data Science Book - 4&nbsp; Model Tuning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -76,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Model Tuning.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Model Tuning</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -88,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">DS Baseline</a> 
+      <a href="./">Data Science Book</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -113,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Choose model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose machine learning model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose the machine learning model</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,8 +143,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Tree models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tree based models</span></span></a>
+  <a href="./Clustering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clustering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -162,6 +163,42 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./Feature Selection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Feature Selection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Feature Engineering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Feature Engineering</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SQL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">SQL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Big Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Big Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data Science for Business.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Science for Business</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Supply Chain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Supply Chain</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A B Testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A/B Testing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,13 +222,22 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#nonrandom-approaches-to-splitting-the-data" id="toc-nonrandom-approaches-to-splitting-the-data" class="nav-link" data-scroll-target="#nonrandom-approaches-to-splitting-the-data"><span class="header-section-number">4.1.1</span> Nonrandom approaches to splitting the data</a></li>
   <li><a href="#random-sampling-methods" id="toc-random-sampling-methods" class="nav-link" data-scroll-target="#random-sampling-methods"><span class="header-section-number">4.1.2</span> Random sampling methods</a></li>
   </ul></li>
-  <li><a href="#choosing-tuning-parameters" id="toc-choosing-tuning-parameters" class="nav-link" data-scroll-target="#choosing-tuning-parameters"><span class="header-section-number">4.2</span> Choosing Tuning Parameters</a></li>
+  <li><a href="#choosing-the-best-tuning-parameters" id="toc-choosing-the-best-tuning-parameters" class="nav-link" data-scroll-target="#choosing-the-best-tuning-parameters"><span class="header-section-number">4.2</span> Choosing the best tuning parameters</a></li>
   <li><a href="#metrics-performance-measures" id="toc-metrics-performance-measures" class="nav-link" data-scroll-target="#metrics-performance-measures"><span class="header-section-number">4.3</span> Metrics / performance measures</a>
   <ul class="collapse">
   <li><a href="#for-models-predicting-a-categorical-outcome" id="toc-for-models-predicting-a-categorical-outcome" class="nav-link" data-scroll-target="#for-models-predicting-a-categorical-outcome"><span class="header-section-number">4.3.1</span> For models predicting a categorical outcome</a></li>
   <li><a href="#for-models-predicting-a-numeric-outcome" id="toc-for-models-predicting-a-numeric-outcome" class="nav-link" data-scroll-target="#for-models-predicting-a-numeric-outcome"><span class="header-section-number">4.3.2</span> For models predicting a numeric outcome</a></li>
+  <li><a href="#calculate-expected-value" id="toc-calculate-expected-value" class="nav-link" data-scroll-target="#calculate-expected-value"><span class="header-section-number">4.3.3</span> Calculate expected value</a></li>
+  <li><a href="#visualizing-model-performance" id="toc-visualizing-model-performance" class="nav-link" data-scroll-target="#visualizing-model-performance"><span class="header-section-number">4.3.4</span> Visualizing Model Performance</a></li>
   </ul></li>
-  <li><a href="#model-choosing" id="toc-model-choosing" class="nav-link" data-scroll-target="#model-choosing"><span class="header-section-number">5</span> Model Choosing</a></li>
+  <li><a href="#choosing-between-models" id="toc-choosing-between-models" class="nav-link" data-scroll-target="#choosing-between-models"><span class="header-section-number">5</span> Choosing between models</a>
+  <ul class="collapse">
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">5.1</span> Tools</a>
+  <ul class="collapse">
+  <li><a href="#paired-t-test" id="toc-paired-t-test" class="nav-link" data-scroll-target="#paired-t-test"><span class="header-section-number">5.1.1</span> Paired t-test</a></li>
+  <li><a href="#learning-curves" id="toc-learning-curves" class="nav-link" data-scroll-target="#learning-curves"><span class="header-section-number">5.1.2</span> Learning curves</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -218,50 +264,77 @@ ul.task-list li input[type="checkbox"] {
 <p><em>Identify settings for the model’s parameters that yield the best and most realistic predictive performance</em></p>
 <section id="data-splitting-method" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="data-splitting-method"><span class="header-section-number">4.1</span> Data splitting method</h2>
-<p>A good rule of thumb is about 75–80 % on train subset and the rest for the test subset. Proportionally large test sets divide the data in a way that increases bias in the performance estimates.</p>
 <section id="nonrandom-approaches-to-splitting-the-data" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="nonrandom-approaches-to-splitting-the-data"><span class="header-section-number">4.1.1</span> Nonrandom approaches to splitting the data</h3>
-<p><strong>Example:</strong> - If a model was being used to predict patient outcomes, the model may be created using certain patient sets (e.g., from the same clinical site or disease stage), and then tested on a different sample population to understand how well the model generalizes.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Use case
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p>In chemical modeling for drug discovery, new “chemical space” is constantly being explored. We are most interested in accurate predictions in the chemical space that is currently being investigated rather than the space that was evaluated years prior.</p></li>
-<li><p>In spam filtering; it is more important for the model to catch the new spamming techniques rather than prior spamming schemes.</p></li>
+<li><p>In <strong>time-series data</strong>, it’s crucial to maintain the temporal order. Randomly shuffling the data can break the temporal dependencies and result in unrealistic evaluations of a model’s performance.</p></li>
+<li><p>If your data has <strong>spatial dependencies</strong>, such as in geospatial analysis, maintaining the spatial structure during data split becomes essential. Random splitting might scatter spatially related data points across different sets, leading to poor model generalization.</p></li>
+<li><p>In situations where <strong>data privacy</strong> is a concern, you might want to ensure that certain sensitive records or individuals are not included in the training set. A nonrandom approach allows for more control over the inclusion or exclusion of specific data points.</p></li>
+<li><p><strong>Specific Use Cases</strong>:</p>
+<ul>
+<li>In spam filtering; it is more important for the model to catch the new spamming techniques rather than prior spamming schemes.</li>
+<li>If a model was being used to predict patient outcomes, the model may be created using certain patient sets (e.g., from the same clinical site or disease stage), and then tested on a different sample population to understand how well the model generalizes.</li>
+<li>In chemical modeling for drug discovery, new “chemical space” is constantly being explored. We are most interested in accurate predictions in the chemical space that is currently being investigated rather than the space that was evaluated years prior.</li>
+</ul></li>
 </ul>
+</div>
+</div>
 </section>
 <section id="random-sampling-methods" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="random-sampling-methods"><span class="header-section-number">4.1.2</span> Random sampling methods</h3>
 <section id="simple-random-sample" class="level4" data-number="4.1.2.1">
 <h4 data-number="4.1.2.1" class="anchored" data-anchor-id="simple-random-sample"><span class="header-section-number">4.1.2.1</span> Simple random sample</h4>
-<ul>
-<li><p>The simplest way to split the data randomly into a training and test.</p>
-<p><strong>Disadvantage</strong>: limited ability to characterize the uncertainty in the results.</p></li>
-<li><p>simple k-Fold Cross-Validation: The samples are randomly partitioned into k sets of roughly equal size. A model is fit using the all samples except one subset. The held-out samples are predicted by this model and used to estimate performance measures. The first subset is returned to the training set an procedure repeats with the next subset held out, and so on. Performance estimates, are calculated from each set of held-out samples and then averaged.</p>
+<p>The simplest way to split the data randomly into a training and test.</p>
+<p><strong>Disadvantage</strong>: limited ability to characterize the uncertainty in the results.</p>
+</section>
+<section id="simple-k-fold-cross-validation" class="level4" data-number="4.1.2.2">
+<h4 data-number="4.1.2.2" class="anchored" data-anchor-id="simple-k-fold-cross-validation"><span class="header-section-number">4.1.2.2</span> Simple k-Fold Cross-Validation:</h4>
+<p>The samples are randomly partitioned into k sets of roughly equal size. A model is fit using the all samples except one subset. The held-out samples are predicted by this model and used to estimate performance measures. The first subset is returned to the training set an procedure repeats with the next subset held out, and so on. Performance estimates, are calculated from each set of held-out samples and then averaged.</p>
 <p><strong>NOTES</strong>: The choice of k is usually <strong>5</strong> or <strong>10</strong>, but there is no formal rule. <strong>The bias is smaller for k = 10 than k = 5.</strong> As k gets larger, the difference in size between the training set and the resampling subsets gets smaller. But larger values of k are more computationally burdensome.</p>
-<p><strong>Advantage</strong>: Low computational costs. . <strong>Disadvantage</strong>: k-fold cross-validation generally has high variance compared to other methods (only for small training sets). <strong>USE</strong>: If sample sizes are large (&gt; 10 000) and we want to choose tuning parameters</p></li>
-<li><p>repeated k-Fold Cross-Validation</p>
-<p><strong>Advantage</strong>: Increase the precision of the estimates while still maintaining a small bias. The bias and variance properties are good and, given the sample size, the computational costs are not large. <strong>Disdvantage</strong>: Large computational costs. <strong>USE</strong>: with k = 10; If the samples size is small (&lt; 1000 obs) and we want to choose tuning parameters</p></li>
-</ul>
+<p><strong>Advantage</strong>: Low computational costs. <strong>Disadvantage</strong>: k-fold cross-validation generally has high variance compared to other methods (only for small training sets). <strong>USE</strong>: <strong>If sample sizes are large (&gt; 10 000)</strong> and we want to choose tuning parameters</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/k-Fold Cross-Validation.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">k-Fold Cross-Validation</figcaption>
+<figcaption class="figure-caption">3-Fold Cross-Validation</figcaption>
 </figure>
 </div>
-<ul>
-<li><p>leave-one-out Cross-Validation / LOOCV: fits as many models as there are samples in the training set, should only be considered when the number of samples is very small.</p></li>
-<li><p>leave-group-out Cross-Validation / Repeated training/test splits / Monte Carlo cross-validation: Same as k-fold cross-validation except that samples can be represented in multiple held-out subsets. Also, the number of repetitions is usually larger than in k-fold cross-validation</p>
-<p><strong>Disadvantage</strong>:</p>
-<p><strong>NOTES</strong>: Increase the number of repetition can allow to increase the proportion of data in the train set and decreasing the uncertainty of the performance estimates. To get stable estimates of performance, it is suggested to choose a larger number of repetitions <strong>(say 50–200)</strong></p></li>
-</ul>
+</section>
+<section id="repeated-k-fold-cross-validation" class="level4" data-number="4.1.2.3">
+<h4 data-number="4.1.2.3" class="anchored" data-anchor-id="repeated-k-fold-cross-validation"><span class="header-section-number">4.1.2.3</span> Repeated k-Fold Cross-Validation</h4>
+<p>Repeated k-fold cross-validation replicates Simple k-Fold Cross-Validation multiple times.</p>
+<p><strong>Advantage</strong>: Increase the precision of the estimates while still maintaining a small bias. The bias and variance properties are good <strong>Disdvantage</strong>: Larger computational costs if large sample size.<br>
+<strong>USE</strong>: with k = 10; <strong>If the samples size is small (&lt; 1000 obs)</strong> and we want to choose tuning parameters. For example, if 10-fold cross-validation was repeated five times, 50 different held-out sets would be used to estimate model efficacy.</p>
+</section>
+<section id="leave-one-out-cross-validation-loocv" class="level4" data-number="4.1.2.4">
+<h4 data-number="4.1.2.4" class="anchored" data-anchor-id="leave-one-out-cross-validation-loocv"><span class="header-section-number">4.1.2.4</span> leave-one-out Cross-Validation / LOOCV:</h4>
+<p>Fits as many models as there are samples in the training set, should only be considered when the <strong>number of samples is very small</strong>.</p>
+<p><strong>NOTE</strong>: leave-one-out and k =10-fold cross-validation yielded similar results, indicating that k = 10 is more attractive from the perspective of computational efficiency.</p>
+</section>
+<section id="leave-group-out-cross-validation-repeated-trainingtest-splits-monte-carlo-cross-validation" class="level4" data-number="4.1.2.5">
+<h4 data-number="4.1.2.5" class="anchored" data-anchor-id="leave-group-out-cross-validation-repeated-trainingtest-splits-monte-carlo-cross-validation"><span class="header-section-number">4.1.2.5</span> leave-group-out Cross-Validation / Repeated training/test splits / Monte Carlo cross-validation:</h4>
+<p>Same as k-fold cross-validation except that samples can be represented in multiple held-out subsets. Also, the number of repetitions is usually larger than in k-fold cross-validation. the bias of the resampling technique decreases as the amount of data in the subset approaches the amount in the modeling set. A good rule of thumb is about 75–80 %. Higher proportions are a good idea if the number of repetitions is large.</p>
+<p><strong>NOTES</strong>: Increase the number of repetition can allow to increase the proportion of data in the train set and decreasing the uncertainty of the performance estimates. To get stable estimates of performance, it is suggested to choose a larger number of repetitions <strong>(say 50–200)</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/leave-group-out Cross-Validation.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">leave-group-out Cross-Validation</figcaption>
 </figure>
 </div>
-<ul>
-<li><p>The Bootstrap: Each train subset is the same size as the original and can contain multiple instances of the same data point (taken with replacement). Samples not selected by the bootstrap (“out-of-bag” samples) are predicted and used to estimate model performance</p>
-<p><strong>Advantage</strong>: error rates have less uncertainty than k-fold cross-validation. Very low variance. <strong>Disadvantage</strong>: On average, 63.2 % of the data points the bootstrap sample are represented at least once, so this technique has bias. similar to k-fold cross-validation when k ≈ 2. If the training set size is small, this bias may be problematic, but will decrease as the training set sample size becomes larger. <strong>USE</strong>: If the goal is to choose between models (boosted trees vs support vector machines…), as opposed to getting the best indicator of performance</p></li>
-</ul>
+</section>
+<section id="the-bootstrap" class="level4" data-number="4.1.2.6">
+<h4 data-number="4.1.2.6" class="anchored" data-anchor-id="the-bootstrap"><span class="header-section-number">4.1.2.6</span> The Bootstrap:</h4>
+<p>Each train subset is the same size as the original and can contain multiple instances of the same data point (taken with replacement). Samples not selected by the bootstrap (“out-of-bag” samples) are predicted and used to estimate model performance</p>
+<p><strong>Advantage</strong>: error rates have less uncertainty than k-fold cross-validation. Very low variance. <strong>Disadvantage</strong>: On average, 63.2 % of the data points the bootstrap sample are represented at least once, so this technique has bias. similar to k-fold cross-validation when k ≈ 2. If the training set size is small, this bias may be problematic, but will decrease as the training set sample size becomes larger. <strong>USE</strong>: <strong>If the goal is to choose between models</strong> (boosted trees vs support vector machines…), as opposed to getting the best indicator of performance</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/Bootstrap.png" class="img-fluid figure-img"></p>
@@ -275,28 +348,25 @@ ul.task-list li input[type="checkbox"] {
 <li><p>The Bootstrap 632+ method <strong>Advantage</strong>: Allows to adjust the bootstrap 632 method estimates</p></li>
 </ul>
 </section>
-<section id="stratified-random" class="level4" data-number="4.1.2.2">
-<h4 data-number="4.1.2.2" class="anchored" data-anchor-id="stratified-random"><span class="header-section-number">4.1.2.2</span> Stratified random</h4>
+<section id="stratified-random" class="level4" data-number="4.1.2.7">
+<h4 data-number="4.1.2.7" class="anchored" data-anchor-id="stratified-random"><span class="header-section-number">4.1.2.7</span> Stratified random</h4>
 <p>To account for the outcome when splitting the data. Applies random sampling within subgroups (such as the classes or is outcomes are numbers the numeric values are broken into similar groups (e.g., low, medium, and high)).</p>
-<ul>
-<li>k-Fold Cross-Validation</li>
-</ul>
 </section>
-<section id="maximum-dissimilarity-sampling" class="level4" data-number="4.1.2.3">
-<h4 data-number="4.1.2.3" class="anchored" data-anchor-id="maximum-dissimilarity-sampling"><span class="header-section-number">4.1.2.3</span> Maximum dissimilarity sampling</h4>
+<section id="maximum-dissimilarity-sampling" class="level4" data-number="4.1.2.8">
+<h4 data-number="4.1.2.8" class="anchored" data-anchor-id="maximum-dissimilarity-sampling"><span class="header-section-number">4.1.2.8</span> Maximum dissimilarity sampling</h4>
 <p>The data is split on the basis of the predictor values.</p>
 </section>
 </section>
 </section>
-<section id="choosing-tuning-parameters" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="choosing-tuning-parameters"><span class="header-section-number">4.2</span> Choosing Tuning Parameters</h2>
+<section id="choosing-the-best-tuning-parameters" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="choosing-the-best-tuning-parameters"><span class="header-section-number">4.2</span> Choosing the best tuning parameters</h2>
 <ul>
-<li><p>Pick the settings associated with the numerically best performance estimates. <strong>Disadvantage</strong>: lead to models that are overly complicated</p></li>
-<li><p>Pick simpler models that provide acceptable performance (relative to the numerically optimal settings)</p>
+<li>Pick the settings associated with the numerically best performance estimates but <strong>Disadvantage</strong>: lead to models that are overly complicated (see Figure fitting graph)</li>
+</ul>
+<p><img src="Images/Fitting graph.png" class="img-fluid" alt="Fitting graph for tree induction"> - Pick simpler models that provide acceptable performance (relative to the numerically optimal settings)</p>
 <ul>
-<li><p>The “one-standard error” method: pick the simplier model within a single standard error of the numerically best value. In table below we would pick cost value of 2.</p></li>
-<li><p>the “percent decrease in performance” method: pick the simplier model that is within a certain tolerance of the numerically best value. (e.g., The percent decrease in performance could be quantified by (X − O)/O where X is the performance value and O is the numerically optimal value. For example, in Fig. 4.9, the best accuracy value across the profile was 75 %. If a 4 % loss in accuracy was acceptable as a trade-off for a simpler model, accuracy values greater than 71.2 % would be acceptable. For the profile in Fig. 4.9, a cost value of 1 would be chosen using this approach.)</p></li>
-</ul></li>
+<li><p>The “one-standard error” method: pick the simpler model within a single standard error of the numerically best value. In table below we would pick cost value of 2.</p></li>
+<li><p>the “percent decrease in performance” method: pick the simplier model that is within a certain tolerance of the numerically best value. (e.g., The percent decrease in performance could be quantified by (X − O)/O where X is the performance value and O is the numerically optimal value. For example, in Figure below the best accuracy value across the profile was 75 %. If a 4 % loss in accuracy was acceptable as a trade-off for a simpler model, accuracy values greater than 71.2 % would be acceptable. For the profile in Figure below, a cost value of 1 would be chosen using this approach.)</p></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -401,7 +471,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <ul>
 <li><em>Higher Value</em>: Better performance</li>
-<li><em>When to use</em>: Use when there is a trade-off between precision and recall.</li>
+<li><em>When to use</em>: Use when classes are imbalanced and there is a trade-off between precision and recall.</li>
 <li><em>Advantage</em>: Incorporates both precision and recall into a single metric.</li>
 <li><em>Disadvantage</em>: Ignores true negatives, which can be important in some cases. May not be ideal for highly imbalanced datasets.</li>
 <li><em>Description</em>: F1 score is the harmonic mean of precision and recall, providing a balance between the two.</li>
@@ -415,10 +485,10 @@ ul.task-list li input[type="checkbox"] {
 <p>4.7) <strong>ROC</strong>:</p>
 <ul>
 <li><em>Higher Value</em>: Better performance (A perfect model that completely separates the two classes would have 100 % sensitivity and specificity / A completely ineffective model would result in an ROC curve that closely follows the 45◦ diagonal line and would have an area under the ROC curve of approximately 0.50.) Area under the curve can be used as a quantitative measure of performance</li>
-<li><em>When to use</em>: Helpful tool for choosing a threshold that appropriately maximizes the trade-off between sensitivity and specificity (e.g., Lowering the threshold (aka 50%) can we improve the sensitivity to capture more true positives). Make a quantitative assessment of the model</li>
+<li><em>When to use</em>: Helpful tool for choosing a threshold that appropriately maximizes the trade-off between sensitivity and specificity (how many false positive we are willing to accept) (e.g., Lowering the threshold (aka 50%) can we improve the sensitivity to capture more true positives). Make a quantitative assessment of the model</li>
 <li><em>Advantage</em>: the curve is insensitive to disparities in the class proportions. Metrics that is independent of probability cutoffs</li>
 <li><em>Disadvantage</em>: disadvantage of using the area under the curve to evaluate models is that it obscures information (i.e., the curves cross both AUC can be the same).</li>
-<li><em>Description</em>: AUC-ROC measures the area under the receiver operating characteristic curve, which plots the true positive rate (recall) against the false positive rate at various classification thresholds (10%, 20%… 50% = commonly used).</li>
+<li><em>Description</em>: AUC-ROC measures the area under the receiver operating characteristic curve, which plots the <strong>true positive rate (recall) against the false positive rate (1 - Specificity)</strong> at various classification thresholds (10%, 20%… 50% = commonly used).</li>
 <li><em>Example</em>: An AUC-ROC score of 0.85 indicates that the model has an 85% chance of correctly ranking a randomly chosen positive instance higher than a randomly chosen negative instance.</li>
 <li><em>Calculation</em>: AUC-ROC can be calculated using various methods, such as the trapezoidal rule or Mann-Whitney U statistic.</li>
 <li><em>Notes</em>:
@@ -428,6 +498,13 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 <ol start="6" type="1">
+<li><strong>Recall - Precision Curve</strong>:</li>
+</ol>
+<ul>
+<li><em>When to use</em>: When data is imbalanced as it focuses on the correct prediction of the minority class</li>
+<li><em>Description</em>: Plot precision in X axis and recall in Y axis</li>
+</ul>
+<ol start="7" type="1">
 <li><strong>Lift Charts</strong>:</li>
 </ol>
 <ul>
@@ -568,16 +645,79 @@ ul.task-list li input[type="checkbox"] {
 <li><em>Calculation</em>: For instance, if we have actual values [100, 50, 75] and predicted values [110, 40, 80], the MSLE would be calculated as ((log(110) - log(100))^2 + (log(40) - log(50))^2 + (log(80) - log(75))^2) / 3 ≈ 0.015.</li>
 </ul>
 </section>
+<section id="calculate-expected-value" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="calculate-expected-value"><span class="header-section-number">4.3.3</span> Calculate expected value</h3>
+<p>See <a href="Data Science for Business.html#ml-process">Data science for Business chapter</a></p>
 </section>
-<section id="model-choosing" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Model Choosing</h1>
+<section id="visualizing-model-performance" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="visualizing-model-performance"><span class="header-section-number">4.3.4</span> Visualizing Model Performance</h3>
+<p>It is often revealing to visualize model behavior under a broad range of conditions.</p>
+<ul>
+<li><strong>Profit curves</strong>:
+<ul>
+<li><strong>Use Case</strong>: Basic profit graph can be useful to compare models of interest under a range of conditions. These graphs may be easy to comprehend for stakeholders who are not data scientists, since they reduce model performance to their basic “bottom line” cost or profit.</li>
+<li><strong>Disadvantages</strong>: The disadvantage of a profit graph is that it requires that operating conditions be known and specified exactly. With many real-world problems, the operating conditions are imprecise or change over time, and the data scientist must contend with uncertainty. In such cases other graphs may be more useful.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Profit curves.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Profit curves</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Cumulative response curves</strong>:
+<ul>
+<li><strong>Use Case</strong>: To understand what percentage of the population has to be targeted. When costs and benefits cannot be specified with confidence, but the class mix will likely not change, a cumulative response or lift graph is useful. Both show the relative advantages of classifiers, independent of the value (monetary or otherwise) of the advantages.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/cumulative response curves.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Cumulative response curves.</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Lift curves</strong>:
+<ul>
+<li><strong>Use Case</strong>: Same as <em>Cumulative response curves</em>.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/lift curves.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Lift curves</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>ROC/AUC curves</strong>:
+<ul>
+<li><strong>Use Case</strong>: Finally, ROC curves are a valuable visualization tool for the data scientist. Though they take some practice to interpret readily, they separate out performance from operating conditions. In doing so they convey the fundamental trade-offs that each model is making.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/ROC construction.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">ROC</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="choosing-between-models" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Choosing between models</h1>
 <p>Once the settings for the tuning parameters have been determined for each model, the question remains: how do we choose between multiple models?</p>
-<ol type="1">
+<ol start="0" type="1">
+<li>Comparison against a random model or a simpler model (naive classifier that always chooses the majority class of the training dataset; for regression problems we have a directly analogous baseline: predict the average value over the population (usually the mean or median); decision stumps often produce quite good baseline performance) establishes that there is some information to be extracted from the data.</li>
 <li>Start with several models that are the least interpretable and most flexible, such as boosted trees or support vector machines. Across many problem domains, these models have a high likelihood of producing the empirically optimum results (i.e., most accurate).</li>
 <li>Investigate simpler models that are less opaque (e.g., not complete black boxes), such as multivariate adaptive regression splines (MARS), partial least squares, generalized additive models, or näıve Bayes models.</li>
 <li>Consider using the simplest model that reasonably approximates the performance of the more complex methods.</li>
+<li>Visualizing Model Performance to visualize model behavior under a broad range of conditions</li>
 </ol>
-<p><strong>NOTE</strong>: A paired t-test can be used to evaluate if the differences between models are statistically significant. It is also recommended to plot confidence intervals that were derived using the bootstrap (Figure) fot two reasons.</p>
+<section id="tools" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="tools"><span class="header-section-number">5.1</span> Tools</h2>
+<section id="paired-t-test" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="paired-t-test"><span class="header-section-number">5.1.1</span> Paired t-test</h3>
+<p>To evaluate if the differences between models are statistically significant. It is also recommended to plot confidence intervals that were derived using the bootstrap (Figure) for two reasons.</p>
 <ul>
 <li>The interval quantifies the variation in the model but is also reflective of the data. For example, smaller test sets or noise (or mislabeling) in the response can lead to wider intervals.</li>
 <li>Facilitate trade-offs between models. If the confidence intervals for two models significantly overlap, this is an indication of (statistical) equivalence between the two and might provide a reason to favor the less complex or more interpretable model.</li>
@@ -588,8 +728,22 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption">A plot of the test set ROC curve AUCs and their associated 95 % confidence intervals</figcaption>
 </figure>
 </div>
+</section>
+<section id="learning-curves" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="learning-curves"><span class="header-section-number">5.1.2</span> Learning curves</h3>
+<ul>
+<li>The learning curve may show that generalization performance has leveled off so investing in more training data is probably not worthwhile; instead, one should accept the current performance or look for another way to improve the model, such as by devising better features</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Learning curves.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Learning curves for tree induction and logistic regression for the churn problem. As the training size grows (x axis), generalization performance (y axis) improves. Importantly, the improvement rates are different for the two induction technique, and change over time. Logistic regression has less flexibility, which allows it to overfit less with small data, but keeps it from modeling the full complexity of the data. Tree induction is much more flexible, leading it to overfit more with small data, but to model more complex regularities with larger training sets.</figcaption>
+</figure>
+</div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DS Baseline - 12&nbsp; SQL</title>
+<title>Data Science Book - 12&nbsp; SQL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./Big Data.html" rel="next">
 <link href="./Feature Engineering.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -91,7 +110,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -110,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./SQL.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">SQL</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -122,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">DS Baseline</a> 
+      <a href="./">Data Science Book</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -147,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Choose model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose machine learning model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose the machine learning model</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -176,8 +196,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Tree models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tree based models</span></span></a>
+  <a href="./Clustering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clustering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -212,6 +232,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Big Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Big Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data Science for Business.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Science for Business</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Supply Chain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Supply Chain</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A B Testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A/B Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -226,8 +270,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sql-vs-dplyr" id="toc-sql-vs-dplyr" class="nav-link active" data-scroll-target="#sql-vs-dplyr"><span class="header-section-number">12.1</span> SQL vs dplyr</a></li>
+  <li><a href="#sec-SQL" id="toc-sec-SQL" class="nav-link active" data-scroll-target="#sec-SQL"><span class="header-section-number">12.1</span> SQL vs dplyr</a></li>
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">12.2</span> functions</a></li>
+  <li><a href="#regex" id="toc-regex" class="nav-link" data-scroll-target="#regex"><span class="header-section-number">12.3</span> Regex</a></li>
+  <li><a href="#match-regex-used-with-the-like" id="toc-match-regex-used-with-the-like" class="nav-link" data-scroll-target="#match-regex-used-with-the-like"><span class="header-section-number">12.4</span> Match / regex used with the LIKE</a></li>
+  <li><a href="#subqueries" id="toc-subqueries" class="nav-link" data-scroll-target="#subqueries"><span class="header-section-number">12.5</span> Subqueries</a></li>
+  <li><a href="#joins" id="toc-joins" class="nav-link" data-scroll-target="#joins"><span class="header-section-number">12.6</span> Joins</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="header-section-number">12.7</span> Mutate</a>
+  <ul class="collapse">
+  <li><a href="#case-when" id="toc-case-when" class="nav-link" data-scroll-target="#case-when"><span class="header-section-number">12.7.1</span> Case when</a></li>
+  <li><a href="#if-only-in-mysql" id="toc-if-only-in-mysql" class="nav-link" data-scroll-target="#if-only-in-mysql"><span class="header-section-number">12.7.2</span> IF (only in MYSQL)</a></li>
+  </ul></li>
+  <li><a href="#exist" id="toc-exist" class="nav-link" data-scroll-target="#exist"><span class="header-section-number">12.8</span> Exist</a></li>
+  <li><a href="#joins-1" id="toc-joins-1" class="nav-link" data-scroll-target="#joins-1"><span class="header-section-number">12.9</span> Joins</a>
+  <ul class="collapse">
+  <li><a href="#self-join" id="toc-self-join" class="nav-link" data-scroll-target="#self-join"><span class="header-section-number">12.9.1</span> SELF JOIN</a></li>
+  <li><a href="#cross-join" id="toc-cross-join" class="nav-link" data-scroll-target="#cross-join"><span class="header-section-number">12.9.2</span> CROSS JOIN</a></li>
+  </ul></li>
+  <li><a href="#with-df-as" id="toc-with-df-as" class="nav-link" data-scroll-target="#with-df-as"><span class="header-section-number">12.10</span> WITH df AS</a></li>
+  <li><a href="#pivot-tables" id="toc-pivot-tables" class="nav-link" data-scroll-target="#pivot-tables"><span class="header-section-number">12.11</span> PIVOT tables</a></li>
+  <li><a href="#windows-functions" id="toc-windows-functions" class="nav-link" data-scroll-target="#windows-functions"><span class="header-section-number">12.12</span> Windows functions</a></li>
+  <li><a href="#common-table-expressions-ctes" id="toc-common-table-expressions-ctes" class="nav-link" data-scroll-target="#common-table-expressions-ctes"><span class="header-section-number">12.13</span> Common Table Expressions (CTEs)</a></li>
+  <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation"><span class="header-section-number">12.14</span> Data manipulation</a></li>
+  <li><a href="#data-security" id="toc-data-security" class="nav-link" data-scroll-target="#data-security"><span class="header-section-number">12.15</span> Data security</a></li>
+  <li><a href="#stored-procedures" id="toc-stored-procedures" class="nav-link" data-scroll-target="#stored-procedures"><span class="header-section-number">12.16</span> Stored procedures</a></li>
+  <li><a href="#index" id="toc-index" class="nav-link" data-scroll-target="#index"><span class="header-section-number">12.17</span> Index</a></li>
+  <li><a href="#schema-design" id="toc-schema-design" class="nav-link" data-scroll-target="#schema-design"><span class="header-section-number">12.18</span> Schema design</a></li>
+  <li><a href="#query-efficiency" id="toc-query-efficiency" class="nav-link" data-scroll-target="#query-efficiency"><span class="header-section-number">12.19</span> Query efficiency</a></li>
+  <li><a href="#database-normalization" id="toc-database-normalization" class="nav-link" data-scroll-target="#database-normalization"><span class="header-section-number">12.20</span> Database Normalization</a></li>
+  <li><a href="#sql-in-r" id="toc-sql-in-r" class="nav-link" data-scroll-target="#sql-in-r"><span class="header-section-number">13</span> SQL in R</a>
+  <ul class="collapse">
+  <li><a href="#create-connection" id="toc-create-connection" class="nav-link" data-scroll-target="#create-connection"><span class="header-section-number">13.1</span> Create connection</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -251,185 +325,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.2     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::ident()  masks dbplyr::ident()
-✖ dplyr::lag()    masks stats::lag()
-✖ dplyr::sql()    masks dbplyr::sql()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">":memory:"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">copy_to</span>(con, mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> mtcars</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> cyl <span class="kw">BETWEEN</span> <span class="dv">4</span> <span class="kw">and</span> <span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="knitsql-table">
-<table class="table table-sm table-striped small">
-<caption>Displaying records 1 - 10</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">mpg</th>
-<th style="text-align: right;">cyl</th>
-<th style="text-align: right;">disp</th>
-<th style="text-align: right;">hp</th>
-<th style="text-align: right;">drat</th>
-<th style="text-align: right;">wt</th>
-<th style="text-align: right;">qsec</th>
-<th style="text-align: right;">vs</th>
-<th style="text-align: right;">am</th>
-<th style="text-align: right;">gear</th>
-<th style="text-align: right;">carb</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160.0</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">3.90</td>
-<td style="text-align: right;">2.620</td>
-<td style="text-align: right;">16.46</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160.0</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">3.90</td>
-<td style="text-align: right;">2.875</td>
-<td style="text-align: right;">17.02</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">22.8</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">108.0</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">3.85</td>
-<td style="text-align: right;">2.320</td>
-<td style="text-align: right;">18.61</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">21.4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">258.0</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">3.08</td>
-<td style="text-align: right;">3.215</td>
-<td style="text-align: right;">19.44</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">18.7</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">360.0</td>
-<td style="text-align: right;">175</td>
-<td style="text-align: right;">3.15</td>
-<td style="text-align: right;">3.440</td>
-<td style="text-align: right;">17.02</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">18.1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">225.0</td>
-<td style="text-align: right;">105</td>
-<td style="text-align: right;">2.76</td>
-<td style="text-align: right;">3.460</td>
-<td style="text-align: right;">20.22</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">14.3</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">360.0</td>
-<td style="text-align: right;">245</td>
-<td style="text-align: right;">3.21</td>
-<td style="text-align: right;">3.570</td>
-<td style="text-align: right;">15.84</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">24.4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">146.7</td>
-<td style="text-align: right;">62</td>
-<td style="text-align: right;">3.69</td>
-<td style="text-align: right;">3.190</td>
-<td style="text-align: right;">20.00</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">22.8</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">140.8</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: right;">3.92</td>
-<td style="text-align: right;">3.150</td>
-<td style="text-align: right;">22.90</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">19.2</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">167.6</td>
-<td style="text-align: right;">123</td>
-<td style="text-align: right;">3.92</td>
-<td style="text-align: right;">3.440</td>
-<td style="text-align: right;">18.30</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<section id="sql-vs-dplyr" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="sql-vs-dplyr"><span class="header-section-number">12.1</span> SQL vs dplyr</h2>
+<section id="sec-SQL" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="sec-SQL"><span class="header-section-number">12.1</span> SQL vs dplyr</h2>
 <table class="table">
 <colgroup>
 <col style="width: 42%">
@@ -451,38 +348,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">df %&gt;%</td>
 </tr>
 <tr class="odd">
+<td>UNION(remove duplicates)/UNION ALL (SELECT FROM WHERE … <strong>UNION</strong> SELECT FROM WHERE …)</td>
+<td style="text-align: right;">bind_rows()</td>
+</tr>
+<tr class="even">
 <td>INNER JOIN table2 ON table1.column_name1 = table2.column_name1 AND table1.column_name2 = table2.column_name2</td>
 <td style="text-align: right;">inner_join(., table2, by = c(“column_name1” = “column_name1”, “column_name2” = “column_name2”))</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>LEFT JOIN table2 ON table1.column_name = table2.column_name</td>
 <td style="text-align: right;">left_join(., table2, by = c(“column_name” = “column_name”)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>RIGHT JOIN table2 ON table1.column_name = table2.column_name</td>
 <td style="text-align: right;">right_join(., table2, by = c(“column_name” = “column_name”)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>FULL OUTER JOIN table2 ON table1.column_name = table2.column_name</td>
 <td style="text-align: right;">full_join(., table2, by = c(“column_name” = “column_name”)</td>
 </tr>
-<tr class="odd">
-<td>WHERE (IN [num/char]; BETWEEN [num] AND [num])</td>
-<td style="text-align: right;">filter ( %in% ; %in% c(1:10))</td>
-</tr>
 <tr class="even">
-<td>GROUP BY</td>
+<td>WHERE (IN [num/char]; BETWEEN [num] AND [num]; LIKE [char]; REGEXP/NOT REGEXP regex[char]; AND</td>
+<td style="text-align: right;">filter ( %in% ; %in% c(1:10); ==; grepl/!grepl)</td>
+</tr>
+<tr class="odd">
+<td>GROUP BY (all columns in select)</td>
 <td style="text-align: right;">group_by</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>HAVING (filter results of aggregate functions applied to grouped data)</td>
 <td style="text-align: right;">filter</td>
 </tr>
-<tr class="even">
-<td>ORDER BY</td>
-<td style="text-align: right;">arrange</td>
-</tr>
 <tr class="odd">
+<td>ORDER BY column1 ASC, column2 DESC</td>
+<td style="text-align: right;">arrange(column1, desc(column2))</td>
+</tr>
+<tr class="even">
 <td>LIMIT [num]</td>
 <td style="text-align: right;">slice_head(n = [num])</td>
 </tr>
@@ -491,9 +392,401 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="functions" class="level2" data-number="12.2">
 <h2 data-number="12.2" class="anchored" data-anchor-id="functions"><span class="header-section-number">12.2</span> functions</h2>
-<p><em>MOD</em> Returns the remainder (number after the point 67 in 3.67) of a number divided by another number <em>LENGTH</em> Returns the length of a string (in bytes)</p>
+<ul>
+<li><em>MOD</em> Returns the remainder (number after the point 67 in 3.67) of a number divided by another number</li>
+<li><em>LENGTH</em> Returns the length of a string (in bytes)</li>
+<li><em>CONCAT</em>(col1, col2) Combine two or more strings into a single string</li>
+<li><em>RIGHT/LEFT</em> Extracts a number of characters from a string (starting from RIGHT/LEFT)</li>
+<li><em>ROUND</em>(VALUE, number of decimals) Rounds a number to a specified number of decimal places</li>
+<li><em>CEILING</em> round it up to the next integer.</li>
+<li><em>FLOOR</em> round it up to the last integer.</li>
+<li><em>AVG</em> Average</li>
+<li><em>CAST</em>(column AS data_type): convert the data type of a column</li>
+<li><em>REPLACE</em>(original_string, old_substring, new_substring): replace occurrences of a specified substring with another substring in a given string. eg: SELECT REPLACE(‘Hello World’, ‘World’, ‘Universe’) AS Result;</li>
+<li><em>LAG/LEAD</em>(column OVER (ODER BY column_date))</li>
+<li><em>MONTH</em> extract month</li>
+<li><em>LPAD</em>(MONTH(trans_date), 2, ‘0’) stands for “Left PADding,” and it is a string function used in SQL to add characters to the left side of a string until it reaches a specified length.</li>
+<li><em>DATE_SUB</em>(‘2019-07-27’, INTERVAL 28 DAY) function used to subtract 28 days from the reference date</li>
+<li><em>LOWER/UPPER</em> (column1) convert all characters in a string to lowercase/uppercase ex: CONCAT( UPPER(RIGHT(name, 1)), LOWER(LEFT(name, LENGTH(name) - 1))) AS name</li>
+</ul>
+</section>
+<section id="regex" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="regex"><span class="header-section-number">12.3</span> Regex</h2>
+<p>^[char] start with<br>
+[char]$ end with<br>
+.* any number of characters</p>
+</section>
+<section id="match-regex-used-with-the-like" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="match-regex-used-with-the-like"><span class="header-section-number">12.4</span> Match / regex used with the LIKE</h2>
+<p>% is a wildcard character to represent zero or more characters. When used in a LIKE pattern, % matches any sequence of characters.</p>
+</section>
+<section id="subqueries" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="subqueries"><span class="header-section-number">12.5</span> Subqueries</h2>
+<p>WHERE column = (SELECT MAX(column) FROM data WHERE …);<br>
+FROM (SELECT MAX(column) FROM data);</p>
+</section>
+<section id="joins" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="joins"><span class="header-section-number">12.6</span> Joins</h2>
+<p>When JOIN is use we need to include table1.column_name1 to select column</p>
+</section>
+<section id="mutate" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="mutate"><span class="header-section-number">12.7</span> Mutate</h2>
+<section id="case-when" class="level3" data-number="12.7.1">
+<h3 data-number="12.7.1" class="anchored" data-anchor-id="case-when"><span class="header-section-number">12.7.1</span> Case when</h3>
+<p>CASE<br>
+WHEN condition1 THEN “result1”<br>
+WHEN condition2 THEN “result2”<br>
+ELSE “result”<br>
+END AS new_column_name</p>
+</section>
+<section id="if-only-in-mysql" class="level3" data-number="12.7.2">
+<h3 data-number="12.7.2" class="anchored" data-anchor-id="if-only-in-mysql"><span class="header-section-number">12.7.2</span> IF (only in MYSQL)</h3>
+<p>SELECT if(column=“confirmed”,1,0) | mutate(action = if_else(column=“confirmed”,1,0))</p>
+</section>
+</section>
+<section id="exist" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="exist"><span class="header-section-number">12.8</span> Exist</h2>
+<p>The EXISTS operator is used to test for the existence of any record in a subquery.<br>
+The EXISTS operator returns TRUE if the subquery returns one or more records.<br>
+</p>
+<p>WHERE EXISTS (SELECT column_name FROM table_name WHERE condition)<br>
+THEN “result1” # (if condition is TRUE return “result1”)<br>
+ELSE “result2”<br>
+</p>
+<p>CASE WHEN EXISTS (SELECT column_name FROM table_name WHERE condition) THEN result</p>
+</section>
+<section id="joins-1" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="joins-1"><span class="header-section-number">12.9</span> Joins</h2>
+<section id="self-join" class="level3" data-number="12.9.1">
+<h3 data-number="12.9.1" class="anchored" data-anchor-id="self-join"><span class="header-section-number">12.9.1</span> SELF JOIN</h3>
+<p>SELECT w1.<em>, w2.</em> FROM Weather w1 JOIN Weather w2 ON w1.recordDate = w2.recordDate + 1</p>
+<p><em>w1</em> and <em>w2</em> are different table aliases for the same table.</p>
+</section>
+<section id="cross-join" class="level3" data-number="12.9.2">
+<h3 data-number="12.9.2" class="anchored" data-anchor-id="cross-join"><span class="header-section-number">12.9.2</span> CROSS JOIN</h3>
+<p>Used generally when merging a column with only one columns to avoid creating a huge table with all possible combinations keyword returns all matching records from both tables whether the other table matches or not.</p>
+</section>
+</section>
+<section id="with-df-as" class="level2" data-number="12.10">
+<h2 data-number="12.10" class="anchored" data-anchor-id="with-df-as"><span class="header-section-number">12.10</span> WITH df AS</h2>
+<p>The WITH clause in SQL is used to define a Common Table Expression (CTE). A CTE is a temporary result set that can be referenced within the context of a SELECT, INSERT, UPDATE, or DELETE statement. The purpose of a CTE is to simplify complex queries, make the code more readable, and avoid repeating the same subquery multiple times.</p>
+<p>WITH df AS ( SELECT Signups.user_id, action, COUNT(Confirmations.action) AS conf FROM Signups LEFT JOIN Confirmations ON Signups.user_id = Confirmations.user_id GROUP BY action, Signups.user_id )</p>
+<p>SELECT * FROM df</p>
+</section>
+<section id="pivot-tables" class="level2" data-number="12.11">
+<h2 data-number="12.11" class="anchored" data-anchor-id="pivot-tables"><span class="header-section-number">12.11</span> PIVOT tables</h2>
+<p>CASE WHEN … THEN … END</p>
+<p>SELECT user_id, CASE WHEN action = “timeout” THEN conf END AS timeout, CASE WHEN action = “confirmed” THEN conf END AS confirmed, CASE WHEN action = “confirmed” THEN conf END / (CASE WHEN action = “timeout” THEN conf END + CASE WHEN action = “confirmed” THEN conf END) AS confirmation_rate FROM df</p>
+</section>
+<section id="windows-functions" class="level2" data-number="12.12">
+<h2 data-number="12.12" class="anchored" data-anchor-id="windows-functions"><span class="header-section-number">12.12</span> Windows functions</h2>
+<ul>
+<li>OVER (PARTITION BY)</li>
+</ul>
+<p>SELECT <em>, COUNT(</em>) OVER(PARTITION BY column1) AS name1, COUNT(*) OVER(PARTITION BY column2, column3) AS name2 FROM data</p>
+<p>SELECT *, SUM(weight) OVER (ORDER BY turn) # cumulative sum FROM Queue</p>
+<p>see website <a href="https://sqlpad.io/tutorial/sql-window-functions/">SQL Window Functions</a></p>
+</section>
+<section id="common-table-expressions-ctes" class="level2" data-number="12.13">
+<h2 data-number="12.13" class="anchored" data-anchor-id="common-table-expressions-ctes"><span class="header-section-number">12.13</span> Common Table Expressions (CTEs)</h2>
+<p>CTEs in SQL provide a way to create temporary result sets that can be referenced within a SELECT, INSERT, UPDATE, or DELETE statement.</p>
+<ul>
+<li>WITH tablename AS ( SELECT column1, column2 FROM your_table WHERE some_condition )</li>
+</ul>
+<p>-CREATE, ALTER, DROP, RENAME, TRUNCATE, COMMENT</p>
+</section>
+<section id="data-manipulation" class="level2" data-number="12.14">
+<h2 data-number="12.14" class="anchored" data-anchor-id="data-manipulation"><span class="header-section-number">12.14</span> Data manipulation</h2>
+<p>Using DML statements to retrieve and manipulate data.</p>
+<p>-INSERT, UPDATE, DELETE, MERGE, CALL, EXPLAIN PLAN, LOCK TABLE</p>
+</section>
+<section id="data-security" class="level2" data-number="12.15">
+<h2 data-number="12.15" class="anchored" data-anchor-id="data-security"><span class="header-section-number">12.15</span> Data security</h2>
+<p>Using DCL (data control language) commands to manage database security.</p>
+<ul>
+<li>GRANT</li>
+<li>REVOKE</li>
+</ul>
+</section>
+<section id="stored-procedures" class="level2" data-number="12.16">
+<h2 data-number="12.16" class="anchored" data-anchor-id="stored-procedures"><span class="header-section-number">12.16</span> Stored procedures</h2>
+<p>CREATE PROCEDURE procedure_name<br>
+AS<br>
+sql_statement (e.g., SELECT * FROM Customers)<br>
+GO;<br>
+</p>
+<p>EXEC procedure_name;<br>
+</p>
+</section>
+<section id="index" class="level2" data-number="12.17">
+<h2 data-number="12.17" class="anchored" data-anchor-id="index"><span class="header-section-number">12.17</span> Index</h2>
+<p>To accelerate SQL performance</p>
+<ul>
+<li>clustered</li>
+<li>non clustered</li>
+</ul>
+</section>
+<section id="schema-design" class="level2" data-number="12.18">
+<h2 data-number="12.18" class="anchored" data-anchor-id="schema-design"><span class="header-section-number">12.18</span> Schema design</h2>
+</section>
+<section id="query-efficiency" class="level2" data-number="12.19">
+<h2 data-number="12.19" class="anchored" data-anchor-id="query-efficiency"><span class="header-section-number">12.19</span> Query efficiency</h2>
+<ul>
+<li>indexes</li>
+<li>avoiding subqueries</li>
+<li>optimizing the database schema</li>
+</ul>
+</section>
+<section id="database-normalization" class="level2" data-number="12.20">
+<h2 data-number="12.20" class="anchored" data-anchor-id="database-normalization"><span class="header-section-number">12.20</span> Database Normalization</h2>
+<p>Structure the table to eliminate redundant information, improve understanding, and make it easy to enhance, extend, and protect against insertion, update, and deletion anomalies</p>
+<ul>
+<li><p>1NF : Don’t use row order to convey information / don’t mix data types within a column / don’t have primary column (also call key) / don’t store a repeating group of data on a single row</p></li>
+<li><p>2NF: each columns (which are non-key atributes) must depend on all the column(s) that are considered primary key (e.g.&nbsp;player ID)</p>
+<ul>
+<li>Example: player_rating depend on player_ID but not player_inventory column which is also a primary key in this table</li>
+</ul></li>
+<li><p>3NF: every attributes (column) in a table should depend on the key column(s) the hole key and nothing but the key</p>
+<ul>
+<li>Example: player_ID is the primary key/column. Non-key atribute player_rating depend on player_ID but non-key atribute player_skill depend on player_rating which is not a primary key</li>
+</ul></li>
+</ul>
+<p>see <a href="https://www.youtube.com/watch?v=GFQaEYEc8_8">Video</a> for more detail about 4NF and 5NF</p>
+</section>
+<section id="sql-in-r" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> SQL in R</h1>
+<section id="create-connection" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="create-connection"><span class="header-section-number">13.1</span> Create connection</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">":memory:"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">copy_to</span>(con, mtcars)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">copy_to</span>(con, iris)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbListTables</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "iris"         "mtcars"       "sqlite_stat1" "sqlite_stat4"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbRemoveTable</span>(con, <span class="st">"sqlite_stat1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> OccupationData (</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    PersonName <span class="dt">VARCHAR</span>(<span class="dv">50</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    OccupationType <span class="dt">VARCHAR</span>(<span class="dv">20</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    Occupation <span class="dt">VARCHAR</span>(<span class="dv">50</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> OccupationData;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table>
+<caption>0 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">PersonName</th>
+<th style="text-align: left;">OccupationType</th>
+<th style="text-align: left;">Occupation</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> OccupationData (PersonName, OccupationType, Occupation)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>(<span class="st">'John'</span>, <span class="st">'Actor'</span>, <span class="st">'JohnActor'</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>(<span class="st">'John'</span>, <span class="st">'Doctor'</span>, <span class="st">'JohnDoctor'</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>(<span class="st">'Jane'</span>, <span class="st">'Actor'</span>, <span class="st">'JaneActor'</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>(<span class="st">'Jane'</span>, <span class="st">'Doctor'</span>, <span class="st">'JaneDoctor'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> OccupationData;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped small">
+<caption>4 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">PersonName</th>
+<th style="text-align: left;">OccupationType</th>
+<th style="text-align: left;">Occupation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">John</td>
+<td style="text-align: left;">Actor</td>
+<td style="text-align: left;">JohnActor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">John</td>
+<td style="text-align: left;">Doctor</td>
+<td style="text-align: left;">JohnDoctor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jane</td>
+<td style="text-align: left;">Actor</td>
+<td style="text-align: left;">JaneActor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jane</td>
+<td style="text-align: left;">Doctor</td>
+<td style="text-align: left;">JaneDoctor</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> iris</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Species <span class="kw">LIKE</span> <span class="ot">"virginica"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">UNION</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> iris</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> Species <span class="kw">LIKE</span> <span class="ot">"setosa"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped small">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Sepal.Length</th>
+<th style="text-align: right;">Sepal.Width</th>
+<th style="text-align: right;">Petal.Length</th>
+<th style="text-align: right;">Petal.Width</th>
+<th style="text-align: left;">Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.7</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(cyl)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> mtcars</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> cyl <span class="op">&gt;</span> <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped small">
+<caption>1 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">COUNT(cyl)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">14</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mtcarsSQL <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con, <span class="st">"mtcars"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> mtcarsSQL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~!</span><span class="fu">is.na</span>(.)))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>query <span class="sc">%&gt;%</span> <span class="fu">show_query</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;SQL&gt;
+SELECT `mtcars`.*
+FROM `mtcars`
+WHERE
+  (NOT((`mpg` IS NULL))) AND
+  (NOT((`cyl` IS NULL))) AND
+  (NOT((`disp` IS NULL))) AND
+  (NOT((`hp` IS NULL))) AND
+  (NOT((`drat` IS NULL))) AND
+  (NOT((`wt` IS NULL))) AND
+  (NOT((`qsec` IS NULL))) AND
+  (NOT((`vs` IS NULL))) AND
+  (NOT((`am` IS NULL))) AND
+  (NOT((`gear` IS NULL))) AND
+  (NOT((`carb` IS NULL)))</code></pre>
+</div>
+</div>
+<p><br>
+<br>
+<br>
+<em>data from <span class="citation" data-cites="SQLTutorial">(<a href="references.html#ref-SQLTutorial" role="doc-biblioref"><span>“<span>SQL Tutorial</span>”</span> n.d.</a>)</span></em></p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-SQLTutorial" class="csl-entry" role="listitem">
+<span>“<span>SQL Tutorial</span>.”</span> n.d. https://www.w3schools.com/sql/default.asp. Accessed August 26, 2023.
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -737,8 +1030,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Big Data.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Big Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

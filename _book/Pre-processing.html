@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DS Baseline - 3&nbsp; Pre-processing</title>
+<title>Data Science Book - 3&nbsp; Pre-processing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -76,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Pre-processing.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Pre-processing</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -88,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">DS Baseline</a> 
+      <a href="./">Data Science Book</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -113,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Choose model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose machine learning model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose the machine learning model</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,8 +143,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Tree models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tree based models</span></span></a>
+  <a href="./Clustering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clustering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -178,6 +179,30 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Big Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Big Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data Science for Business.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Science for Business</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Supply Chain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Supply Chain</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A B Testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A/B Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -200,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#data-reduction-and-signalfeature-extraction" id="toc-data-reduction-and-signalfeature-extraction" class="nav-link" data-scroll-target="#data-reduction-and-signalfeature-extraction"><span class="header-section-number">3.1.4</span> Data Reduction and Signal/Feature Extraction</a></li>
   <li><a href="#dealing-with-missing-values" id="toc-dealing-with-missing-values" class="nav-link" data-scroll-target="#dealing-with-missing-values"><span class="header-section-number">3.1.5</span> Dealing with Missing Values</a></li>
   <li><a href="#removing-predictors" id="toc-removing-predictors" class="nav-link" data-scroll-target="#removing-predictors"><span class="header-section-number">3.1.6</span> Removing Predictors</a></li>
-  <li><a href="#adding-predictors-see-feature-engineering" id="toc-adding-predictors-see-feature-engineering" class="nav-link" data-scroll-target="#adding-predictors-see-feature-engineering"><span class="header-section-number">3.1.7</span> Adding Predictors (see Feature engineering)</a></li>
+  <li><a href="#adding-predictors" id="toc-adding-predictors" class="nav-link" data-scroll-target="#adding-predictors"><span class="header-section-number">3.1.7</span> Adding Predictors</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -227,14 +252,20 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="transform-the-predictorindependent-variables" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="transform-the-predictorindependent-variables"><span class="header-section-number">3.1</span> Transform the predictor/independent variables</h2>
-<p>Important to transform independent variables that are skewn or containt outliers for models sensitive to them</p>
+<p>Important to transform independent variables that are skewn or containt outliers for models sensitive to them See Table</p>
 <section id="centering-and-scaling" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="centering-and-scaling"><span class="header-section-number">3.1.1</span> Centering and scaling</h3>
-<p><strong>Advantages</strong>: Improve the numerical stability to minimize potential numerical errors <strong>Disadvantage</strong>: Loss of interpretability</p>
+<p><strong>Advantages</strong>: Improve the numerical stability to minimize potential numerical errors<br>
+<strong>Disadvantage</strong>: Loss of interpretability</p>
 </section>
 <section id="resolve-skewness" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="resolve-skewness"><span class="header-section-number">3.1.2</span> Resolve Skewness</h3>
-<p>Skewed data: Ratio of the highest value to the lowest value is greater than 20 have significant skewness.</p>
+<p>Skewed data: Ratio of the highest value to the lowest value is greater than 20 have significant skewness. (e.g., if the lowest income is $1,000 and the highest income is $20,000 or more, the dataset exhibits significant skewness due to the large ratio between the highest and lowest values.)</p>
+<ul>
+<li>Left Skew: Mean &lt; Median ≤ Mode (value that appears most frequently)</li>
+<li>Right Skew: Mean &gt; Median ≥ Mode</li>
+</ul>
+<p><strong>Techniques</strong>:</p>
 <ul>
 <li>log</li>
 <li>square root</li>
@@ -244,14 +275,26 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="resolve-outliers" class="level3" data-number="3.1.3">
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="resolve-outliers"><span class="header-section-number">3.1.3</span> Resolve Outliers</h3>
+<p><strong>Techniques</strong>:</p>
 <ul>
 <li>Spatial sign</li>
 </ul>
-<p><strong>NOTES</strong>:</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>it is important to center and scale the predictor data prior to using this transformation</li>
-<li>spatial sign transformation of the predictors transforms them as a group. Removing predictor variables after applying this technique may be problematic.</li>
+<li>it is important to <strong>center and scale</strong> the predictor data prior to using this transformation</li>
+<li>Avoid removing predictor variables after applying this technique as spatial sign transformation transforms predictors as a group.</li>
 </ul>
+</div>
+</div>
 </section>
 <section id="data-reduction-and-signalfeature-extraction" class="level3" data-number="3.1.4">
 <h3 data-number="3.1.4" class="anchored" data-anchor-id="data-reduction-and-signalfeature-extraction"><span class="header-section-number">3.1.4</span> Data Reduction and Signal/Feature Extraction</h3>
@@ -266,24 +309,48 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption"><strong>Figure 1</strong>: The variation tapers off at component 5. Using this rule of thumb, four PCs would be retained</figcaption>
 </figure>
 </div>
-<p><strong>Advantages</strong>: The primary advantage of PCA, and the reason that it has retained its popularity as a data reduction method, is that it creates components that are uncorrelated.</p>
+<p><strong>Advantages</strong>: The primary advantage is that it creates components that are uncorrelated. The smaller dataset may be easier to deal with or to process. Moreover, the smaller dataset may better reveal the information.</p>
 <p><strong>Disadvantage</strong>:</p>
 <ul>
-<li><p>Loss of interpretability. PCA can generate components that summarize characteristics of the data that are irrelevant to the underlying structure of the data and also to the ultimate modeling objective.</p></li>
-<li><p>Unsupervised technique which means that PCA it does not consider the modeling objective or response variable when summarizing variability. If the predictive relationship between the predictors and response is not connected to the predictors’ variability, then the derived PCs will not provide a suitable relationship with the response. In this case, a supervised technique, like PLS, will derive components while simultaneously considering the corresponding response.</p></li>
+<li><p>Loss of interpretability.</p></li>
+<li><p>Unsupervised technique which means that PCA it does not consider the modeling objective or response variable when summarizing variability. PCA can generate components that summarize characteristics of the data that are irrelevant to the underlying structure of the data and also to the ultimate modeling objective. <strong>If the predictive relationship between the predictors and response is not connected to the predictors’ variability, then the derived PCs will not provide a suitable relationship with the response.</strong> In this case, a supervised technique, like PLS, will derive components while simultaneously considering the corresponding response.</p></li>
+<li><p>Data should be linearly related</p></li>
 </ul>
-<p><strong>NOTES</strong>:</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>First transform skewed predictors and then center and scale the predictors prior to performing PCA. Centering and scaling enables PCA to find the underlying relationships in the data without being influenced by the original measurement scales.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pro tips
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p>first transform skewed predictors and then center and scale the predictors prior to performing PCA. Centering and scaling enables PCA to find the underlying relationships in the data without being influenced by the original measurement scales.</p></li>
-<li><p>If PCA has captured a sufficient amount of information in the data. Visually examining the principal components is a critical step for assessing data quality and gaining intuition for the problem. To do this, the first few principal components can be plotted against each other and the plot symbols can be colored by relevant characteristics, such as the class labels.</p>
+<li><p>If PCA has captured a sufficient amount of information in the data. <strong>Visually examining the principal components</strong> is a critical step for assessing data quality and gaining intuition for the problem. To do this, the first few principal components can be plotted against each other and the plot symbols can be colored by relevant characteristics, such as the class labels.</p>
 <ul>
-<li><p>Check for blatant outliers that may prompt a closer examination of the individual data points</p></li>
-<li><p>Check for clusters of samples (for classification problems; Try other models that could better accommodate the data to have a final conclusion)</p></li>
-<li><p>Checks loadings to characterize which predictors are associated with each component (Loadings close to zero indicate that the predictor variable did not contribute much to that component; Fig 2)</p></li>
-<li><p>Check for multicollinearity (substantial correlation between multiple predictors): For example, if the first principal component accounts for a large percentage of the variance, this implies that there is at least one group of predictors that represent the same information. For example, Fig 1 indicates that the first 3–4 components have relative contributions to the total variance. This would indicate that there are at least 3–4 significant relationships between the predictors. Colinearity can increase the model variance</p></li>
+<li><p>Check for blatant <strong>outliers</strong> that may prompt a closer examination of the individual data points</p></li>
+<li><p>Check for <strong>clusters</strong> of samples (for classification problems; Try other models that could better accommodate the data to have a final conclusion)</p></li>
+<li><p><strong>Checks loadings to characterize which predictors are associated with each component</strong> (Loadings close to zero indicate that the predictor variable did not contribute much to that component; Fig 2)</p></li>
+<li><p><strong>Check for multicollinearity</strong> (substantial correlation between multiple predictors): For example, if the first principal component accounts for a large percentage of the variance, this implies that there is at least one group of predictors that represent the same information. For example, Fig 1 indicates that the first 3–4 components have relative contributions to the total variance. This would indicate that there are at least 3–4 significant relationships between the predictors. Colinearity can increase the model variance</p></li>
 </ul></li>
-<li><p>If the percentages of variation explained are not large (e.g., less than 48 %) for the first three components, it is important not to over-interpret the resulting image.</p></li>
+<li><p>If the percentages of variation explained are not large (e.g., less than 48 %) for the first three components, it is <strong>important not to over-interpret</strong> the resulting image.</p></li>
 </ul>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/A plot of the loadings of the first three principal components.png" class="img-fluid figure-img"></p>
@@ -306,7 +373,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>3</strong> If we <strong>do not remove</strong> the missing data:
 <ul>
 <li>Use tree-based techniques, which account for missing data</li>
-<li>code mussing data as “missing”</li>
+<li>code missing data as “missing”</li>
 <li>impute missing data using information in the training set predictors (for small to moderate amounts of missingness). This amounts to a predictive model within a predictive model. If we are using resampling to select tuning parameter values or to estimate performance, the imputation should be incorporated within the resampling. This will increase the computational time for building models, but it will also provide honest estimates of model performance.
 <ul>
 <li>K-nearest neighbor model: <em>Advantages</em>: The imputed data are confined to be within the range of the training set values. <em>Disadvantages</em>: The entire training set is required every time a missing value needs to be imputed <strong>and</strong> The number of neighbors is a tuning parameter</li>
@@ -327,12 +394,13 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p>Remove near-zero predictors (e.g., predictor variable where the percentage of unique values is low &lt; 10% = unique values/total values and The ratio of the frequency of the most prevalent value to the frequency of the second most prevalent value is large &gt; 20).</p></li>
 <li><p>Remove problematic predictors with degenerate distributions as some models can be crippled by them</p></li>
-<li><p>Remove highly correlated predictors as both mesure the same underlaying information. <strong>For linear regressions use VIF for other models ensure that all pairwise correlations are below 0.75 threshold for sensitive models</strong></p></li>
-<li><p>Feature Selection (see Feature Selection section)</p></li>
+<li><p>Remove highly correlated predictors as both mesure the same underlaying information. <strong>For linear regressions use VIF for other sensitive models ensure that all pairwise correlations are below 0.75 threshold</strong></p></li>
+<li><p>Feature Selection (see <a href="Feature Selection.html">Feature Selection</a> section)</p></li>
 </ul>
 </section>
-<section id="adding-predictors-see-feature-engineering" class="level3" data-number="3.1.7">
-<h3 data-number="3.1.7" class="anchored" data-anchor-id="adding-predictors-see-feature-engineering"><span class="header-section-number">3.1.7</span> Adding Predictors (see Feature engineering)</h3>
+<section id="adding-predictors" class="level3" data-number="3.1.7">
+<h3 data-number="3.1.7" class="anchored" data-anchor-id="adding-predictors"><span class="header-section-number">3.1.7</span> Adding Predictors</h3>
+<p>See <a href="Feature Engineering.html#sec-Feature_engineering">Feature_engineering</a> section</p>
 
 
 </section>
@@ -575,7 +643,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Choose model.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose machine learning model</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Choose the machine learning model</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
